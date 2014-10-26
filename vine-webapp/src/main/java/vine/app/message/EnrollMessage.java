@@ -26,6 +26,10 @@ public final class EnrollMessage {
     // optional string checkCode = 4;
     boolean hasCheckCode();
     String getCheckCode();
+    
+    // optional int32 loginType = 5;
+    boolean hasLoginType();
+    int getLoginType();
   }
   public static final class Enroll extends
       com.google.protobuf.GeneratedMessage
@@ -47,23 +51,23 @@ public final class EnrollMessage {
     
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_Enroll_descriptor;
+      return EnrollMessage.internal_static_Enroll_descriptor;
     }
     
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_Enroll_fieldAccessorTable;
+      return EnrollMessage.internal_static_Enroll_fieldAccessorTable;
     }
     
     private int bitField0_;
     // optional string mobileNo = 1;
     public static final int MOBILENO_FIELD_NUMBER = 1;
-    private java.lang.Object mobileNo_;
+    private Object mobileNo_;
     public boolean hasMobileNo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     public String getMobileNo() {
-      java.lang.Object ref = mobileNo_;
+      Object ref = mobileNo_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -77,7 +81,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getMobileNoBytes() {
-      java.lang.Object ref = mobileNo_;
+      Object ref = mobileNo_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -90,12 +94,12 @@ public final class EnrollMessage {
     
     // optional string email = 2;
     public static final int EMAIL_FIELD_NUMBER = 2;
-    private java.lang.Object email_;
+    private Object email_;
     public boolean hasEmail() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     public String getEmail() {
-      java.lang.Object ref = email_;
+      Object ref = email_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -109,7 +113,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getEmailBytes() {
-      java.lang.Object ref = email_;
+      Object ref = email_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -122,12 +126,12 @@ public final class EnrollMessage {
     
     // optional string password = 3;
     public static final int PASSWORD_FIELD_NUMBER = 3;
-    private java.lang.Object password_;
+    private Object password_;
     public boolean hasPassword() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     public String getPassword() {
-      java.lang.Object ref = password_;
+      Object ref = password_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -141,7 +145,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getPasswordBytes() {
-      java.lang.Object ref = password_;
+      Object ref = password_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -154,12 +158,12 @@ public final class EnrollMessage {
     
     // optional string checkCode = 4;
     public static final int CHECKCODE_FIELD_NUMBER = 4;
-    private java.lang.Object checkCode_;
+    private Object checkCode_;
     public boolean hasCheckCode() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     public String getCheckCode() {
-      java.lang.Object ref = checkCode_;
+      Object ref = checkCode_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -173,7 +177,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getCheckCodeBytes() {
-      java.lang.Object ref = checkCode_;
+      Object ref = checkCode_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -184,11 +188,22 @@ public final class EnrollMessage {
       }
     }
     
+    // optional int32 loginType = 5;
+    public static final int LOGINTYPE_FIELD_NUMBER = 5;
+    private int loginType_;
+    public boolean hasLoginType() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    public int getLoginType() {
+      return loginType_;
+    }
+    
     private void initFields() {
       mobileNo_ = "";
       email_ = "";
       password_ = "";
       checkCode_ = "";
+      loginType_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -213,6 +228,9 @@ public final class EnrollMessage {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(4, getCheckCodeBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, loginType_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -239,53 +257,57 @@ public final class EnrollMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, getCheckCodeBytes());
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, loginType_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
     
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
+    @Override
+    protected Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
     
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(
+    public static Enroll parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(
+    public static Enroll parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(byte[] data)
+    public static Enroll parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(
+    public static Enroll parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(java.io.InputStream input)
+    public static Enroll parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(
+    public static Enroll parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseDelimitedFrom(java.io.InputStream input)
+    public static Enroll parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       Builder builder = newBuilder();
       if (builder.mergeDelimitedFrom(input)) {
@@ -294,7 +316,7 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.Enroll parseDelimitedFrom(
+    public static Enroll parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -305,12 +327,12 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(
+    public static Enroll parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Enroll parseFrom(
+    public static Enroll parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -320,28 +342,28 @@ public final class EnrollMessage {
     
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.Enroll prototype) {
+    public static Builder newBuilder(Enroll prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
     
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.EnrollOrBuilder {
+       implements EnrollOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_Enroll_descriptor;
+        return EnrollMessage.internal_static_Enroll_descriptor;
       }
       
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_Enroll_fieldAccessorTable;
+        return EnrollMessage.internal_static_Enroll_fieldAccessorTable;
       }
       
       // Construct using vine.app.message.EnrollMessage.Enroll.newBuilder()
@@ -371,6 +393,8 @@ public final class EnrollMessage {
         bitField0_ = (bitField0_ & ~0x00000004);
         checkCode_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        loginType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       
@@ -380,24 +404,24 @@ public final class EnrollMessage {
       
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return vine.app.message.EnrollMessage.Enroll.getDescriptor();
+        return Enroll.getDescriptor();
       }
       
-      public vine.app.message.EnrollMessage.Enroll getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.Enroll.getDefaultInstance();
+      public Enroll getDefaultInstanceForType() {
+        return Enroll.getDefaultInstance();
       }
       
-      public vine.app.message.EnrollMessage.Enroll build() {
-        vine.app.message.EnrollMessage.Enroll result = buildPartial();
+      public Enroll build() {
+        Enroll result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
       
-      private vine.app.message.EnrollMessage.Enroll buildParsed()
+      private Enroll buildParsed()
           throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.Enroll result = buildPartial();
+        Enroll result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(
             result).asInvalidProtocolBufferException();
@@ -405,8 +429,8 @@ public final class EnrollMessage {
         return result;
       }
       
-      public vine.app.message.EnrollMessage.Enroll buildPartial() {
-        vine.app.message.EnrollMessage.Enroll result = new vine.app.message.EnrollMessage.Enroll(this);
+      public Enroll buildPartial() {
+        Enroll result = new Enroll(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -425,22 +449,26 @@ public final class EnrollMessage {
           to_bitField0_ |= 0x00000008;
         }
         result.checkCode_ = checkCode_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.loginType_ = loginType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
       
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.Enroll) {
-          return mergeFrom((vine.app.message.EnrollMessage.Enroll)other);
+        if (other instanceof Enroll) {
+          return mergeFrom((Enroll)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
       
-      public Builder mergeFrom(vine.app.message.EnrollMessage.Enroll other) {
-        if (other == vine.app.message.EnrollMessage.Enroll.getDefaultInstance()) return this;
+      public Builder mergeFrom(Enroll other) {
+        if (other == Enroll.getDefaultInstance()) return this;
         if (other.hasMobileNo()) {
           setMobileNo(other.getMobileNo());
         }
@@ -452,6 +480,9 @@ public final class EnrollMessage {
         }
         if (other.hasCheckCode()) {
           setCheckCode(other.getCheckCode());
+        }
+        if (other.hasLoginType()) {
+          setLoginType(other.getLoginType());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -504,6 +535,11 @@ public final class EnrollMessage {
               checkCode_ = input.readBytes();
               break;
             }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              loginType_ = input.readInt32();
+              break;
+            }
           }
         }
       }
@@ -511,12 +547,12 @@ public final class EnrollMessage {
       private int bitField0_;
       
       // optional string mobileNo = 1;
-      private java.lang.Object mobileNo_ = "";
+      private Object mobileNo_ = "";
       public boolean hasMobileNo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       public String getMobileNo() {
-        java.lang.Object ref = mobileNo_;
+        Object ref = mobileNo_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           mobileNo_ = s;
@@ -547,12 +583,12 @@ public final class EnrollMessage {
       }
       
       // optional string email = 2;
-      private java.lang.Object email_ = "";
+      private Object email_ = "";
       public boolean hasEmail() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       public String getEmail() {
-        java.lang.Object ref = email_;
+        Object ref = email_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           email_ = s;
@@ -583,12 +619,12 @@ public final class EnrollMessage {
       }
       
       // optional string password = 3;
-      private java.lang.Object password_ = "";
+      private Object password_ = "";
       public boolean hasPassword() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       public String getPassword() {
-        java.lang.Object ref = password_;
+        Object ref = password_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           password_ = s;
@@ -619,12 +655,12 @@ public final class EnrollMessage {
       }
       
       // optional string checkCode = 4;
-      private java.lang.Object checkCode_ = "";
+      private Object checkCode_ = "";
       public boolean hasCheckCode() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       public String getCheckCode() {
-        java.lang.Object ref = checkCode_;
+        Object ref = checkCode_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           checkCode_ = s;
@@ -654,6 +690,27 @@ public final class EnrollMessage {
         onChanged();
       }
       
+      // optional int32 loginType = 5;
+      private int loginType_ ;
+      public boolean hasLoginType() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      public int getLoginType() {
+        return loginType_;
+      }
+      public Builder setLoginType(int value) {
+        bitField0_ |= 0x00000010;
+        loginType_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLoginType() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        loginType_ = 0;
+        onChanged();
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:Enroll)
     }
     
@@ -668,9 +725,13 @@ public final class EnrollMessage {
   public interface EnrollRetOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
-    // optional string sequenceNo = 1;
-    boolean hasSequenceNo();
-    String getSequenceNo();
+    // optional string userId = 1;
+    boolean hasUserId();
+    String getUserId();
+    
+    // optional string token = 2;
+    boolean hasToken();
+    String getToken();
   }
   public static final class EnrollRet extends
       com.google.protobuf.GeneratedMessage
@@ -692,23 +753,23 @@ public final class EnrollMessage {
     
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_EnrollRet_descriptor;
+      return EnrollMessage.internal_static_EnrollRet_descriptor;
     }
     
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_EnrollRet_fieldAccessorTable;
+      return EnrollMessage.internal_static_EnrollRet_fieldAccessorTable;
     }
     
     private int bitField0_;
-    // optional string sequenceNo = 1;
-    public static final int SEQUENCENO_FIELD_NUMBER = 1;
-    private java.lang.Object sequenceNo_;
-    public boolean hasSequenceNo() {
+    // optional string userId = 1;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private Object userId_;
+    public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getSequenceNo() {
-      java.lang.Object ref = sequenceNo_;
+    public String getUserId() {
+      Object ref = userId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -716,17 +777,49 @@ public final class EnrollMessage {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          sequenceNo_ = s;
+          userId_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getSequenceNoBytes() {
-      java.lang.Object ref = sequenceNo_;
+    private com.google.protobuf.ByteString getUserIdBytes() {
+      Object ref = userId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        sequenceNo_ = b;
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string token = 2;
+    public static final int TOKEN_FIELD_NUMBER = 2;
+    private Object token_;
+    public boolean hasToken() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getToken() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          token_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getTokenBytes() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        token_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -734,7 +827,8 @@ public final class EnrollMessage {
     }
     
     private void initFields() {
-      sequenceNo_ = "";
+      userId_ = "";
+      token_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -749,7 +843,10 @@ public final class EnrollMessage {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getSequenceNoBytes());
+        output.writeBytes(1, getUserIdBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getTokenBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -762,7 +859,11 @@ public final class EnrollMessage {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getSequenceNoBytes());
+          .computeBytesSize(1, getUserIdBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getTokenBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -770,47 +871,47 @@ public final class EnrollMessage {
     }
     
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
+    @Override
+    protected Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
     
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(
+    public static EnrollRet parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(
+    public static EnrollRet parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(byte[] data)
+    public static EnrollRet parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(
+    public static EnrollRet parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(java.io.InputStream input)
+    public static EnrollRet parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(
+    public static EnrollRet parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseDelimitedFrom(java.io.InputStream input)
+    public static EnrollRet parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       Builder builder = newBuilder();
       if (builder.mergeDelimitedFrom(input)) {
@@ -819,7 +920,7 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseDelimitedFrom(
+    public static EnrollRet parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -830,12 +931,12 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(
+    public static EnrollRet parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.EnrollRet parseFrom(
+    public static EnrollRet parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -845,28 +946,28 @@ public final class EnrollMessage {
     
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.EnrollRet prototype) {
+    public static Builder newBuilder(EnrollRet prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
     
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.EnrollRetOrBuilder {
+       implements EnrollRetOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_EnrollRet_descriptor;
+        return EnrollMessage.internal_static_EnrollRet_descriptor;
       }
       
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_EnrollRet_fieldAccessorTable;
+        return EnrollMessage.internal_static_EnrollRet_fieldAccessorTable;
       }
       
       // Construct using vine.app.message.EnrollMessage.EnrollRet.newBuilder()
@@ -888,1824 +989,10 @@ public final class EnrollMessage {
       
       public Builder clear() {
         super.clear();
-        sequenceNo_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return vine.app.message.EnrollMessage.EnrollRet.getDescriptor();
-      }
-      
-      public vine.app.message.EnrollMessage.EnrollRet getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.EnrollRet.getDefaultInstance();
-      }
-      
-      public vine.app.message.EnrollMessage.EnrollRet build() {
-        vine.app.message.EnrollMessage.EnrollRet result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private vine.app.message.EnrollMessage.EnrollRet buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.EnrollRet result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public vine.app.message.EnrollMessage.EnrollRet buildPartial() {
-        vine.app.message.EnrollMessage.EnrollRet result = new vine.app.message.EnrollMessage.EnrollRet(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.sequenceNo_ = sequenceNo_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.EnrollRet) {
-          return mergeFrom((vine.app.message.EnrollMessage.EnrollRet)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(vine.app.message.EnrollMessage.EnrollRet other) {
-        if (other == vine.app.message.EnrollMessage.EnrollRet.getDefaultInstance()) return this;
-        if (other.hasSequenceNo()) {
-          setSequenceNo(other.getSequenceNo());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              sequenceNo_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      }
-      
-      private int bitField0_;
-      
-      // optional string sequenceNo = 1;
-      private java.lang.Object sequenceNo_ = "";
-      public boolean hasSequenceNo() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getSequenceNo() {
-        java.lang.Object ref = sequenceNo_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          sequenceNo_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setSequenceNo(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        sequenceNo_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearSequenceNo() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        sequenceNo_ = getDefaultInstance().getSequenceNo();
-        onChanged();
-        return this;
-      }
-      void setSequenceNo(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        sequenceNo_ = value;
-        onChanged();
-      }
-      
-      // @@protoc_insertion_point(builder_scope:EnrollRet)
-    }
-    
-    static {
-      defaultInstance = new EnrollRet(true);
-      defaultInstance.initFields();
-    }
-    
-    // @@protoc_insertion_point(class_scope:EnrollRet)
-  }
-  
-  public interface LoginOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // required string macId = 1;
-    boolean hasMacId();
-    String getMacId();
-    
-    // required string version = 2;
-    boolean hasVersion();
-    String getVersion();
-    
-    // optional int32 accountId = 3;
-    boolean hasAccountId();
-    int getAccountId();
-    
-    // optional string area = 4;
-    boolean hasArea();
-    String getArea();
-    
-    // optional string country = 5;
-    boolean hasCountry();
-    String getCountry();
-    
-    // optional string device = 6;
-    boolean hasDevice();
-    String getDevice();
-    
-    // optional string deviceSystem = 7;
-    boolean hasDeviceSystem();
-    String getDeviceSystem();
-    
-    // optional int32 channelId = 8;
-    boolean hasChannelId();
-    int getChannelId();
-    
-    // optional string networkType = 9;
-    boolean hasNetworkType();
-    String getNetworkType();
-    
-    // optional string prisonBreak = 10;
-    boolean hasPrisonBreak();
-    String getPrisonBreak();
-    
-    // optional string operator = 11;
-    boolean hasOperator();
-    String getOperator();
-    
-    // optional int32 serverId = 12;
-    boolean hasServerId();
-    int getServerId();
-    
-    // optional int32 loginType = 13;
-    boolean hasLoginType();
-    int getLoginType();
-  }
-  public static final class Login extends
-      com.google.protobuf.GeneratedMessage
-      implements LoginOrBuilder {
-    // Use Login.newBuilder() to construct.
-    private Login(Builder builder) {
-      super(builder);
-    }
-    private Login(boolean noInit) {}
-    
-    private static final Login defaultInstance;
-    public static Login getDefaultInstance() {
-      return defaultInstance;
-    }
-    
-    public Login getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_Login_descriptor;
-    }
-    
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_Login_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // required string macId = 1;
-    public static final int MACID_FIELD_NUMBER = 1;
-    private java.lang.Object macId_;
-    public boolean hasMacId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public String getMacId() {
-      java.lang.Object ref = macId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          macId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getMacIdBytes() {
-      java.lang.Object ref = macId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        macId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // required string version = 2;
-    public static final int VERSION_FIELD_NUMBER = 2;
-    private java.lang.Object version_;
-    public boolean hasVersion() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getVersion() {
-      java.lang.Object ref = version_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          version_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getVersionBytes() {
-      java.lang.Object ref = version_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        version_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int32 accountId = 3;
-    public static final int ACCOUNTID_FIELD_NUMBER = 3;
-    private int accountId_;
-    public boolean hasAccountId() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    public int getAccountId() {
-      return accountId_;
-    }
-    
-    // optional string area = 4;
-    public static final int AREA_FIELD_NUMBER = 4;
-    private java.lang.Object area_;
-    public boolean hasArea() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    public String getArea() {
-      java.lang.Object ref = area_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          area_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getAreaBytes() {
-      java.lang.Object ref = area_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        area_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string country = 5;
-    public static final int COUNTRY_FIELD_NUMBER = 5;
-    private java.lang.Object country_;
-    public boolean hasCountry() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    public String getCountry() {
-      java.lang.Object ref = country_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          country_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCountryBytes() {
-      java.lang.Object ref = country_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        country_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string device = 6;
-    public static final int DEVICE_FIELD_NUMBER = 6;
-    private java.lang.Object device_;
-    public boolean hasDevice() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    public String getDevice() {
-      java.lang.Object ref = device_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          device_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getDeviceBytes() {
-      java.lang.Object ref = device_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        device_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string deviceSystem = 7;
-    public static final int DEVICESYSTEM_FIELD_NUMBER = 7;
-    private java.lang.Object deviceSystem_;
-    public boolean hasDeviceSystem() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    public String getDeviceSystem() {
-      java.lang.Object ref = deviceSystem_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          deviceSystem_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getDeviceSystemBytes() {
-      java.lang.Object ref = deviceSystem_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        deviceSystem_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int32 channelId = 8;
-    public static final int CHANNELID_FIELD_NUMBER = 8;
-    private int channelId_;
-    public boolean hasChannelId() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    public int getChannelId() {
-      return channelId_;
-    }
-    
-    // optional string networkType = 9;
-    public static final int NETWORKTYPE_FIELD_NUMBER = 9;
-    private java.lang.Object networkType_;
-    public boolean hasNetworkType() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    public String getNetworkType() {
-      java.lang.Object ref = networkType_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          networkType_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getNetworkTypeBytes() {
-      java.lang.Object ref = networkType_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        networkType_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string prisonBreak = 10;
-    public static final int PRISONBREAK_FIELD_NUMBER = 10;
-    private java.lang.Object prisonBreak_;
-    public boolean hasPrisonBreak() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
-    }
-    public String getPrisonBreak() {
-      java.lang.Object ref = prisonBreak_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          prisonBreak_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getPrisonBreakBytes() {
-      java.lang.Object ref = prisonBreak_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        prisonBreak_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string operator = 11;
-    public static final int OPERATOR_FIELD_NUMBER = 11;
-    private java.lang.Object operator_;
-    public boolean hasOperator() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
-    }
-    public String getOperator() {
-      java.lang.Object ref = operator_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          operator_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getOperatorBytes() {
-      java.lang.Object ref = operator_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        operator_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int32 serverId = 12;
-    public static final int SERVERID_FIELD_NUMBER = 12;
-    private int serverId_;
-    public boolean hasServerId() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
-    }
-    public int getServerId() {
-      return serverId_;
-    }
-    
-    // optional int32 loginType = 13;
-    public static final int LOGINTYPE_FIELD_NUMBER = 13;
-    private int loginType_;
-    public boolean hasLoginType() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
-    }
-    public int getLoginType() {
-      return loginType_;
-    }
-    
-    private void initFields() {
-      macId_ = "";
-      version_ = "";
-      accountId_ = 0;
-      area_ = "";
-      country_ = "";
-      device_ = "";
-      deviceSystem_ = "";
-      channelId_ = 0;
-      networkType_ = "";
-      prisonBreak_ = "";
-      operator_ = "";
-      serverId_ = 0;
-      loginType_ = 0;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      if (!hasMacId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasVersion()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getMacIdBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getVersionBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, accountId_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getAreaBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getCountryBytes());
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(6, getDeviceBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getDeviceSystemBytes());
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(8, channelId_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, getNetworkTypeBytes());
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(10, getPrisonBreakBytes());
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(11, getOperatorBytes());
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt32(12, serverId_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeInt32(13, loginType_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getMacIdBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getVersionBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, accountId_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getAreaBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getCountryBytes());
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getDeviceBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getDeviceSystemBytes());
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(8, channelId_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getNetworkTypeBytes());
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, getPrisonBreakBytes());
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(11, getOperatorBytes());
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, serverId_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, loginType_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
-    public static vine.app.message.EnrollMessage.Login parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static vine.app.message.EnrollMessage.Login parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.Login parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.Login prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.LoginOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_Login_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_Login_fieldAccessorTable;
-      }
-      
-      // Construct using vine.app.message.EnrollMessage.Login.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        macId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        version_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        accountId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        area_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        country_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
-        device_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
-        deviceSystem_ = "";
-        bitField0_ = (bitField0_ & ~0x00000040);
-        channelId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        networkType_ = "";
-        bitField0_ = (bitField0_ & ~0x00000100);
-        prisonBreak_ = "";
-        bitField0_ = (bitField0_ & ~0x00000200);
-        operator_ = "";
-        bitField0_ = (bitField0_ & ~0x00000400);
-        serverId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000800);
-        loginType_ = 0;
-        bitField0_ = (bitField0_ & ~0x00001000);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return vine.app.message.EnrollMessage.Login.getDescriptor();
-      }
-      
-      public vine.app.message.EnrollMessage.Login getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.Login.getDefaultInstance();
-      }
-      
-      public vine.app.message.EnrollMessage.Login build() {
-        vine.app.message.EnrollMessage.Login result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private vine.app.message.EnrollMessage.Login buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.Login result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public vine.app.message.EnrollMessage.Login buildPartial() {
-        vine.app.message.EnrollMessage.Login result = new vine.app.message.EnrollMessage.Login(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.macId_ = macId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.version_ = version_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.accountId_ = accountId_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.area_ = area_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.country_ = country_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.device_ = device_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.deviceSystem_ = deviceSystem_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.channelId_ = channelId_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.networkType_ = networkType_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.prisonBreak_ = prisonBreak_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
-        }
-        result.operator_ = operator_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.serverId_ = serverId_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-          to_bitField0_ |= 0x00001000;
-        }
-        result.loginType_ = loginType_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.Login) {
-          return mergeFrom((vine.app.message.EnrollMessage.Login)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(vine.app.message.EnrollMessage.Login other) {
-        if (other == vine.app.message.EnrollMessage.Login.getDefaultInstance()) return this;
-        if (other.hasMacId()) {
-          setMacId(other.getMacId());
-        }
-        if (other.hasVersion()) {
-          setVersion(other.getVersion());
-        }
-        if (other.hasAccountId()) {
-          setAccountId(other.getAccountId());
-        }
-        if (other.hasArea()) {
-          setArea(other.getArea());
-        }
-        if (other.hasCountry()) {
-          setCountry(other.getCountry());
-        }
-        if (other.hasDevice()) {
-          setDevice(other.getDevice());
-        }
-        if (other.hasDeviceSystem()) {
-          setDeviceSystem(other.getDeviceSystem());
-        }
-        if (other.hasChannelId()) {
-          setChannelId(other.getChannelId());
-        }
-        if (other.hasNetworkType()) {
-          setNetworkType(other.getNetworkType());
-        }
-        if (other.hasPrisonBreak()) {
-          setPrisonBreak(other.getPrisonBreak());
-        }
-        if (other.hasOperator()) {
-          setOperator(other.getOperator());
-        }
-        if (other.hasServerId()) {
-          setServerId(other.getServerId());
-        }
-        if (other.hasLoginType()) {
-          setLoginType(other.getLoginType());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        if (!hasMacId()) {
-          
-          return false;
-        }
-        if (!hasVersion()) {
-          
-          return false;
-        }
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              macId_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              version_ = input.readBytes();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              accountId_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              area_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000010;
-              country_ = input.readBytes();
-              break;
-            }
-            case 50: {
-              bitField0_ |= 0x00000020;
-              device_ = input.readBytes();
-              break;
-            }
-            case 58: {
-              bitField0_ |= 0x00000040;
-              deviceSystem_ = input.readBytes();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              channelId_ = input.readInt32();
-              break;
-            }
-            case 74: {
-              bitField0_ |= 0x00000100;
-              networkType_ = input.readBytes();
-              break;
-            }
-            case 82: {
-              bitField0_ |= 0x00000200;
-              prisonBreak_ = input.readBytes();
-              break;
-            }
-            case 90: {
-              bitField0_ |= 0x00000400;
-              operator_ = input.readBytes();
-              break;
-            }
-            case 96: {
-              bitField0_ |= 0x00000800;
-              serverId_ = input.readInt32();
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00001000;
-              loginType_ = input.readInt32();
-              break;
-            }
-          }
-        }
-      }
-      
-      private int bitField0_;
-      
-      // required string macId = 1;
-      private java.lang.Object macId_ = "";
-      public boolean hasMacId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getMacId() {
-        java.lang.Object ref = macId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          macId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setMacId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        macId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearMacId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        macId_ = getDefaultInstance().getMacId();
-        onChanged();
-        return this;
-      }
-      void setMacId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        macId_ = value;
-        onChanged();
-      }
-      
-      // required string version = 2;
-      private java.lang.Object version_ = "";
-      public boolean hasVersion() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public String getVersion() {
-        java.lang.Object ref = version_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          version_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setVersion(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearVersion() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        version_ = getDefaultInstance().getVersion();
-        onChanged();
-        return this;
-      }
-      void setVersion(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        version_ = value;
-        onChanged();
-      }
-      
-      // optional int32 accountId = 3;
-      private int accountId_ ;
-      public boolean hasAccountId() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      public int getAccountId() {
-        return accountId_;
-      }
-      public Builder setAccountId(int value) {
-        bitField0_ |= 0x00000004;
-        accountId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearAccountId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        accountId_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional string area = 4;
-      private java.lang.Object area_ = "";
-      public boolean hasArea() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      public String getArea() {
-        java.lang.Object ref = area_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          area_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setArea(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        area_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearArea() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        area_ = getDefaultInstance().getArea();
-        onChanged();
-        return this;
-      }
-      void setArea(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
-        area_ = value;
-        onChanged();
-      }
-      
-      // optional string country = 5;
-      private java.lang.Object country_ = "";
-      public boolean hasCountry() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      public String getCountry() {
-        java.lang.Object ref = country_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          country_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setCountry(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        country_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCountry() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        country_ = getDefaultInstance().getCountry();
-        onChanged();
-        return this;
-      }
-      void setCountry(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000010;
-        country_ = value;
-        onChanged();
-      }
-      
-      // optional string device = 6;
-      private java.lang.Object device_ = "";
-      public boolean hasDevice() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      public String getDevice() {
-        java.lang.Object ref = device_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          device_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setDevice(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        device_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearDevice() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        device_ = getDefaultInstance().getDevice();
-        onChanged();
-        return this;
-      }
-      void setDevice(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000020;
-        device_ = value;
-        onChanged();
-      }
-      
-      // optional string deviceSystem = 7;
-      private java.lang.Object deviceSystem_ = "";
-      public boolean hasDeviceSystem() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      public String getDeviceSystem() {
-        java.lang.Object ref = deviceSystem_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          deviceSystem_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setDeviceSystem(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        deviceSystem_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearDeviceSystem() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        deviceSystem_ = getDefaultInstance().getDeviceSystem();
-        onChanged();
-        return this;
-      }
-      void setDeviceSystem(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000040;
-        deviceSystem_ = value;
-        onChanged();
-      }
-      
-      // optional int32 channelId = 8;
-      private int channelId_ ;
-      public boolean hasChannelId() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      public int getChannelId() {
-        return channelId_;
-      }
-      public Builder setChannelId(int value) {
-        bitField0_ |= 0x00000080;
-        channelId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearChannelId() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        channelId_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional string networkType = 9;
-      private java.lang.Object networkType_ = "";
-      public boolean hasNetworkType() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      public String getNetworkType() {
-        java.lang.Object ref = networkType_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          networkType_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setNetworkType(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
-        networkType_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearNetworkType() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        networkType_ = getDefaultInstance().getNetworkType();
-        onChanged();
-        return this;
-      }
-      void setNetworkType(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000100;
-        networkType_ = value;
-        onChanged();
-      }
-      
-      // optional string prisonBreak = 10;
-      private java.lang.Object prisonBreak_ = "";
-      public boolean hasPrisonBreak() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      public String getPrisonBreak() {
-        java.lang.Object ref = prisonBreak_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          prisonBreak_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setPrisonBreak(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
-        prisonBreak_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearPrisonBreak() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        prisonBreak_ = getDefaultInstance().getPrisonBreak();
-        onChanged();
-        return this;
-      }
-      void setPrisonBreak(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000200;
-        prisonBreak_ = value;
-        onChanged();
-      }
-      
-      // optional string operator = 11;
-      private java.lang.Object operator_ = "";
-      public boolean hasOperator() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
-      }
-      public String getOperator() {
-        java.lang.Object ref = operator_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          operator_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setOperator(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
-        operator_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearOperator() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        operator_ = getDefaultInstance().getOperator();
-        onChanged();
-        return this;
-      }
-      void setOperator(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000400;
-        operator_ = value;
-        onChanged();
-      }
-      
-      // optional int32 serverId = 12;
-      private int serverId_ ;
-      public boolean hasServerId() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
-      }
-      public int getServerId() {
-        return serverId_;
-      }
-      public Builder setServerId(int value) {
-        bitField0_ |= 0x00000800;
-        serverId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearServerId() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        serverId_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional int32 loginType = 13;
-      private int loginType_ ;
-      public boolean hasLoginType() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
-      }
-      public int getLoginType() {
-        return loginType_;
-      }
-      public Builder setLoginType(int value) {
-        bitField0_ |= 0x00001000;
-        loginType_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearLoginType() {
-        bitField0_ = (bitField0_ & ~0x00001000);
-        loginType_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // @@protoc_insertion_point(builder_scope:Login)
-    }
-    
-    static {
-      defaultInstance = new Login(true);
-      defaultInstance.initFields();
-    }
-    
-    // @@protoc_insertion_point(class_scope:Login)
-  }
-  
-  public interface LoginRetOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional int32 retCode = 1;
-    boolean hasRetCode();
-    int getRetCode();
-    
-    // optional string userId = 2;
-    boolean hasUserId();
-    String getUserId();
-    
-    // optional string token = 3;
-    boolean hasToken();
-    String getToken();
-  }
-  public static final class LoginRet extends
-      com.google.protobuf.GeneratedMessage
-      implements LoginRetOrBuilder {
-    // Use LoginRet.newBuilder() to construct.
-    private LoginRet(Builder builder) {
-      super(builder);
-    }
-    private LoginRet(boolean noInit) {}
-    
-    private static final LoginRet defaultInstance;
-    public static LoginRet getDefaultInstance() {
-      return defaultInstance;
-    }
-    
-    public LoginRet getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_LoginRet_descriptor;
-    }
-    
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_LoginRet_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // optional int32 retCode = 1;
-    public static final int RETCODE_FIELD_NUMBER = 1;
-    private int retCode_;
-    public boolean hasRetCode() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public int getRetCode() {
-      return retCode_;
-    }
-    
-    // optional string userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private java.lang.Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getUserId() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          userId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUserIdBytes() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string token = 3;
-    public static final int TOKEN_FIELD_NUMBER = 3;
-    private java.lang.Object token_;
-    public boolean hasToken() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    public String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          token_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    private void initFields() {
-      retCode_ = 0;
-      userId_ = "";
-      token_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, retCode_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getTokenBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, retCode_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getTokenBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static vine.app.message.EnrollMessage.LoginRet parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.LoginRet prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.LoginRetOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_LoginRet_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_LoginRet_fieldAccessorTable;
-      }
-      
-      // Construct using vine.app.message.EnrollMessage.LoginRet.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        retCode_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         userId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         token_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       
@@ -2715,24 +1002,24 @@ public final class EnrollMessage {
       
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return vine.app.message.EnrollMessage.LoginRet.getDescriptor();
+        return EnrollRet.getDescriptor();
       }
       
-      public vine.app.message.EnrollMessage.LoginRet getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.LoginRet.getDefaultInstance();
+      public EnrollRet getDefaultInstanceForType() {
+        return EnrollRet.getDefaultInstance();
       }
       
-      public vine.app.message.EnrollMessage.LoginRet build() {
-        vine.app.message.EnrollMessage.LoginRet result = buildPartial();
+      public EnrollRet build() {
+        EnrollRet result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
       
-      private vine.app.message.EnrollMessage.LoginRet buildParsed()
+      private EnrollRet buildParsed()
           throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.LoginRet result = buildPartial();
+        EnrollRet result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(
             result).asInvalidProtocolBufferException();
@@ -2740,20 +1027,16 @@ public final class EnrollMessage {
         return result;
       }
       
-      public vine.app.message.EnrollMessage.LoginRet buildPartial() {
-        vine.app.message.EnrollMessage.LoginRet result = new vine.app.message.EnrollMessage.LoginRet(this);
+      public EnrollRet buildPartial() {
+        EnrollRet result = new EnrollRet(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
-        }
-        result.retCode_ = retCode_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
         }
         result.userId_ = userId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
         }
         result.token_ = token_;
         result.bitField0_ = to_bitField0_;
@@ -2762,19 +1045,16 @@ public final class EnrollMessage {
       }
       
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.LoginRet) {
-          return mergeFrom((vine.app.message.EnrollMessage.LoginRet)other);
+        if (other instanceof EnrollRet) {
+          return mergeFrom((EnrollRet)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
       
-      public Builder mergeFrom(vine.app.message.EnrollMessage.LoginRet other) {
-        if (other == vine.app.message.EnrollMessage.LoginRet.getDefaultInstance()) return this;
-        if (other.hasRetCode()) {
-          setRetCode(other.getRetCode());
-        }
+      public Builder mergeFrom(EnrollRet other) {
+        if (other == EnrollRet.getDefaultInstance()) return this;
         if (other.hasUserId()) {
           setUserId(other.getUserId());
         }
@@ -2812,18 +1092,13 @@ public final class EnrollMessage {
               }
               break;
             }
-            case 8: {
+            case 10: {
               bitField0_ |= 0x00000001;
-              retCode_ = input.readInt32();
+              userId_ = input.readBytes();
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              userId_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              bitField0_ |= 0x00000004;
               token_ = input.readBytes();
               break;
             }
@@ -2833,34 +1108,13 @@ public final class EnrollMessage {
       
       private int bitField0_;
       
-      // optional int32 retCode = 1;
-      private int retCode_ ;
-      public boolean hasRetCode() {
+      // optional string userId = 1;
+      private Object userId_ = "";
+      public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public int getRetCode() {
-        return retCode_;
-      }
-      public Builder setRetCode(int value) {
-        bitField0_ |= 0x00000001;
-        retCode_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearRetCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        retCode_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional string userId = 2;
-      private java.lang.Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
       public String getUserId() {
-        java.lang.Object ref = userId_;
+        Object ref = userId_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           userId_ = s;
@@ -2873,30 +1127,30 @@ public final class EnrollMessage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
       }
       public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
       void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
       }
       
-      // optional string token = 3;
-      private java.lang.Object token_ = "";
+      // optional string token = 2;
+      private Object token_ = "";
       public boolean hasToken() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       public String getToken() {
-        java.lang.Object ref = token_;
+        Object ref = token_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           token_ = s;
@@ -2909,44 +1163,44 @@ public final class EnrollMessage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000002;
         token_ = value;
         onChanged();
         return this;
       }
       public Builder clearToken() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         token_ = getDefaultInstance().getToken();
         onChanged();
         return this;
       }
       void setToken(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         token_ = value;
         onChanged();
       }
       
-      // @@protoc_insertion_point(builder_scope:LoginRet)
+      // @@protoc_insertion_point(builder_scope:EnrollRet)
     }
     
     static {
-      defaultInstance = new LoginRet(true);
+      defaultInstance = new EnrollRet(true);
       defaultInstance.initFields();
     }
     
-    // @@protoc_insertion_point(class_scope:LoginRet)
+    // @@protoc_insertion_point(class_scope:EnrollRet)
   }
   
   public interface LogoutOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
-    // optional string macId = 1;
-    boolean hasMacId();
-    String getMacId();
-    
-    // optional string userId = 2;
+    // optional string userId = 1;
     boolean hasUserId();
     String getUserId();
+    
+    // optional string token = 2;
+    boolean hasToken();
+    String getToken();
   }
   public static final class Logout extends
       com.google.protobuf.GeneratedMessage
@@ -2968,55 +1222,23 @@ public final class EnrollMessage {
     
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_Logout_descriptor;
+      return EnrollMessage.internal_static_Logout_descriptor;
     }
     
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_Logout_fieldAccessorTable;
+      return EnrollMessage.internal_static_Logout_fieldAccessorTable;
     }
     
     private int bitField0_;
-    // optional string macId = 1;
-    public static final int MACID_FIELD_NUMBER = 1;
-    private java.lang.Object macId_;
-    public boolean hasMacId() {
+    // optional string userId = 1;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private Object userId_;
+    public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getMacId() {
-      java.lang.Object ref = macId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          macId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getMacIdBytes() {
-      java.lang.Object ref = macId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        macId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private java.lang.Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
     public String getUserId() {
-      java.lang.Object ref = userId_;
+      Object ref = userId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -3030,7 +1252,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getUserIdBytes() {
-      java.lang.Object ref = userId_;
+      Object ref = userId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -3041,9 +1263,41 @@ public final class EnrollMessage {
       }
     }
     
+    // optional string token = 2;
+    public static final int TOKEN_FIELD_NUMBER = 2;
+    private Object token_;
+    public boolean hasToken() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getToken() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          token_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getTokenBytes() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
     private void initFields() {
-      macId_ = "";
       userId_ = "";
+      token_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3058,10 +1312,10 @@ public final class EnrollMessage {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getMacIdBytes());
+        output.writeBytes(1, getUserIdBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserIdBytes());
+        output.writeBytes(2, getTokenBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -3074,11 +1328,11 @@ public final class EnrollMessage {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getMacIdBytes());
+          .computeBytesSize(1, getUserIdBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserIdBytes());
+          .computeBytesSize(2, getTokenBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3086,47 +1340,47 @@ public final class EnrollMessage {
     }
     
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
+    @Override
+    protected Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
     
-    public static vine.app.message.EnrollMessage.Logout parseFrom(
+    public static Logout parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(
+    public static Logout parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(byte[] data)
+    public static Logout parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(
+    public static Logout parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(java.io.InputStream input)
+    public static Logout parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(
+    public static Logout parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseDelimitedFrom(java.io.InputStream input)
+    public static Logout parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       Builder builder = newBuilder();
       if (builder.mergeDelimitedFrom(input)) {
@@ -3135,7 +1389,7 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.Logout parseDelimitedFrom(
+    public static Logout parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3146,12 +1400,12 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(
+    public static Logout parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.Logout parseFrom(
+    public static Logout parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3161,28 +1415,28 @@ public final class EnrollMessage {
     
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.Logout prototype) {
+    public static Builder newBuilder(Logout prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
     
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.LogoutOrBuilder {
+       implements LogoutOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_Logout_descriptor;
+        return EnrollMessage.internal_static_Logout_descriptor;
       }
       
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_Logout_fieldAccessorTable;
+        return EnrollMessage.internal_static_Logout_fieldAccessorTable;
       }
       
       // Construct using vine.app.message.EnrollMessage.Logout.newBuilder()
@@ -3204,9 +1458,9 @@ public final class EnrollMessage {
       
       public Builder clear() {
         super.clear();
-        macId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         userId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        token_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -3217,24 +1471,24 @@ public final class EnrollMessage {
       
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return vine.app.message.EnrollMessage.Logout.getDescriptor();
+        return Logout.getDescriptor();
       }
       
-      public vine.app.message.EnrollMessage.Logout getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.Logout.getDefaultInstance();
+      public Logout getDefaultInstanceForType() {
+        return Logout.getDefaultInstance();
       }
       
-      public vine.app.message.EnrollMessage.Logout build() {
-        vine.app.message.EnrollMessage.Logout result = buildPartial();
+      public Logout build() {
+        Logout result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
       
-      private vine.app.message.EnrollMessage.Logout buildParsed()
+      private Logout buildParsed()
           throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.Logout result = buildPartial();
+        Logout result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(
             result).asInvalidProtocolBufferException();
@@ -3242,39 +1496,39 @@ public final class EnrollMessage {
         return result;
       }
       
-      public vine.app.message.EnrollMessage.Logout buildPartial() {
-        vine.app.message.EnrollMessage.Logout result = new vine.app.message.EnrollMessage.Logout(this);
+      public Logout buildPartial() {
+        Logout result = new Logout(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.macId_ = macId_;
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.userId_ = userId_;
+        result.token_ = token_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
       
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.Logout) {
-          return mergeFrom((vine.app.message.EnrollMessage.Logout)other);
+        if (other instanceof Logout) {
+          return mergeFrom((Logout)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
       
-      public Builder mergeFrom(vine.app.message.EnrollMessage.Logout other) {
-        if (other == vine.app.message.EnrollMessage.Logout.getDefaultInstance()) return this;
-        if (other.hasMacId()) {
-          setMacId(other.getMacId());
-        }
+      public Builder mergeFrom(Logout other) {
+        if (other == Logout.getDefaultInstance()) return this;
         if (other.hasUserId()) {
           setUserId(other.getUserId());
+        }
+        if (other.hasToken()) {
+          setToken(other.getToken());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3309,12 +1563,12 @@ public final class EnrollMessage {
             }
             case 10: {
               bitField0_ |= 0x00000001;
-              macId_ = input.readBytes();
+              userId_ = input.readBytes();
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              userId_ = input.readBytes();
+              token_ = input.readBytes();
               break;
             }
           }
@@ -3323,49 +1577,13 @@ public final class EnrollMessage {
       
       private int bitField0_;
       
-      // optional string macId = 1;
-      private java.lang.Object macId_ = "";
-      public boolean hasMacId() {
+      // optional string userId = 1;
+      private Object userId_ = "";
+      public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getMacId() {
-        java.lang.Object ref = macId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          macId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setMacId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        macId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearMacId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        macId_ = getDefaultInstance().getMacId();
-        onChanged();
-        return this;
-      }
-      void setMacId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        macId_ = value;
-        onChanged();
-      }
-      
-      // optional string userId = 2;
-      private java.lang.Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
       public String getUserId() {
-        java.lang.Object ref = userId_;
+        Object ref = userId_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           userId_ = s;
@@ -3378,20 +1596,56 @@ public final class EnrollMessage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000001;
         userId_ = value;
         onChanged();
         return this;
       }
       public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
       }
       void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         userId_ = value;
+        onChanged();
+      }
+      
+      // optional string token = 2;
+      private Object token_ = "";
+      public boolean hasToken() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getToken() {
+        Object ref = token_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setToken(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearToken() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      void setToken(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        token_ = value;
         onChanged();
       }
       
@@ -3433,23 +1687,23 @@ public final class EnrollMessage {
     
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_UserInfoEdit_descriptor;
+      return EnrollMessage.internal_static_UserInfoEdit_descriptor;
     }
     
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_UserInfoEdit_fieldAccessorTable;
+      return EnrollMessage.internal_static_UserInfoEdit_fieldAccessorTable;
     }
     
     private int bitField0_;
     // optional string userId = 1;
     public static final int USERID_FIELD_NUMBER = 1;
-    private java.lang.Object userId_;
+    private Object userId_;
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     public String getUserId() {
-      java.lang.Object ref = userId_;
+      Object ref = userId_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -3463,7 +1717,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getUserIdBytes() {
-      java.lang.Object ref = userId_;
+      Object ref = userId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -3511,47 +1765,47 @@ public final class EnrollMessage {
     }
     
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
+    @Override
+    protected Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
     
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(
+    public static UserInfoEdit parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(
+    public static UserInfoEdit parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(byte[] data)
+    public static UserInfoEdit parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(
+    public static UserInfoEdit parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(java.io.InputStream input)
+    public static UserInfoEdit parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(
+    public static UserInfoEdit parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseDelimitedFrom(java.io.InputStream input)
+    public static UserInfoEdit parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       Builder builder = newBuilder();
       if (builder.mergeDelimitedFrom(input)) {
@@ -3560,7 +1814,7 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseDelimitedFrom(
+    public static UserInfoEdit parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3571,12 +1825,12 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(
+    public static UserInfoEdit parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.UserInfoEdit parseFrom(
+    public static UserInfoEdit parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3586,28 +1840,28 @@ public final class EnrollMessage {
     
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.UserInfoEdit prototype) {
+    public static Builder newBuilder(UserInfoEdit prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
     
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.UserInfoEditOrBuilder {
+       implements UserInfoEditOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_UserInfoEdit_descriptor;
+        return EnrollMessage.internal_static_UserInfoEdit_descriptor;
       }
       
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_UserInfoEdit_fieldAccessorTable;
+        return EnrollMessage.internal_static_UserInfoEdit_fieldAccessorTable;
       }
       
       // Construct using vine.app.message.EnrollMessage.UserInfoEdit.newBuilder()
@@ -3640,24 +1894,24 @@ public final class EnrollMessage {
       
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return vine.app.message.EnrollMessage.UserInfoEdit.getDescriptor();
+        return UserInfoEdit.getDescriptor();
       }
       
-      public vine.app.message.EnrollMessage.UserInfoEdit getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.UserInfoEdit.getDefaultInstance();
+      public UserInfoEdit getDefaultInstanceForType() {
+        return UserInfoEdit.getDefaultInstance();
       }
       
-      public vine.app.message.EnrollMessage.UserInfoEdit build() {
-        vine.app.message.EnrollMessage.UserInfoEdit result = buildPartial();
+      public UserInfoEdit build() {
+        UserInfoEdit result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
       
-      private vine.app.message.EnrollMessage.UserInfoEdit buildParsed()
+      private UserInfoEdit buildParsed()
           throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.UserInfoEdit result = buildPartial();
+        UserInfoEdit result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(
             result).asInvalidProtocolBufferException();
@@ -3665,8 +1919,8 @@ public final class EnrollMessage {
         return result;
       }
       
-      public vine.app.message.EnrollMessage.UserInfoEdit buildPartial() {
-        vine.app.message.EnrollMessage.UserInfoEdit result = new vine.app.message.EnrollMessage.UserInfoEdit(this);
+      public UserInfoEdit buildPartial() {
+        UserInfoEdit result = new UserInfoEdit(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3679,16 +1933,16 @@ public final class EnrollMessage {
       }
       
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.UserInfoEdit) {
-          return mergeFrom((vine.app.message.EnrollMessage.UserInfoEdit)other);
+        if (other instanceof UserInfoEdit) {
+          return mergeFrom((UserInfoEdit)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
       
-      public Builder mergeFrom(vine.app.message.EnrollMessage.UserInfoEdit other) {
-        if (other == vine.app.message.EnrollMessage.UserInfoEdit.getDefaultInstance()) return this;
+      public Builder mergeFrom(UserInfoEdit other) {
+        if (other == UserInfoEdit.getDefaultInstance()) return this;
         if (other.hasUserId()) {
           setUserId(other.getUserId());
         }
@@ -3735,12 +1989,12 @@ public final class EnrollMessage {
       private int bitField0_;
       
       // optional string userId = 1;
-      private java.lang.Object userId_ = "";
+      private Object userId_ = "";
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       public String getUserId() {
-        java.lang.Object ref = userId_;
+        Object ref = userId_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           userId_ = s;
@@ -3795,6 +2049,10 @@ public final class EnrollMessage {
     // optional string checkCode = 3;
     boolean hasCheckCode();
     String getCheckCode();
+    
+    // optional string token = 4;
+    boolean hasToken();
+    String getToken();
   }
   public static final class ForgetPassword extends
       com.google.protobuf.GeneratedMessage
@@ -3816,23 +2074,23 @@ public final class EnrollMessage {
     
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return vine.app.message.EnrollMessage.internal_static_ForgetPassword_descriptor;
+      return EnrollMessage.internal_static_ForgetPassword_descriptor;
     }
     
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return vine.app.message.EnrollMessage.internal_static_ForgetPassword_fieldAccessorTable;
+      return EnrollMessage.internal_static_ForgetPassword_fieldAccessorTable;
     }
     
     private int bitField0_;
     // optional string mobileNo = 1;
     public static final int MOBILENO_FIELD_NUMBER = 1;
-    private java.lang.Object mobileNo_;
+    private Object mobileNo_;
     public boolean hasMobileNo() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     public String getMobileNo() {
-      java.lang.Object ref = mobileNo_;
+      Object ref = mobileNo_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -3846,7 +2104,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getMobileNoBytes() {
-      java.lang.Object ref = mobileNo_;
+      Object ref = mobileNo_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -3859,12 +2117,12 @@ public final class EnrollMessage {
     
     // optional string email = 2;
     public static final int EMAIL_FIELD_NUMBER = 2;
-    private java.lang.Object email_;
+    private Object email_;
     public boolean hasEmail() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     public String getEmail() {
-      java.lang.Object ref = email_;
+      Object ref = email_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -3878,7 +2136,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getEmailBytes() {
-      java.lang.Object ref = email_;
+      Object ref = email_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -3891,12 +2149,12 @@ public final class EnrollMessage {
     
     // optional string checkCode = 3;
     public static final int CHECKCODE_FIELD_NUMBER = 3;
-    private java.lang.Object checkCode_;
+    private Object checkCode_;
     public boolean hasCheckCode() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     public String getCheckCode() {
-      java.lang.Object ref = checkCode_;
+      Object ref = checkCode_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -3910,7 +2168,7 @@ public final class EnrollMessage {
       }
     }
     private com.google.protobuf.ByteString getCheckCodeBytes() {
-      java.lang.Object ref = checkCode_;
+      Object ref = checkCode_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
@@ -3921,10 +2179,43 @@ public final class EnrollMessage {
       }
     }
     
+    // optional string token = 4;
+    public static final int TOKEN_FIELD_NUMBER = 4;
+    private Object token_;
+    public boolean hasToken() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public String getToken() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          token_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getTokenBytes() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
     private void initFields() {
       mobileNo_ = "";
       email_ = "";
       checkCode_ = "";
+      token_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3947,6 +2238,9 @@ public final class EnrollMessage {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getCheckCodeBytes());
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getTokenBytes());
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -3968,53 +2262,57 @@ public final class EnrollMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getCheckCodeBytes());
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getTokenBytes());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
     
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
+    @Override
+    protected Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
     
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(
+    public static ForgetPassword parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(
+    public static ForgetPassword parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(byte[] data)
+    public static ForgetPassword parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(
+    public static ForgetPassword parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return newBuilder().mergeFrom(data, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(java.io.InputStream input)
+    public static ForgetPassword parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(
+    public static ForgetPassword parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input, extensionRegistry)
                .buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseDelimitedFrom(java.io.InputStream input)
+    public static ForgetPassword parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       Builder builder = newBuilder();
       if (builder.mergeDelimitedFrom(input)) {
@@ -4023,7 +2321,7 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseDelimitedFrom(
+    public static ForgetPassword parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4034,12 +2332,12 @@ public final class EnrollMessage {
         return null;
       }
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(
+    public static ForgetPassword parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return newBuilder().mergeFrom(input).buildParsed();
     }
-    public static vine.app.message.EnrollMessage.ForgetPassword parseFrom(
+    public static ForgetPassword parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4049,28 +2347,28 @@ public final class EnrollMessage {
     
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(vine.app.message.EnrollMessage.ForgetPassword prototype) {
+    public static Builder newBuilder(ForgetPassword prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
     
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements vine.app.message.EnrollMessage.ForgetPasswordOrBuilder {
+       implements ForgetPasswordOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return vine.app.message.EnrollMessage.internal_static_ForgetPassword_descriptor;
+        return EnrollMessage.internal_static_ForgetPassword_descriptor;
       }
       
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return vine.app.message.EnrollMessage.internal_static_ForgetPassword_fieldAccessorTable;
+        return EnrollMessage.internal_static_ForgetPassword_fieldAccessorTable;
       }
       
       // Construct using vine.app.message.EnrollMessage.ForgetPassword.newBuilder()
@@ -4098,6 +2396,8 @@ public final class EnrollMessage {
         bitField0_ = (bitField0_ & ~0x00000002);
         checkCode_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        token_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       
@@ -4107,24 +2407,24 @@ public final class EnrollMessage {
       
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return vine.app.message.EnrollMessage.ForgetPassword.getDescriptor();
+        return ForgetPassword.getDescriptor();
       }
       
-      public vine.app.message.EnrollMessage.ForgetPassword getDefaultInstanceForType() {
-        return vine.app.message.EnrollMessage.ForgetPassword.getDefaultInstance();
+      public ForgetPassword getDefaultInstanceForType() {
+        return ForgetPassword.getDefaultInstance();
       }
       
-      public vine.app.message.EnrollMessage.ForgetPassword build() {
-        vine.app.message.EnrollMessage.ForgetPassword result = buildPartial();
+      public ForgetPassword build() {
+        ForgetPassword result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
       
-      private vine.app.message.EnrollMessage.ForgetPassword buildParsed()
+      private ForgetPassword buildParsed()
           throws com.google.protobuf.InvalidProtocolBufferException {
-        vine.app.message.EnrollMessage.ForgetPassword result = buildPartial();
+        ForgetPassword result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(
             result).asInvalidProtocolBufferException();
@@ -4132,8 +2432,8 @@ public final class EnrollMessage {
         return result;
       }
       
-      public vine.app.message.EnrollMessage.ForgetPassword buildPartial() {
-        vine.app.message.EnrollMessage.ForgetPassword result = new vine.app.message.EnrollMessage.ForgetPassword(this);
+      public ForgetPassword buildPartial() {
+        ForgetPassword result = new ForgetPassword(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4148,22 +2448,26 @@ public final class EnrollMessage {
           to_bitField0_ |= 0x00000004;
         }
         result.checkCode_ = checkCode_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.token_ = token_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
       
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof vine.app.message.EnrollMessage.ForgetPassword) {
-          return mergeFrom((vine.app.message.EnrollMessage.ForgetPassword)other);
+        if (other instanceof ForgetPassword) {
+          return mergeFrom((ForgetPassword)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
       
-      public Builder mergeFrom(vine.app.message.EnrollMessage.ForgetPassword other) {
-        if (other == vine.app.message.EnrollMessage.ForgetPassword.getDefaultInstance()) return this;
+      public Builder mergeFrom(ForgetPassword other) {
+        if (other == ForgetPassword.getDefaultInstance()) return this;
         if (other.hasMobileNo()) {
           setMobileNo(other.getMobileNo());
         }
@@ -4172,6 +2476,9 @@ public final class EnrollMessage {
         }
         if (other.hasCheckCode()) {
           setCheckCode(other.getCheckCode());
+        }
+        if (other.hasToken()) {
+          setToken(other.getToken());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -4219,6 +2526,11 @@ public final class EnrollMessage {
               checkCode_ = input.readBytes();
               break;
             }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              token_ = input.readBytes();
+              break;
+            }
           }
         }
       }
@@ -4226,12 +2538,12 @@ public final class EnrollMessage {
       private int bitField0_;
       
       // optional string mobileNo = 1;
-      private java.lang.Object mobileNo_ = "";
+      private Object mobileNo_ = "";
       public boolean hasMobileNo() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       public String getMobileNo() {
-        java.lang.Object ref = mobileNo_;
+        Object ref = mobileNo_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           mobileNo_ = s;
@@ -4262,12 +2574,12 @@ public final class EnrollMessage {
       }
       
       // optional string email = 2;
-      private java.lang.Object email_ = "";
+      private Object email_ = "";
       public boolean hasEmail() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       public String getEmail() {
-        java.lang.Object ref = email_;
+        Object ref = email_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           email_ = s;
@@ -4298,12 +2610,12 @@ public final class EnrollMessage {
       }
       
       // optional string checkCode = 3;
-      private java.lang.Object checkCode_ = "";
+      private Object checkCode_ = "";
       public boolean hasCheckCode() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       public String getCheckCode() {
-        java.lang.Object ref = checkCode_;
+        Object ref = checkCode_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
           checkCode_ = s;
@@ -4333,6 +2645,42 @@ public final class EnrollMessage {
         onChanged();
       }
       
+      // optional string token = 4;
+      private Object token_ = "";
+      public boolean hasToken() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      public String getToken() {
+        Object ref = token_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setToken(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearToken() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      void setToken(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000008;
+        token_ = value;
+        onChanged();
+      }
+      
       // @@protoc_insertion_point(builder_scope:ForgetPassword)
     }
     
@@ -4342,6 +2690,757 @@ public final class EnrollMessage {
     }
     
     // @@protoc_insertion_point(class_scope:ForgetPassword)
+  }
+  
+  public interface ResetPasswordOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+    
+    // optional string userId = 1;
+    boolean hasUserId();
+    String getUserId();
+    
+    // optional string oldPassword = 2;
+    boolean hasOldPassword();
+    String getOldPassword();
+    
+    // optional string newPassword = 3;
+    boolean hasNewPassword();
+    String getNewPassword();
+    
+    // optional string checkCode = 4;
+    boolean hasCheckCode();
+    String getCheckCode();
+    
+    // optional string token = 5;
+    boolean hasToken();
+    String getToken();
+  }
+  public static final class ResetPassword extends
+      com.google.protobuf.GeneratedMessage
+      implements ResetPasswordOrBuilder {
+    // Use ResetPassword.newBuilder() to construct.
+    private ResetPassword(Builder builder) {
+      super(builder);
+    }
+    private ResetPassword(boolean noInit) {}
+    
+    private static final ResetPassword defaultInstance;
+    public static ResetPassword getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public ResetPassword getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return EnrollMessage.internal_static_ResetPassword_descriptor;
+    }
+    
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return EnrollMessage.internal_static_ResetPassword_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // optional string userId = 1;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private Object userId_;
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getUserId() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          userId_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getUserIdBytes() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string oldPassword = 2;
+    public static final int OLDPASSWORD_FIELD_NUMBER = 2;
+    private Object oldPassword_;
+    public boolean hasOldPassword() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getOldPassword() {
+      Object ref = oldPassword_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          oldPassword_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getOldPasswordBytes() {
+      Object ref = oldPassword_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        oldPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string newPassword = 3;
+    public static final int NEWPASSWORD_FIELD_NUMBER = 3;
+    private Object newPassword_;
+    public boolean hasNewPassword() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public String getNewPassword() {
+      Object ref = newPassword_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          newPassword_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getNewPasswordBytes() {
+      Object ref = newPassword_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        newPassword_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string checkCode = 4;
+    public static final int CHECKCODE_FIELD_NUMBER = 4;
+    private Object checkCode_;
+    public boolean hasCheckCode() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public String getCheckCode() {
+      Object ref = checkCode_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          checkCode_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCheckCodeBytes() {
+      Object ref = checkCode_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        checkCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string token = 5;
+    public static final int TOKEN_FIELD_NUMBER = 5;
+    private Object token_;
+    public boolean hasToken() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    public String getToken() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          token_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getTokenBytes() {
+      Object ref = token_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    private void initFields() {
+      userId_ = "";
+      oldPassword_ = "";
+      newPassword_ = "";
+      checkCode_ = "";
+      token_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getUserIdBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getOldPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getNewPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getCheckCodeBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getTokenBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getUserIdBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getOldPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getNewPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getCheckCodeBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getTokenBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @Override
+    protected Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static ResetPassword parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static ResetPassword parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static ResetPassword parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static ResetPassword parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static ResetPassword parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static ResetPassword parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static ResetPassword parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static ResetPassword parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static ResetPassword parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static ResetPassword parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(ResetPassword prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements ResetPasswordOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return EnrollMessage.internal_static_ResetPassword_descriptor;
+      }
+      
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return EnrollMessage.internal_static_ResetPassword_fieldAccessorTable;
+      }
+      
+      // Construct using vine.app.message.EnrollMessage.ResetPassword.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        userId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        oldPassword_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        newPassword_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        checkCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        token_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return ResetPassword.getDescriptor();
+      }
+      
+      public ResetPassword getDefaultInstanceForType() {
+        return ResetPassword.getDefaultInstance();
+      }
+      
+      public ResetPassword build() {
+        ResetPassword result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private ResetPassword buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        ResetPassword result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public ResetPassword buildPartial() {
+        ResetPassword result = new ResetPassword(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.oldPassword_ = oldPassword_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.newPassword_ = newPassword_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.checkCode_ = checkCode_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.token_ = token_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ResetPassword) {
+          return mergeFrom((ResetPassword)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(ResetPassword other) {
+        if (other == ResetPassword.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasOldPassword()) {
+          setOldPassword(other.getOldPassword());
+        }
+        if (other.hasNewPassword()) {
+          setNewPassword(other.getNewPassword());
+        }
+        if (other.hasCheckCode()) {
+          setCheckCode(other.getCheckCode());
+        }
+        if (other.hasToken()) {
+          setToken(other.getToken());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              oldPassword_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              newPassword_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              checkCode_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              token_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // optional string userId = 1;
+      private Object userId_ = "";
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getUserId() {
+        Object ref = userId_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setUserId(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = getDefaultInstance().getUserId();
+        onChanged();
+        return this;
+      }
+      void setUserId(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        onChanged();
+      }
+      
+      // optional string oldPassword = 2;
+      private Object oldPassword_ = "";
+      public boolean hasOldPassword() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getOldPassword() {
+        Object ref = oldPassword_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          oldPassword_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setOldPassword(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        oldPassword_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearOldPassword() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        oldPassword_ = getDefaultInstance().getOldPassword();
+        onChanged();
+        return this;
+      }
+      void setOldPassword(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        oldPassword_ = value;
+        onChanged();
+      }
+      
+      // optional string newPassword = 3;
+      private Object newPassword_ = "";
+      public boolean hasNewPassword() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public String getNewPassword() {
+        Object ref = newPassword_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          newPassword_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setNewPassword(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        newPassword_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearNewPassword() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        newPassword_ = getDefaultInstance().getNewPassword();
+        onChanged();
+        return this;
+      }
+      void setNewPassword(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000004;
+        newPassword_ = value;
+        onChanged();
+      }
+      
+      // optional string checkCode = 4;
+      private Object checkCode_ = "";
+      public boolean hasCheckCode() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      public String getCheckCode() {
+        Object ref = checkCode_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          checkCode_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setCheckCode(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        checkCode_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCheckCode() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        checkCode_ = getDefaultInstance().getCheckCode();
+        onChanged();
+        return this;
+      }
+      void setCheckCode(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000008;
+        checkCode_ = value;
+        onChanged();
+      }
+      
+      // optional string token = 5;
+      private Object token_ = "";
+      public boolean hasToken() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      public String getToken() {
+        Object ref = token_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setToken(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearToken() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      void setToken(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000010;
+        token_ = value;
+        onChanged();
+      }
+      
+      // @@protoc_insertion_point(builder_scope:ResetPassword)
+    }
+    
+    static {
+      defaultInstance = new ResetPassword(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:ResetPassword)
   }
   
   private static com.google.protobuf.Descriptors.Descriptor
@@ -4354,16 +3453,6 @@ public final class EnrollMessage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_EnrollRet_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_Login_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_Login_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoginRet_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_LoginRet_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Logout_descriptor;
   private static
@@ -4379,6 +3468,11 @@ public final class EnrollMessage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ForgetPassword_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResetPassword_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_ResetPassword_fieldAccessorTable;
   
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4387,23 +3481,19 @@ public final class EnrollMessage {
   private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
-      "\n\023EnrollMessage.proto\"N\n\006Enroll\022\020\n\010mobil" +
+    String[] descriptorData = {
+      "\n\023EnrollMessage.proto\"a\n\006Enroll\022\020\n\010mobil" +
       "eNo\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010password\030\003 \001" +
-      "(\t\022\021\n\tcheckCode\030\004 \001(\t\"\037\n\tEnrollRet\022\022\n\nse" +
-      "quenceNo\030\001 \001(\t\"\363\001\n\005Login\022\r\n\005macId\030\001 \002(\t\022" +
-      "\017\n\007version\030\002 \002(\t\022\021\n\taccountId\030\003 \001(\005\022\014\n\004a" +
-      "rea\030\004 \001(\t\022\017\n\007country\030\005 \001(\t\022\016\n\006device\030\006 \001" +
-      "(\t\022\024\n\014deviceSystem\030\007 \001(\t\022\021\n\tchannelId\030\010 " +
-      "\001(\005\022\023\n\013networkType\030\t \001(\t\022\023\n\013prisonBreak\030" +
-      "\n \001(\t\022\020\n\010operator\030\013 \001(\t\022\020\n\010serverId\030\014 \001(" +
-      "\005\022\021\n\tloginType\030\r \001(\005\":\n\010LoginRet\022\017\n\007retC",
-      "ode\030\001 \001(\005\022\016\n\006userId\030\002 \001(\t\022\r\n\005token\030\003 \001(\t" +
-      "\"\'\n\006Logout\022\r\n\005macId\030\001 \001(\t\022\016\n\006userId\030\002 \001(" +
-      "\t\"\036\n\014UserInfoEdit\022\016\n\006userId\030\001 \001(\t\"D\n\016For" +
-      "getPassword\022\020\n\010mobileNo\030\001 \001(\t\022\r\n\005email\030\002" +
-      " \001(\t\022\021\n\tcheckCode\030\003 \001(\tB\022\n\020vine.app.mess" +
-      "age"
+      "(\t\022\021\n\tcheckCode\030\004 \001(\t\022\021\n\tloginType\030\005 \001(\005" +
+      "\"*\n\tEnrollRet\022\016\n\006userId\030\001 \001(\t\022\r\n\005token\030\002" +
+      " \001(\t\"\'\n\006Logout\022\016\n\006userId\030\001 \001(\t\022\r\n\005token\030" +
+      "\002 \001(\t\"\036\n\014UserInfoEdit\022\016\n\006userId\030\001 \001(\t\"S\n" +
+      "\016ForgetPassword\022\020\n\010mobileNo\030\001 \001(\t\022\r\n\005ema" +
+      "il\030\002 \001(\t\022\021\n\tcheckCode\030\003 \001(\t\022\r\n\005token\030\004 \001" +
+      "(\t\"k\n\rResetPassword\022\016\n\006userId\030\001 \001(\t\022\023\n\013o" +
+      "ldPassword\030\002 \001(\t\022\023\n\013newPassword\030\003 \001(\t\022\021\n",
+      "\tcheckCode\030\004 \001(\t\022\r\n\005token\030\005 \001(\tB\022\n\020vine." +
+      "app.message"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4415,57 +3505,49 @@ public final class EnrollMessage {
           internal_static_Enroll_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Enroll_descriptor,
-              new java.lang.String[] { "MobileNo", "Email", "Password", "CheckCode", },
-              vine.app.message.EnrollMessage.Enroll.class,
-              vine.app.message.EnrollMessage.Enroll.Builder.class);
+              new String[] { "MobileNo", "Email", "Password", "CheckCode", "LoginType", },
+              Enroll.class,
+              Enroll.Builder.class);
           internal_static_EnrollRet_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_EnrollRet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_EnrollRet_descriptor,
-              new java.lang.String[] { "SequenceNo", },
-              vine.app.message.EnrollMessage.EnrollRet.class,
-              vine.app.message.EnrollMessage.EnrollRet.Builder.class);
-          internal_static_Login_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_Login_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Login_descriptor,
-              new java.lang.String[] { "MacId", "Version", "AccountId", "Area", "Country", "Device", "DeviceSystem", "ChannelId", "NetworkType", "PrisonBreak", "Operator", "ServerId", "LoginType", },
-              vine.app.message.EnrollMessage.Login.class,
-              vine.app.message.EnrollMessage.Login.Builder.class);
-          internal_static_LoginRet_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_LoginRet_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_LoginRet_descriptor,
-              new java.lang.String[] { "RetCode", "UserId", "Token", },
-              vine.app.message.EnrollMessage.LoginRet.class,
-              vine.app.message.EnrollMessage.LoginRet.Builder.class);
+              new String[] { "UserId", "Token", },
+              EnrollRet.class,
+              EnrollRet.Builder.class);
           internal_static_Logout_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(2);
           internal_static_Logout_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Logout_descriptor,
-              new java.lang.String[] { "MacId", "UserId", },
-              vine.app.message.EnrollMessage.Logout.class,
-              vine.app.message.EnrollMessage.Logout.Builder.class);
+              new String[] { "UserId", "Token", },
+              Logout.class,
+              Logout.Builder.class);
           internal_static_UserInfoEdit_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(3);
           internal_static_UserInfoEdit_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_UserInfoEdit_descriptor,
-              new java.lang.String[] { "UserId", },
-              vine.app.message.EnrollMessage.UserInfoEdit.class,
-              vine.app.message.EnrollMessage.UserInfoEdit.Builder.class);
+              new String[] { "UserId", },
+              UserInfoEdit.class,
+              UserInfoEdit.Builder.class);
           internal_static_ForgetPassword_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(4);
           internal_static_ForgetPassword_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ForgetPassword_descriptor,
-              new java.lang.String[] { "MobileNo", "Email", "CheckCode", },
-              vine.app.message.EnrollMessage.ForgetPassword.class,
-              vine.app.message.EnrollMessage.ForgetPassword.Builder.class);
+              new String[] { "MobileNo", "Email", "CheckCode", "Token", },
+              ForgetPassword.class,
+              ForgetPassword.Builder.class);
+          internal_static_ResetPassword_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_ResetPassword_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_ResetPassword_descriptor,
+              new String[] { "UserId", "OldPassword", "NewPassword", "CheckCode", "Token", },
+              ResetPassword.class,
+              ResetPassword.Builder.class);
           return null;
         }
       };

@@ -17,8 +17,8 @@ import java.net.URL;
  */
 public class EnrollClient {
     private static final Logger log = LoggerFactory.getLogger(EnrollClient.class);
-//	private static final String POST_URL = "http://localhost:8080/vineapp/server";
-    private static final String POST_URL = "http://vstar.meibu.net:80/vineapp/server";
+	private static final String POST_URL = "http://localhost:8081/vineapp/server";
+//    private static final String POST_URL = "http://vstar.meibu.net:80/vineapp/server";
 	
 	private static void sendPbPacket() throws Exception{
 		URL postUrl = new URL(POST_URL);
@@ -68,7 +68,7 @@ public class EnrollClient {
             log.debug("=============Response==================");
             System.out.println("Packet head :" + connection.getHeaderField(PacketConst.HTTP_KEY_PACKETHEAD));
             System.out.println("App head :" + connection.getHeaderField(PacketConst.HTTP_KEY_APPHEAD));
-			System.out.println("SCTestRet:\n" + retPacket.getSequenceNo());
+			System.out.println("SCTestRet:\n" + retPacket.getUserId());
 
 
 //            System.out.println("EnrollRet:\n" + new String(retTmp));

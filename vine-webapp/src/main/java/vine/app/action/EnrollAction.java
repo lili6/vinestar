@@ -34,7 +34,8 @@ public class EnrollAction {
         String seqno = "first20141025001";
 
         EnrollMessage.EnrollRet.Builder builder = EnrollMessage.EnrollRet.newBuilder();
-        builder.setSequenceNo(seqno);
+        builder.setUserId(seqno);
+        builder.setToken("token0001");
         byte[] buff = builder.build().toByteArray();
 
         packet.setAppBody(buff);
@@ -44,16 +45,6 @@ public class EnrollAction {
         return packet;
     }
 
-    /**
-     * 登录接口
-     * @param session
-     * @param packet
-     * @return
-     */
-    @RequestModule(value = HOpCodeEx.Login, needOnline = false)
-    public HttpPacket login (UserSession session, HttpPacket packet) {
-        return packet;
-    }
 
     /**
      * 注销用户
