@@ -1,4 +1,4 @@
-package sample.http.http;
+package sample.http;
 
 
 
@@ -28,8 +28,8 @@ public class HttpAppClient {
         connection.setInstanceFollowRedirects(true);
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         //公共部分的报文头,传递的是json字符串
-        connection.setRequestProperty(PacketConst.PACKET_HEAD, "packetHead-test");
-        connection.setRequestProperty(PacketConst.APP_HEAD,"appHead-test");
+        connection.setRequestProperty(PacketConst.HTTP_KEY_PACKETHEAD, "packetHead-test");
+        connection.setRequestProperty(PacketConst.HTTP_KEY_APPHEAD,"appHead-test");
 
         connection.connect();
         try {

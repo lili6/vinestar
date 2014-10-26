@@ -126,13 +126,13 @@ public class VineStarServlet extends HttpServlet {
 		log.info("接收[总长度：{}][HttpSessionId:{}][IP:{}] \n 请求buffer:\n[{}]",
 					buff.length, httpSession.getId(), ip, StringUtil.bytes2HexStr(buff));
 		HttpPacket packet = new HttpPacket();
-        String ph = req.getHeader(PacketConst.PACKET_HEAD);
-        String ah = req.getHeader(PacketConst.APP_HEAD);
+        String ph = req.getHeader(PacketConst.HTTP_KEY_PACKETHEAD);
+        String ah = req.getHeader(PacketConst.HTTP_KEY_APPHEAD);
         log.debug("packet head:{}" ,ph);
         log.debug("app head:{}" ,ah);
         //判断是否有PacketId值
        JSONObject  phJson = JSONObject.parseObject(ph);
-        Integer packetId = phJson.getInteger(PacketConst.PACKET_ID);
+        Integer packetId = phJson.getInteger(PacketConst.PACKET_KEY_PACKET_ID);
         if (packetId == null) {
                 log.error("packetId is null ,return...");
         }
@@ -169,7 +169,7 @@ public class VineStarServlet extends HttpServlet {
 		*/
 		if(packet.getPacketId() <= 0){
 
-			log.error("[IP:{}]请求消息包[{}]不存在,消息内容:[{}]", ip, PacketConst.PACKET_ID , packet);
+			log.error("[IP:{}]请求消息包[{}]不存在,消息内容:[{}]", ip, PacketConst.PACKET_KEY_PACKET_ID , packet);
 			// 对错误的相应数据处理
             /*
 			Packet packet = Packet.packError(HOpCode.OPCODE_COMM_ERROR,
@@ -209,10 +209,10 @@ public class VineStarServlet extends HttpServlet {
 
         HttpPacket.PacketHead packetHead = packet.new PacketHead();
 
-        packetHead.packetId = phJson.getInteger(PacketConst.PACKET_ID);
-        packetHead.flag = (phJson.getInteger(PacketConst.PACKET_FLAG)==null)?0:phJson.getInteger(PacketConst.PACKET_FLAG);
-        packetHead.retCode = (phJson.getInteger(PacketConst.PACKET_RET_CODE)==null)?0:phJson.getInteger(PacketConst.PACKET_RET_CODE);
-        packetHead.stamp =( phJson.getLong(PacketConst.PACKET_STAMP)==null)?0l:phJson.getLong(PacketConst.PACKET_STAMP);
+        packetHead.packetId = phJson.getInteger(PacketConst.PACKET_KEY_PACKET_ID);
+        packetHead.flag = (phJson.getInteger(PacketConst.PACKET_KEY_FLAG)==null)?0:phJson.getInteger(PacketConst.PACKET_KEY_FLAG);
+        packetHead.retCode = (phJson.getInteger(PacketConst.PACKET_KEY_RET_CODE)==null)?0:phJson.getInteger(PacketConst.PACKET_KEY_RET_CODE);
+        packetHead.stamp =( phJson.getLong(PacketConst.PACKET_KEY_STAMP)==null)?0l:phJson.getLong(PacketConst.PACKET_KEY_STAMP);
         packet.setPacketHead(packetHead);
         packet.setPacketId(packetHead.packetId);
         HttpPacket.AppHead appHead = packet.new AppHead();

@@ -86,6 +86,15 @@ public class HttpPacket implements Packet {
         /*预留，暂时没有作用*/
         public int flag = 0;
 
+     public String toJson() {
+         JSONObject obj = new JSONObject();
+         obj.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
+         obj.put(PacketConst.PACKET_KEY_FLAG,flag);
+         obj.put(PacketConst.PACKET_KEY_RET_CODE,retCode);
+         obj.put(PacketConst.PACKET_KEY_STAMP,stamp);
+         return obj.toJSONString();
+     }
+
      @Override
      public String toString() {
          return "PacketHead{" +
@@ -98,6 +107,8 @@ public class HttpPacket implements Packet {
  }
 
     public  class AppHead {
+        /*macId*/
+        public  String macId;
         /*apk version*/
         public String versionCode;
         /* 操作系统版本 */
@@ -112,7 +123,31 @@ public class HttpPacket implements Packet {
         public String deviceType;
         /*网络运营商*/
         public String operator;
-
+        /*登录地区名称*/
+        public String area;
+        /*登录国家名称*/
+        public String country;
+        /*渠道号*/
+        public String channelId;
+        /*是否越狱*/
+        public String prisonBreak;
+        /*服务器号*/
+        public String serverId;
+        /*令牌*/
+        public String token;
+        //TODO 添加完整。。。
+        public String toJson() {
+            JSONObject obj = new JSONObject();
+            obj.put(PacketConst.APP_KEY_MAC_ID,macId);
+            obj.put(PacketConst.APP_KEY_DEVICE_BRAND,deviceBrand);
+            obj.put(PacketConst.APP_KEY_DEVICE_NAME,deviceName);
+            obj.put(PacketConst.APP_KEY_DEVICE_SYSTEM,deviceSystem);
+            obj.put(PacketConst.APP_KEY_DEVICE_TYPE,deviceType);
+            obj.put(PacketConst.APP_KEY_NETWORK_TYPE,networkType);
+            obj.put(PacketConst.APP_KEY_OPERATOR,operator);
+            obj.put(PacketConst.APP_KEY_VERSION_CODE,versionCode);
+            return obj.toJSONString();
+        }
         @Override
         public String toString() {
             return "AppHead{" +

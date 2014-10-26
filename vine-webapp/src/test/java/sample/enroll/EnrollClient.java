@@ -1,6 +1,8 @@
 package sample.enroll;
 
 import org.apache.poi.util.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vine.app.message.EnrollMessage;
 import vine.app.message.HOpCodeEx;
 import vine.app.message.SampleMessage;
@@ -10,9 +12,13 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
+/**
+ * 注册客户端
+ */
 public class EnrollClient {
-	private static final String POST_URL = "http://localhost:8081/vineapp/server";
+    private static final Logger log = LoggerFactory.getLogger(EnrollClient.class);
+//	private static final String POST_URL = "http://localhost:8080/vineapp/server";
+    private static final String POST_URL = "http://vstar.meibu.net:80/vineapp/server";
 	
 	private static void sendPbPacket() throws Exception{
 		URL postUrl = new URL(POST_URL);
@@ -26,10 +32,9 @@ public class EnrollClient {
 		connection.setUseCaches(false);//Post请求不能使用缓存
 		connection.setInstanceFollowRedirects(true);
 		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        //公共部分的报文头,传递的是json字符串
         int packetId = HOpCodeEx.Enroll;
-        connection.setRequestProperty(PacketConst.PACKET_HEAD, "{ \"name\": \"hello\", \"packetId\":" +packetId+" }");
-        connection.setRequestProperty(PacketConst.APP_HEAD,"{ \"name\": \"hello\"}");
+        connection.setRequestProperty(PacketConst.HTTP_KEY_PACKETHEAD, "{ \"name\": \"hello\", \"packetId\":" +packetId+" }");
+        connection.setRequestProperty(PacketConst.HTTP_KEY_APPHEAD,"{ \"name\": \"hello\"}");
 		connection.connect();
 		
 		
@@ -60,9 +65,9 @@ public class EnrollClient {
 
             EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
 //            SampleMessage.SCTestRet ret = SampleMessage.SCTestRet.parseFrom(retPacket.getData());
-
-            System.out.println("Packet head :" + connection.getHeaderField(PacketConst.PACKET_HEAD));
-            System.out.println("App head :" + connection.getHeaderField(PacketConst.APP_HEAD));
+            log.debug("=============Response==================");
+            System.out.println("Packet head :" + connection.getHeaderField(PacketConst.HTTP_KEY_PACKETHEAD));
+            System.out.println("App head :" + connection.getHeaderField(PacketConst.HTTP_KEY_APPHEAD));
 			System.out.println("SCTestRet:\n" + retPacket.getSequenceNo());
 
 

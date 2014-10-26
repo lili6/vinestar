@@ -25,8 +25,8 @@ public class HttpPbClient {
 		connection.setInstanceFollowRedirects(true);
 		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         //公共部分的报文头,传递的是json字符串
-        connection.setRequestProperty(PacketConst.PACKET_HEAD, "{ \"name\": \"hello\", \"packetId\": 901 }");
-        connection.setRequestProperty(PacketConst.APP_HEAD,"{ \"name\": \"hello\"}");
+        connection.setRequestProperty(PacketConst.HTTP_KEY_PACKETHEAD, "{ \"name\": \"hello\", \"packetId\": 901 }");
+        connection.setRequestProperty(PacketConst.HTTP_KEY_APPHEAD,"{ \"name\": \"hello\"}");
 		connection.connect();
 		
 		

@@ -30,8 +30,8 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <servlet>
-        <servlet-name>VineServerServlet</servlet-name>
-        <servlet-class>vine.core.net.http.VineServerServlet</servlet-class>
+        <servlet-name>VineStarServlet</servlet-name>
+        <servlet-class>vine.core.net.http.VineStarServlet</servlet-class>
         <init-param>
             <param-name>UserSessionClosedLis</param-name>
             <param-value>application.SaveUserListener</param-value>
@@ -42,7 +42,7 @@
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>VineServerServlet</servlet-name>
+        <servlet-name>VineStarServlet</servlet-name>
         <url-pattern>/server</url-pattern>
     </servlet-mapping>
 

@@ -1,4 +1,4 @@
-package sample.http.http;
+package sample.http;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +33,8 @@ public class HttpAppServlet extends HttpServlet {
         String ip = req.getRemoteAddr();
 
 
-       log.debug("packetHead:::" + req.getHeader(PacketConst.PACKET_HEAD));
-       log.debug("appHead:::" + req.getHeader(PacketConst.APP_HEAD));
+       log.debug("packetHead:::" + req.getHeader(PacketConst.HTTP_KEY_PACKETHEAD));
+       log.debug("appHead:::" + req.getHeader(PacketConst.HTTP_KEY_APPHEAD));
         //读取请求数据流
         byte[] buff = readContent(req);
         log.debug("buff:",buff.length);

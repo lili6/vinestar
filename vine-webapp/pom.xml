@@ -98,7 +98,7 @@
         </dependency>
 
 
-        <!--                       -->
+        <!--      project dependencies         -->
 
         <dependency>
             <groupId>vine</groupId>

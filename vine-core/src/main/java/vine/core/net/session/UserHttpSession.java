@@ -54,8 +54,8 @@ public class UserHttpSession extends UserSession implements Serializable {
 //        byte[] willSendMsg = "I'm back!!".getBytes();
         byte[] willSendMsg = packet.getAppBody();
 
-        httpResponse.setHeader(PacketConst.PACKET_HEAD,packet.getPacketHead().toString());
-        httpResponse.setHeader(PacketConst.APP_HEAD, packet.getAppHead().toString());
+        httpResponse.setHeader(PacketConst.HTTP_KEY_PACKETHEAD,packet.getPacketHead().toJson());
+        httpResponse.setHeader(PacketConst.HTTP_KEY_APPHEAD, packet.getAppHead().toJson());
 //        httpResponse.setHeader(PacketConst.APP_HEAD, "TEST APP HEAD...");
 
 		int command = packet.getPacketId();// 使用请求的命令编号作为获取缓存的OutputStream的ID//		

@@ -9,41 +9,39 @@ public class PacketConst {
 
     //======================框架报文结构定义==开始====================================================
     /** 向客户端发送的消息中包含的消息ID变量名称 */
-    public static final String PACKET_HEAD 		= "packetHead";
-    public static final String APP_HEAD 		= "appHead";
+    public static final String HTTP_KEY_PACKETHEAD 		= "packetHead";
+    public static final String HTTP_KEY_APPHEAD 		= "appHead";
 //    public static final String APP_BODY 		= "appBody";
 
     //======================框架报文结构定义==开始====================================================
 
 	//======================框架报文头定义==开始====================================================
 	/** 向客户端发送的消息中包含的消息ID变量名称 */
-	public static final String PACKET_ID 		= "packetId";
+	public static final String PACKET_KEY_PACKET_ID		= "packetId";
 	/** 时间戳key名称*/
-	public static final String PACKET_STAMP	 	= "stamp";
+	public static final String PACKET_KEY_STAMP	 	= "stamp";
 	/** 通讯响应码key名称*/
-	public static final String PACKET_RET_CODE  = "retCode";
+	public static final String PACKET_KEY_RET_CODE  = "retCode";
 	/** 标识位key名称, 预留*/
-	public static final String PACKET_FLAG		= "flag";
-	//======================框架报文头定义==开始====================================================
-    public static final String APPHEAD_VERSIONCODE = "versionCode";
-
-    //======================框架报文头定义==开始====================================================
-/*apk version*/
-    public String versionCode;
+	public static final String PACKET_KEY_FLAG		= "flag";
+	//======================应用报文头定义==开始====================================================
+    public static final String  APP_KEY_MAC_ID = "macId";
+    /*apk version*/
+    public static final String APP_KEY_VERSION_CODE = "versionCode";
     /* 操作系统版本 */
-    public String deviceSystem;
+    public static final String APP_KEY_DEVICE_SYSTEM = "deviceSystem";
     /* 设备名称  */
-    public String deviceName;
+    public static final String APP_KEY_DEVICE_NAME = "deviceNAME";
     /* 网络类型*/
-    public String networkType ;
+    public static final String APP_KEY_NETWORK_TYPE = "networkType";
     /*设备厂商*/
-    public String deviceBrand;
+    public static final String APP_KEY_DEVICE_BRAND = "deviceBrand";
     /*机型*/
-    public String deviceType;
+    public static final String APP_KEY_DEVICE_TYPE = "deviceType";
     /*网络运营商*/
-    public String operator;
+    public static final String APP_KEY_OPERATOR = "operator";
 
-    //======================框架报文头定义==结束====================================================
+    //======================应用报文头定义==结束====================================================
 
 	
 	/** 消息数据默认编码 */
