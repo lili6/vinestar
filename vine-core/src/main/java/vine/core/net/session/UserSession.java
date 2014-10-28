@@ -5,7 +5,7 @@ package vine.core.net.session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 import vine.core.net.packet.MessageFilterPool;
 import vine.core.net.packet.MessageFilterResult;
 import vine.core.net.packet.MessageOutFilter;

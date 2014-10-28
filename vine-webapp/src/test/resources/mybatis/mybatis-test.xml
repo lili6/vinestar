@@ -5,16 +5,19 @@
     <settings>
         <setting name="lazyLoadingEnabled" value="false"/>
     </settings>
-
+    <!-- mapping to db table-->
     <typeAliases>
-        <typeAlias alias="User" type="vine.sample.mybatis.User"></typeAlias>
+        <typeAlias alias="UserEnroll" type="vine.app.dao.model.UserEnroll"></typeAlias>
     </typeAliases>
 
-    <!--  -->
+    <!-- enums -->
     <typeHandlers>
             <typeHandler
-                handler="vine.app.dao.manager.CodeEnumTypeHandler"
-                javaType="vine.app.model.enums.ApiTypeLevel"/>
+                handler="vine.core.dao.manager.CodeEnumTypeHandler"
+                javaType="vine.app.dao.model.enums.Enabled"/>
+        <typeHandler
+                handler="vine.core.dao.manager.CodeEnumTypeHandler"
+                javaType="vine.app.dao.model.enums.EnrollStatus"/>
     </typeHandlers>
 
     <environments default="development">
@@ -22,8 +25,8 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver" />
-                <!--property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8" /-->
-                <property name="url" value="jdbc:mysql://localhost:3306/test" />
+                <property name="url" value="jdbc:mysql://localhost:3306/vinedb?useUnicode=true&amp;characterEncoding=UTF-8" />
+                <!--property name="url" value="jdbc:mysql://localhost:3306/vinedb" /-->
                 <property name="username" value="root" />
                 <property name="password" value="admin" />
             </dataSource>
@@ -31,7 +34,7 @@
     </environments>
 
     <mappers>
-        <mapper resource="mybatis/mapper/user.xml"/>
+        <mapper resource="mybatis/mapper/star/enroll.xml"/>
     </mappers>
 
 

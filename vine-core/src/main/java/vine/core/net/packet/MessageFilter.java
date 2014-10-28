@@ -3,7 +3,6 @@
  */
 package vine.core.net.packet;
 
-import vine.core.net.http.HttpPacket;
 import vine.core.net.session.UserSession;
 
 /**

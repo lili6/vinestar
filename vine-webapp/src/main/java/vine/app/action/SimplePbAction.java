@@ -10,7 +10,7 @@ import vine.core.net.HOpCode;
 import vine.core.net.action.clazz.Module;
 import vine.core.net.action.clazz.RequestModule;
 
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 import vine.core.net.session.UserSession;
 
 /**

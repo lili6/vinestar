@@ -17,7 +17,7 @@ import java.util.Properties;
 public class SpringBeanFactory {
     private static final Logger log = LoggerFactory.getLogger(SpringBeanFactory.class);
     /** Spring配置文件默认位置 */
-    private static String CONFIG = "context/context*.xml";
+    private static String CONFIG = "context/spring.xml";
     private static ApplicationContext CONTEXT = null;
     private static Locale LOCALE = new Locale("zh_CN");
 
@@ -40,10 +40,13 @@ public class SpringBeanFactory {
                 ((ClassPathXmlApplicationContext)CONTEXT).addBeanFactoryPostProcessor(propHolder);
                 ((ClassPathXmlApplicationContext)CONTEXT).refresh();
             }
-            log.error("AppBeanFactory初始化成功!");
+          //  CONTEXT = new ClassPathXmlApplicationContext("context/context-*.xml") ;
+           // log.debug("enrollService:{}" ,CONTEXT.getBean("enrollService"));
+
+            log.error("SpringBeanFactory初始化成功!");
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("AppBeanFactory初始化出错", e);
+            log.error("SpringBeanFactory初始化出错", e);
         }
     }
 

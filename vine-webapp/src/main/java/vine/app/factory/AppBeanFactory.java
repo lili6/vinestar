@@ -4,6 +4,7 @@
 package vine.app.factory;
 
 import org.springframework.context.ApplicationContext;
+import vine.app.service.EnrollService;
 
 /**
  * @author liguofang
@@ -22,8 +23,10 @@ public class AppBeanFactory {
 	private static LoginManager loginManager;
 	private static ChatManager chatManager;
 */
+    private static EnrollService enrollService;
 	public static void init(){
 		ApplicationContext context = SpringUtil.getContext();
+        enrollService =(EnrollService)context.getBean("enrollService");
         /*
 		personDAO = context.getBean(PersonDAO.class);
 		roleService = context.getBean(RoleService.class);
@@ -37,7 +40,15 @@ public class AppBeanFactory {
 		chatManager = context.getBean(ChatManager.class);
 		*/
 	}
-	/*
+
+    public static EnrollService getEnrollService() {
+        return enrollService;
+    }
+
+    public static void setEnrollService(EnrollService enrollService) {
+        AppBeanFactory.enrollService = enrollService;
+    }
+    /*
 	public static PersonDAO getPersonDAO() {
 		return personDAO;
 	}

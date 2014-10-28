@@ -1,12 +1,15 @@
 package sample.enroll;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vine.app.message.EnrollMessage;
 import vine.app.message.HOpCodeEx;
 import vine.app.message.SampleMessage;
+import vine.core.net.packet.HttpPacket;
 import vine.core.net.packet.PacketConst;
+import vine.core.utils.RandomUtil;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -20,68 +23,73 @@ public class EnrollClient {
 	private static final String POST_URL = "http://localhost:8081/vineapp/server";
 //    private static final String POST_URL = "http://vstar.meibu.net:80/vineapp/server";
 	
-	private static void sendPbPacket() throws Exception{
-		URL postUrl = new URL(POST_URL);
-		//打开链接
-		HttpURLConnection connection = (HttpURLConnection) postUrl.openConnection();
-		
-		connection.setRequestMethod("POST");
-		
-		connection.setDoInput(true);
-		connection.setDoOutput(true);
-		connection.setUseCaches(false);//Post请求不能使用缓存
-		connection.setInstanceFollowRedirects(true);
-		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        int packetId = HOpCodeEx.Enroll;
-        connection.setRequestProperty(PacketConst.HTTP_KEY_PACKETHEAD, "{ \"name\": \"hello\", \"packetId\":" +packetId+" }");
-        connection.setRequestProperty(PacketConst.HTTP_KEY_APPHEAD,"{ \"name\": \"hello\"}");
-		connection.connect();
-		
-		
-		EnrollMessage.Enroll.Builder enroll = EnrollMessage.Enroll.newBuilder();
-        enroll.setMobileNo("13096936482");
-        enroll.setEmail("34793278@qq.com");
-        enroll.setCheckCode("TESTCode");
-        enroll.setPassword("passwordXX");
+	private static byte[] sendPacket(String packetHead,String appHead,byte[] buff) {
+        try {
+            URL postUrl = new URL(POST_URL);
+            //打开链接
+            HttpURLConnection connection = (HttpURLConnection) postUrl.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setUseCaches(false);//Post请求不能使用缓存
+            connection.setInstanceFollowRedirects(true);
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setRequestProperty(PacketConst.HTTP_KEY_PACKETHEAD,packetHead);
+            connection.setRequestProperty(PacketConst.HTTP_KEY_APPHEAD,appHead);
+            connection.connect();
 
-		/*
-		PbPacket packet = new PbPacket();
-		packet.setPacketId(HOpCodeEx.CSTest);
-		packet.setFlag(1);
-		packet.setRetCode(PacketConst.RETCODE_SUCCESS); //必须为0
-		packet.setStamp(System.currentTimeMillis());
-		packet.setData(csTestB.build().toByteArray());
-		*/
-		try {
 			OutputStream os = connection.getOutputStream();
-//			byte tmp [] = Packet.packHttpResponse(packet, Packet.PacketType.PB);
-            byte tmp[] = enroll.build().toByteArray();
+            byte tmp[] = buff;
 			os.write(tmp);
 			os.flush();
 			os.close();
-			System.out.println("发送数据：\n"+ enroll.build());
-			
 			byte retTmp [] = IOUtils.toByteArray(connection.getInputStream());
-
-            EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
-//            SampleMessage.SCTestRet ret = SampleMessage.SCTestRet.parseFrom(retPacket.getData());
             log.debug("=============Response==================");
             System.out.println("Packet head :" + connection.getHeaderField(PacketConst.HTTP_KEY_PACKETHEAD));
             System.out.println("App head :" + connection.getHeaderField(PacketConst.HTTP_KEY_APPHEAD));
-			System.out.println("SCTestRet:\n" + retPacket.getUserId());
-
-
-//            System.out.println("EnrollRet:\n" + new String(retTmp));
 			connection.disconnect();
+            return retTmp;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+        return null;
 	}
-	
+
+    private static void resetPassword() throws InvalidProtocolBufferException {
+        int packetId = HOpCodeEx.ResetPassword;
+        String packetHead =  "{ \"name\": \"hello\", \"packetId\":" +packetId+" }";
+        String appHead = "{ \"name\": \"hello\"}";
+        EnrollMessage.ResetPassword.Builder enroll = EnrollMessage.ResetPassword.newBuilder();
+        enroll.setUserId("3");
+        enroll.setNewPassword("000000");
+        byte[] buff = enroll.build().toByteArray();
+        byte[] retTmp = sendPacket(packetHead,appHead,buff);
+
+        EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
+        log.debug("resetPassword response:userId:[{}]" , retPacket.getUserId());
+    }
+
+    private static void enroll()throws InvalidProtocolBufferException {
+        int packetId = HOpCodeEx.Enroll;
+        String packetHead =  "{ \"name\": \"hello\", \"packetId\":" +packetId+" }";
+        String appHead = "{ \"name\": \"hello\"}";
+        EnrollMessage.Enroll.Builder enroll = EnrollMessage.Enroll.newBuilder();
+        enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987412)));
+        enroll.setEmail("34793278@qq.com");
+        enroll.setCheckCode("TESTCode");
+        enroll.setPassword(String.valueOf(RandomUtil.nextInt(100000)));
+        enroll.setLoginType(1);
+        byte[] buff = enroll.build().toByteArray();
+        byte[] retTmp = sendPacket(packetHead,appHead,buff);
+
+        EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
+        log.debug("enroll response:userId:[{}],token:[{}]" , retPacket.getUserId(),retPacket.getToken());
+    }
+
 	 public static void main(String args[]){
 		try {
-			sendPbPacket();
+            resetPassword();
+            enroll();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

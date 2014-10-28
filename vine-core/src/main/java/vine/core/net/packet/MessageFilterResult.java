@@ -4,8 +4,6 @@
 package vine.core.net.packet;
 
 
-import vine.core.net.http.HttpPacket;
-
 /**
  * 消息过滤结果
  * @author liguofang

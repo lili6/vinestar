@@ -16,7 +16,7 @@ public class SpringUtil {
 	
 	private static Logger log = Logger.getLogger(SpringUtil.class);
 	
-	private static final ApplicationContext context = SpringBeanFactory.getContext();
+	private static final ApplicationContext context =  SpringBeanFactory.getContext();
 
 	private SpringUtil(){
 	}
@@ -43,7 +43,7 @@ public class SpringUtil {
 			// 初始化Action
 //			ActionRegister.init();
 			// 初始化Action脚本文件
-	    	ActionRegister.getRegister(ActionType.CLASS).init("vine.app.action","true");
+	    	ActionRegister.getRegister(ActionType.CLASS).init("vine.app.action","false");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

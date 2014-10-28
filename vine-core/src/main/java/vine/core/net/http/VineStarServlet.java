@@ -6,7 +6,6 @@ package vine.core.net.http;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vine.core.net.HOpCode;
 import vine.core.net.action.ActionRunner;
 import vine.core.net.packet.*;
 import vine.core.net.session.*;
@@ -210,7 +209,7 @@ public class VineStarServlet extends HttpServlet {
         HttpPacket.PacketHead packetHead = packet.new PacketHead();
 
         packetHead.packetId = phJson.getInteger(PacketConst.PACKET_KEY_PACKET_ID);
-        packetHead.flag = (phJson.getInteger(PacketConst.PACKET_KEY_FLAG)==null)?0:phJson.getInteger(PacketConst.PACKET_KEY_FLAG);
+//        packetHead.flag = (phJson.getInteger(PacketConst.PACKET_KEY_FLAG)==null)?0:phJson.getInteger(PacketConst.PACKET_KEY_FLAG);
         packetHead.retCode = (phJson.getInteger(PacketConst.PACKET_KEY_RET_CODE)==null)?0:phJson.getInteger(PacketConst.PACKET_KEY_RET_CODE);
         packetHead.stamp =( phJson.getLong(PacketConst.PACKET_KEY_STAMP)==null)?0l:phJson.getLong(PacketConst.PACKET_KEY_STAMP);
         packet.setPacketHead(packetHead);

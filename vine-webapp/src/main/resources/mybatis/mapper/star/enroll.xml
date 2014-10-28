@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="vine.app.dao.auto.EnrollDao">
+
+    <select id="selectEnrollBySeqno" parameterType="long" resultType="UserEnroll">
+        SELECT * FROM user_enroll WHERE seqno = #{seqno}
+    </select>
+
+    <select id="findEnrollByMobileNo" resultType="UserEnroll">
+        SELECT * FROM user_enroll WHERE mobileNo=#{mobileNo}
+    </select>
+
+    <insert id="insertEnroll">
+        <![CDATA[
+        insert into
+        user_enroll(userId,mobileNo,email,password,createTime,creator,updateTime,updater)
+        values(#{userId},#{mobileNo},#{email},#{password},now(),#{creator},now(),#{creator}) ]]>
+    </insert>
+
+
+    <select id="findEnrollByEmail" resultType="UserEnroll">
+        SELECT * FROM user_enroll WHERE email=#{email}
+    </select>
+
+    <select id="selectAllEnroll" resultType="UserEnroll">
+
+        SELECT * FROM user_enroll
+
+    </select>
+
+    <select id="deleteEnrollBySeqno">
+
+        UPDATE user_enroll SET
+            enabled = #{enabled.code},
+            updateTime= now(),
+            updater = #{updater}
+        WHERE  seqno = #{seqno}
+
+    </select>
+    <select id="resetPasswordByUserId">
+        UPDATE user_enroll SET
+        password = #{password},
+        updateTime= now(),
+        updater = #{userId}
+        WHERE  userId = #{userId}
+    </select>
+
+
+
+
+</mapper>
+

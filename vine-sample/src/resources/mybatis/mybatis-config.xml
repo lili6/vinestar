@@ -19,8 +19,8 @@
 
                 <property name="driver" value="com.mysql.jdbc.Driver" />
 
-                <!--property name="url" value="jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8" /-->
-                <property name="url" value="jdbc:mysql://localhost:3306/test" />
+                <property name="url" value="jdbc:mysql://localhost:3306/vinedb?useUnicode=true&amp;characterEncoding=UTF-8" />
+                <!--property name="url" value="jdbc:mysql://localhost:3306/vinedb" /-->
                 <property name="username" value="root" />
 
                 <property name="password" value="admin" />
@@ -33,7 +33,7 @@
 
     <mappers>
 
-        <mapper resource="mybatis/user.xml"/>
+         <mapper resource="mybatis/mapping/user.xml"/>
 
     </mappers>
 

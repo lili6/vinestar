@@ -1,8 +1,9 @@
-package vine.core.net.http;
+package vine.core.net.packet;
 
 import com.alibaba.fastjson.JSONObject;
 import vine.core.net.packet.Packet;
 import vine.core.net.packet.PacketConst;
+import vine.core.net.packet.enums.RETCODE;
 import vine.core.utils.StringUtil;
 
 import java.util.Arrays;
@@ -16,7 +17,7 @@ import java.util.Arrays;
  * appHead : 业务应用的公共报文头部分，json格式串
  * appBody：protobuf格式byte[]流
  */
-public class HttpPacket implements Packet {
+public class HttpPacket {
 
     /*应用体，protobuf 的byte[]*/
     private byte[] appBody ;
@@ -62,18 +63,21 @@ public class HttpPacket implements Packet {
     @Override
     public String toString() {
         return "HttpPacket{" +
-                "packetHead=" + packetHead +
+                "appBody=" + StringUtil.bytes2HexStr(appBody) +
+                ", packetId=" + packetId +
+                ", packetHead=" + packetHead +
                 ", appHead=" + appHead +
-                ", appBody=" + StringUtil.bytes2HexStr(appBody) +
                 '}';
     }
-    /**
-     * 组错误包
-     */
-    public HttpPacket packErrorResp() {
-        HttpPacket p = new HttpPacket();
 
-        return p;
+    /**
+     * 组错误包ＲＥＴＣＯＤＥ
+     */
+    public void setRetCode(RETCODE retcode) {
+        this.getPacketHead().retCode = retcode.value();
+    }
+    public void setStamp() {
+        this.getPacketHead().stamp = System.currentTimeMillis();
     }
 
  public  class PacketHead {
@@ -83,13 +87,13 @@ public class HttpPacket implements Packet {
         public long stamp = 0l;
         /*框架层标识的返回代码。0表示正常。其他表示错误代码*/
         public int retCode = 0;
-        /*预留，暂时没有作用*/
-        public int flag = 0;
+        /*预留，暂时没有作用
+        public int flag = 0; */
+
 
      public String toJson() {
          JSONObject obj = new JSONObject();
          obj.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
-         obj.put(PacketConst.PACKET_KEY_FLAG,flag);
          obj.put(PacketConst.PACKET_KEY_RET_CODE,retCode);
          obj.put(PacketConst.PACKET_KEY_STAMP,stamp);
          return obj.toJSONString();
@@ -101,7 +105,6 @@ public class HttpPacket implements Packet {
                  "packetId=" + packetId +
                  ", stamp=" + stamp +
                  ", retCode=" + retCode +
-                 ", flag=" + flag +
                  '}';
      }
  }
@@ -146,18 +149,32 @@ public class HttpPacket implements Packet {
             obj.put(PacketConst.APP_KEY_NETWORK_TYPE,networkType);
             obj.put(PacketConst.APP_KEY_OPERATOR,operator);
             obj.put(PacketConst.APP_KEY_VERSION_CODE,versionCode);
+            obj.put(PacketConst.APP_KEY_AREA,area);
+            obj.put(PacketConst.APP_KEY_COUNTRY,country);
+            obj.put(PacketConst.APP_KEY_CHANNELID,channelId);
+            obj.put(PacketConst.APP_KEY_PRISONBREAK,prisonBreak);
+            obj.put(PacketConst.APP_KEY_SERVERID,serverId);
+            obj.put(PacketConst.APP_KEY_TOKEN,token);
             return obj.toJSONString();
         }
+
         @Override
         public String toString() {
             return "AppHead{" +
-                    "versionCode='" + versionCode + '\'' +
+                    "macId='" + macId + '\'' +
+                    ", versionCode='" + versionCode + '\'' +
                     ", deviceSystem='" + deviceSystem + '\'' +
                     ", deviceName='" + deviceName + '\'' +
                     ", networkType='" + networkType + '\'' +
                     ", deviceBrand='" + deviceBrand + '\'' +
                     ", deviceType='" + deviceType + '\'' +
                     ", operator='" + operator + '\'' +
+                    ", area='" + area + '\'' +
+                    ", country='" + country + '\'' +
+                    ", channelId='" + channelId + '\'' +
+                    ", prisonBreak='" + prisonBreak + '\'' +
+                    ", serverId='" + serverId + '\'' +
+                    ", token='" + token + '\'' +
                     '}';
         }
     }

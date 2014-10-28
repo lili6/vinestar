@@ -2,7 +2,7 @@ package vine.core.net.action;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 import vine.core.net.session.GameActionTaskResultListener;
 import vine.core.net.session.UserHttpSession;
 import vine.core.net.session.UserSession;

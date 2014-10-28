@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vine.core.net.action.ActionHandler;
 import vine.core.net.action.ActionTaskResultListener;
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 
 /**
  * 通讯接口Action处理信息

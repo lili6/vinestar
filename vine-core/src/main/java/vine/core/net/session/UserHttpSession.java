@@ -5,7 +5,7 @@ package vine.core.net.session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 import vine.core.net.packet.PacketConst;
 import vine.core.utils.StringUtil;
 
@@ -53,7 +53,7 @@ public class UserHttpSession extends UserSession implements Serializable {
 		 */
 //        byte[] willSendMsg = "I'm back!!".getBytes();
         byte[] willSendMsg = packet.getAppBody();
-
+        packet.setStamp();
         httpResponse.setHeader(PacketConst.HTTP_KEY_PACKETHEAD,packet.getPacketHead().toJson());
         httpResponse.setHeader(PacketConst.HTTP_KEY_APPHEAD, packet.getAppHead().toJson());
 //        httpResponse.setHeader(PacketConst.APP_HEAD, "TEST APP HEAD...");

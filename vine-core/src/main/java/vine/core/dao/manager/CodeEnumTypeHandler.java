@@ -1,8 +1,4 @@
-package vine.app.manager;
-
-import org.apache.ibatis.builder.xml.XMLConfigBuilder;
-import org.apache.ibatis.type.BaseTypeHandler;
-import org.apache.ibatis.type.JdbcType;
+package vine.core.dao.manager;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -11,29 +7,34 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.ibatis.builder.xml.XMLConfigBuilder;
+import org.apache.ibatis.type.BaseTypeHandler;
+import org.apache.ibatis.type.JdbcType;
+
 /**
- * Created by liguofang on 2014/10/15.
  * 通用枚举处理
- *
+ * 
  * <p/>
  * 在mybatis-config.xml中配置如下:
- *
+ * 
  * <ul>
  * <li>必须指定javaType枚举类
  * <li>枚举类必须包含getCode和静态的codeOf方法
  * </ul>
- *
+ * 
  * <pre>
  * &lt;typeHandlers&gt;
- *     &lt;typeHandler javaType="vine.dao....XXXEnum" handler="vine.app.dao.manager.CodeEnumTypeHandler" /&gt;
+ *     &lt;typeHandler javaType="com.qunar...XXXEnum" handler="com.qunar.base.meerkat.orm.mybatis.type.CodeEnumTypeHandler" /&gt;
  * &lt;/typeHandlers&gt;
  * </pre>
- *
+ * 
  * TypeHandler初始化参考{@link XMLConfigBuilder}中方法typeHandlerElement
- *
+ * 
+ * @author zhongyuan.zhang
  */
 @SuppressWarnings("rawtypes")
 public class CodeEnumTypeHandler extends BaseTypeHandler<Enum<?>> {
+
     private Method getCode;
     private Method codeOf;
 

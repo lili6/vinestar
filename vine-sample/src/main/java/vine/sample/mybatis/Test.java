@@ -25,8 +25,11 @@ public class Test {
 
         SqlSession session = ssf.openSession();
         try{
-
-
+            User user2 = new User();
+            user2.setName("Jasmin");
+            user2.setPassword("123456");
+            session.insert("insertUser",user2);
+            session.commit();
             User user = session.selectOne("selectUser", 1);
 
             System.out.println(user.getName());

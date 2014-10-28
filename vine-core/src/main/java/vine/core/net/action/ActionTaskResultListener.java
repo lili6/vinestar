@@ -1,6 +1,6 @@
 package vine.core.net.action;
 
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 
 /**
  * Created by liguofang on 2014/10/14.

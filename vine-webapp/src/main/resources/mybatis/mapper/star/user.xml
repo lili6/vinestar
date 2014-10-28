@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="vine.app.dao.auto.UserDao">
+
+    <select id="selectUser" parameterType="int" resultType="User">
+
+       <![CDATA[  SELECT * FROM user_test WHERE id = #{id} ]]>
+
+    </select>
+
+    <insert id="insertUser">
+         <![CDATA[insert into
+        user_test(`name`,password,createTime,updateTime)
+        values(#{name},#{password},now(),now())
+        ]]>
+    </insert>
+
+    <select id="selectUsers" resultType="User">
+        <![CDATA[
+        SELECT * FROM user_test
+        ]]>
+    </select>
+
+
+
+</mapper>
+

@@ -4,7 +4,7 @@
 package application;
 
 import org.apache.log4j.Logger;
-import vine.core.net.http.HttpPacket;
+import vine.core.net.packet.HttpPacket;
 import vine.core.net.packet.MessageFilterResult;
 import vine.core.net.packet.MessageOutFilter;
 import vine.core.net.session.UserSession;

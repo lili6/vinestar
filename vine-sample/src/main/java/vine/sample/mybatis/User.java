@@ -1,20 +1,24 @@
 package vine.sample.mybatis;
 
+import java.util.Date;
+
 /**
  * Created by liguofang on 2014/10/10.
  */
 public class User {
-    private int id;
+    private long id;
 
     private String name;
 
     private String password;
 
-    public int getId() {
+    private Date createTime;
+    private Date updateTime;
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -34,12 +38,29 @@ public class User {
         this.password = password;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", createTime=" + createTime +
                 '}';
     }
 }
