@@ -11,8 +11,17 @@
 
     <insert id="insertUser">
          <![CDATA[insert into
-        user_test(`name`,password,createTime,updateTime)
-        values(#{name},#{password},now(),now())
+        user_test(userId,`name`,password,createTime,updateTime,comment)
+        values(#{userId},#{name},#{password},now(),now(),#{comment})
+        ]]>
+    </insert>
+
+    <insert id="insertAndGetId" useGeneratedKeys="true"  keyProperty="id" parameterType="User">
+        <![CDATA[
+        insert into
+        user_test(userId,`name`,password,createTime,updateTime,comment)
+        values(#{userId},#{name},#{password},now(),now(),#{comment})
+
         ]]>
     </insert>
 

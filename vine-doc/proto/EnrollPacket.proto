@@ -1,0 +1,63 @@
+//@module=enroll,StartIndex=10001,classname=Enroll
+option java_package = "com.vine.vinemars.net.pb";
+option optimize_for = LITE_RUNTIME;
+
+//客户端快速注册/登录请求消息包
+message Enroll
+{
+	optional string mobileNo			= 	1;	//手机号
+	optional string	email				= 	2;	//邮箱地址
+	optional string	password			= 	3;	//密码
+	optional string	checkCode			= 	4;	//校验码
+	optional int32  loginType 			= 	5;	//  0：游客登陆	1：用户登陆  2 ：中断恢复 
+}
+
+message EnrollRet
+{
+	optional string userId				=	1;	//用户唯一编号
+	optional string	token				=	2;	//base64加密
+}
+
+//----------------------游客/用户登出，或者进程被杀死----------------------
+message Logout
+{	
+	optional string  	userId				= 1;	//  自动生成的账号,系统用户信息唯一标识
+	optional string		token				= 2;
+}
+//message LogoutRet only has retCode
+
+//----------------------用户信息维护------------------ TODO
+message UserInfoEdit
+{	
+	optional string  userId				= 1;	//  自动生成的账号,系统用户信息唯一标识
+}
+//UserInfoEditRet only has retCode, 
+
+
+//----------------------忘记密码----------------------
+message ForgetPassword
+{	
+	optional string 	mobileNo			= 1;	//手机号
+	optional string		email				= 2;	//邮箱地址	
+	optional string		checkCode			= 3;	//校验码
+	optional string		token				= 4;
+	
+}
+//ForgetPasswordRet only has retCode 
+
+//----------------------重置密码----------------------
+
+message ResetPassword
+{	
+	optional string		userId					= 1;	//用户id
+	optional string 	oldPassword				= 2;	//旧密码
+	optional string		newPassword				= 3;	//新密码	
+	optional string		checkCode				= 4;	//校验码
+	optional string		token					= 5;
+}
+//ResetPasswordRet only has retCode 
+
+
+
+
+

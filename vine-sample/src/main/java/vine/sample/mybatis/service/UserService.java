@@ -20,4 +20,5 @@ public class UserService {
     public User selectUser(int id) {
         return userDao.selectUser(id);
     }
+
 }

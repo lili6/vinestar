@@ -1,5 +1,6 @@
 package sample.enroll;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.InvalidProtocolBufferException;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
@@ -57,13 +58,19 @@ public class EnrollClient {
 
     private static void resetPassword() throws InvalidProtocolBufferException {
         int packetId = HOpCodeEx.ResetPassword;
-        String packetHead =  "{ \"name\": \"hello\", \"packetId\":" +packetId+" }";
-        String appHead = "{ \"name\": \"hello\"}";
+        JSONObject ph = new JSONObject();
+        ph.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
+        ph.put(PacketConst.PACKET_KEY_STAMP,System.currentTimeMillis());
+
+        JSONObject ap = new JSONObject();
+        ap.put(PacketConst.APP_KEY_CHANNELID,"02");
+        ap.put(PacketConst.APP_KEY_SERVERID,"10");
+
         EnrollMessage.ResetPassword.Builder enroll = EnrollMessage.ResetPassword.newBuilder();
-        enroll.setUserId("3");
+        enroll.setUserId("ebdb98c0920042eb85f127ba8628c32f");
         enroll.setNewPassword("000000");
         byte[] buff = enroll.build().toByteArray();
-        byte[] retTmp = sendPacket(packetHead,appHead,buff);
+        byte[] retTmp = sendPacket(ph.toJSONString(),ap.toJSONString(),buff);
 
         EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
         log.debug("resetPassword response:userId:[{}]" , retPacket.getUserId());
@@ -71,12 +78,20 @@ public class EnrollClient {
 
     private static void enroll()throws InvalidProtocolBufferException {
         int packetId = HOpCodeEx.Enroll;
-        String packetHead =  "{ \"name\": \"hello\", \"packetId\":" +packetId+" }";
-        String appHead = "{ \"name\": \"hello\"}";
+        JSONObject ph = new JSONObject();
+        ph.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
+        ph.put(PacketConst.PACKET_KEY_STAMP,System.currentTimeMillis());
+
+        JSONObject ap = new JSONObject();
+        ap.put(PacketConst.APP_KEY_CHANNELID,"09");
+        ap.put(PacketConst.APP_KEY_SERVERID,"12");
+
+        String packetHead =  ph.toJSONString();//"{ \"name\": \"hello\", \"packetId\":" +packetId+" }";
+        String appHead = ap.toJSONString();//"{ \"name\": \"hello\"}";
         EnrollMessage.Enroll.Builder enroll = EnrollMessage.Enroll.newBuilder();
-        enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987412)));
+        enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987478)));
         enroll.setEmail("34793278@qq.com");
-        enroll.setCheckCode("TESTCode");
+        enroll.setCheckCode("ABCD");
         enroll.setPassword(String.valueOf(RandomUtil.nextInt(100000)));
         enroll.setLoginType(1);
         byte[] buff = enroll.build().toByteArray();
@@ -88,9 +103,10 @@ public class EnrollClient {
 
 	 public static void main(String args[]){
 		try {
+
             resetPassword();
             enroll();
-		} catch (Exception e) {
+        } catch (Exception e) {
 			e.printStackTrace();
 		}
 	 }

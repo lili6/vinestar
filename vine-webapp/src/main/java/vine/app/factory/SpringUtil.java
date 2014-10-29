@@ -1,6 +1,7 @@
 package vine.app.factory;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import vine.core.cache.CacheType;
 import vine.core.config.Configuration;
@@ -13,8 +14,8 @@ import vine.core.net.session.UserSessionManager;
 import vine.core.spring.SpringBeanFactory;
 
 public class SpringUtil {
-	
-	private static Logger log = Logger.getLogger(SpringUtil.class);
+
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(SpringUtil.class);
 	
 	private static final ApplicationContext context =  SpringBeanFactory.getContext();
 

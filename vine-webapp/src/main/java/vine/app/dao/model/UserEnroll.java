@@ -11,7 +11,7 @@ import java.sql.Date;
  */
 public class UserEnroll {
     private long seqno;
-    private int userId;
+    private String userId;
     private String mobileNo;
     private String email;
     private String password;
@@ -30,11 +30,11 @@ public class UserEnroll {
         this.seqno = seqno;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

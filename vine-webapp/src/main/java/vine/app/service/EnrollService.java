@@ -43,7 +43,7 @@ public class EnrollService {
 //        UserEnroll user2 = new UserEnroll();
 //        user2.setUserId(Integer.parseInt(userId));
 //        user2.setPassword(password);
-        enrollDao.resetPasswordByUserId(Integer.parseInt(userId),password);
+        enrollDao.resetPasswordByUserId(userId,password);
 
     }
 

@@ -11,5 +11,5 @@ import vine.sample.mybatis.User;
 public interface UserDao {
     public User selectUser(int id);
     public void insertUser(User user);
-
+    public int insertAndGetId(User user);
 }

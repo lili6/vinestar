@@ -1,0 +1,190 @@
+//@module=calendar,StartIndex=11001,classname=CalendarCategory
+option java_package = "com.vine.vinemars.net.pb";
+option optimize_for = LITE_RUNTIME;
+
+//客户端日程列表请求消息包
+message FindCalendarCategoryList
+{
+	optional string startTime			= 	1;	//开始时间
+	optional string	endTime				= 	2;	//结束时间
+	optional string keyword 			= 	3;	//搜索关键字
+}
+
+message FindCalendarCategoryListRet
+{
+    message CalendarCategory
+    {
+        optional int64  id       			= 	1;	//自增Id
+        optional int64	userId				= 	2;	//用户Id
+        optional string name                = 	3;	//日程分类名称
+        optional int32  showOrder           = 	4;	//显示顺序
+        optional int32  enabled             = 	5;	//是否可用
+        optional int64  createTime          = 	6;	//创建时间
+        optional string createBy            = 	7;	//创建者
+        optional int64  updateTime          = 	8;	//更新时间
+        optional string updateBy            = 	9;	//更新者
+    }
+	repeated CalendarCategory calendarCategorys			    =	1;	//日程分类列表
+
+}
+
+
+
+//----------------------查看单个日程分类详情（应该不用）----------------------
+message FindCalendarCategoryById
+{	
+	optional int64  calendarCategoryId			    = 1;	//日程分类ID
+}
+
+message FindCalendarCategoryByIdRet{
+
+    optional CalendarCategory calendarCategory 		    	= 1;	//日程分类详情
+}
+
+//--------------------新增日程分类--------------------
+
+message AddCalendarCategory
+{	
+	optional CalendarCategory calendarCategory				= 1;	//日程分类详情
+}
+
+message AddCalendarCategoryRet{
+    message ResultDO
+    {
+           optional bool   success       			= 	1;	//是否操作成功
+           optional int64  successMsg				= 	2;	//成功描述
+           optional int64  errorCode		        = 	3;	//失败编码
+           optional string errorMsg                 = 	4;	//失败描述for系统
+           optional string errorMsgForClient        = 	5;	//失败描述for用户
+    }
+    optional ResultDO result 		    	        = 1;	//日程详情
+}
+
+//-------------------- 修改日程分类(调准顺序,修改名称)--------------------
+
+message EditCalendarCategoryById
+{
+	optional CalendarCategory calendarCategory		= 1;	//日程分类详情
+}
+
+message EditCalendarCategoryByIdRet{
+    message ResultDO
+    {
+       optional bool   success       			= 	1;	//是否操作成功
+       optional int64	successMsg				= 	2;	//成功描述
+       optional int64  errorCode		        = 	3;	//失败编码
+       optional string errorMsg                 = 	4;	//失败描述for系统
+       optional string errorMsgForClient        = 	5;	//失败描述for用户
+    }
+    optional ResultDO result 		    	= 1;	//结果对象
+}
+
+
+//-------------------- 删除日程分类--------------------
+
+message DeleteCalendarCategoryById
+{
+	optional int64  calendarCategoryId			= 1;	//日程Id
+}
+
+message DeleteCalendarCategoryByIdRet{
+    message ResultDO
+    {
+        optional bool   success       			= 	1;	//是否操作成功
+        optional int64	successMsg				= 	2;	//成功描述
+        optional int64  errorCode		        = 	3;	//失败编码
+        optional string errorMsg                = 	4;	//失败描述for系统
+        optional string errorMsgForClient       = 	5;	//失败描述for用户
+    }
+    optional ResultDO result 		    	= 1;	//结果对象
+}
+
+
+//-----------------客户端日程评论列表请求消息包order By createTime---------
+message FindCalendarCommentList
+{
+	optional int64  calendarId		    = 	3;	//日程Id
+}
+
+message FindCalendarCommentListRet
+{
+    message CalendarComment
+    {
+        optional int64  id       			= 	1;	//自增Id
+        optional int64	userId				= 	2;	//用户Id
+        optional int64	cmtUserId			= 	3;	//评论用户Id
+        optional string calCommentDesc      = 	5;	//日程评论内容
+        optional string calCommentPic       = 	6;	//日程评论图片
+        optional string calCommentVoice     = 	7;	//日程评论音频
+        optional string calCommentVideo     = 	8;	//日程评论视频
+        optional int64  longitude           = 	10;	//地理经度 TODO 微调：类型为decimal(10,7)
+        optional int64  latitude            = 	11;	//地理经度 TODO 微调：类型为decimal(10,7)
+        optional string localInfo           = 	12;	//地理信息
+        optional int32  enabled             = 	13;	//是否可用
+        optional int64  createTime          = 	14;	//创建时间
+        optional string createBy            = 	15;	//创建者
+        optional int64  updateTime          = 	16;	//更新时间
+        optional string updateBy            = 	17;	//更新者
+    }
+	repeated CalendarComment calendarComments			    =	1;	//日程评论列表
+
+}
+
+
+
+//----------------------查看单个日程评论详情----------------------
+message FindCalendarCommentById
+{
+    optional int64  calendarId			            = 1;	//日程ID
+	optional int64  calendarCommentId			    = 2;	//日程评论ID
+}
+
+message FindCalendarCommentByIdRet{
+    optional CalendarComment calendarComment 		= 1;	//日程评论详情
+}
+
+//--------------------新增日程评论--------------------
+
+message AddCalendar
+{	
+	optional CalendarComment calendarComment				= 1;	//日程评论详情
+}
+
+message AddCalendarRet{
+    message ResultDO
+    {
+        optional bool   success       			= 	1;	//是否操作成功
+        optional int64	successMsg				= 	2;	//成功描述
+        optional int64  errorCode		        = 	3;	//失败编码
+        optional string errorMsg                = 	4;	//失败描述for系统
+        optional string errorMsgForClient       = 	5;	//失败描述for用户
+    }
+    optional ResultDO result 		    	    = 1;	//日程详情
+}
+
+
+//-------------------- 删除日程评论--------------------
+
+message DeleteCalendarCommentById
+{
+    optional int64  calendarId			            = 1;	//日程ID
+    optional int64  calendarCommentId			    = 2;	//日程评论ID
+}
+
+message DeleteCalendarCommentByIdRet{
+    message ResultDO
+    {
+        optional bool   success       			= 	1;	//是否操作成功
+        optional int64	successMsg				= 	2;	//成功描述
+        optional int64  errorCode		        = 	3;	//失败编码
+        optional string errorMsg                = 	4;	//失败描述for系统
+        optional string errorMsgForClient       = 	5;	//失败描述for用户
+    }
+    optional ResultDO result 		    	= 1;	//结果对象
+}
+
+
+
+
+
+

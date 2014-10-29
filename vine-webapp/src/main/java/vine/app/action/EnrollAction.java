@@ -17,6 +17,8 @@ import vine.core.net.action.clazz.RequestModule;
 import vine.core.net.packet.HttpPacket;
 import vine.core.net.session.UserSession;
 import vine.core.utils.RandomUtil;
+import vine.core.utils.TokenUtil;
+import vine.core.utils.UUIDGenerator;
 
 /**
  * Created by liguofang on 2014/10/24.
@@ -58,7 +60,8 @@ public class EnrollAction {
         userEnroll.setEmail(email);
         userEnroll.setPassword(password);
         userEnroll.setCreator("admin");
-        int userId = RandomUtil.nextInt(9999); //TODO userId 需要设置生成方式
+//        int userId = RandomUtil.nextInt(9999); 
+        String userId = UUIDGenerator.getUUID();
         userEnroll.setUserId(userId);
         if(loginType!=0) {
             enrollService.enroll(userEnroll);
@@ -66,10 +69,11 @@ public class EnrollAction {
             log.debug("guest enroll，log guest..");
             //TODO 游客登录
         }
-
+        long seqno = userEnroll.getSeqno();
         EnrollRet.Builder builder = EnrollRet.newBuilder();
         builder.setUserId(String.valueOf(userId));
-        builder.setToken("token--"+userId); //TODO 增加Token的生成规则
+        builder.setToken(TokenUtil.generateToken(seqno+userId +packet.getPacketHead().stamp));
+        //TODO 将token放到session中，以后每次用户交互都要进行token的验证。
         byte[] buff = builder.build().toByteArray();
         packet.setAppBody(buff);
         packet.setRetCode(RETCODE.SUCCESS);

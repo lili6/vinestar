@@ -11,7 +11,7 @@
         SELECT * FROM user_enroll WHERE mobileNo=#{mobileNo}
     </select>
 
-    <insert id="insertEnroll">
+    <insert id="insertEnroll"  useGeneratedKeys="true"  keyProperty="seqno" parameterType="UserEnroll">
         <![CDATA[
         insert into
         user_enroll(userId,mobileNo,email,password,createTime,creator,updateTime,updater)

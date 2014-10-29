@@ -7,13 +7,14 @@ import java.util.Date;
  */
 public class User {
     private long id;
-
+    private String userId;
     private String name;
 
     private String password;
 
     private Date createTime;
     private Date updateTime;
+    private String comment;
     public long getId() {
         return id;
     }
@@ -54,13 +55,32 @@ public class User {
         this.updateTime = updateTime;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
+                "userId=" + userId +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", comment='" + comment + '\'' +
                 '}';
     }
 }

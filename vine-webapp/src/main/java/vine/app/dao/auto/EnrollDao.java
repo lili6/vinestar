@@ -15,13 +15,13 @@ public interface EnrollDao {
 
     public UserEnroll findEnrollByMobileNo(@Param("mobileNo") String mobileNo);
   /***/
-    public void insertEnroll(UserEnroll userEnroll);
+    public int insertEnroll(UserEnroll userEnroll);
     public void updateEnroll(UserEnroll userEnroll);
 
     public List<UserEnroll> selectAllEnroll();
 
     public void deleteEnrollBySeqno(@Param("seqno") int seqno);
 
-    public void resetPasswordByUserId(@Param("userId") int userId,@Param("password") String password);
+    public void resetPasswordByUserId(@Param("userId") String userId,@Param("password") String password);
 
 }
