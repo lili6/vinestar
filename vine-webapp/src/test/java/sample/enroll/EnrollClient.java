@@ -67,7 +67,7 @@ public class EnrollClient {
         ap.put(PacketConst.APP_KEY_SERVERID,"10");
 
         EnrollMessage.ResetPassword.Builder enroll = EnrollMessage.ResetPassword.newBuilder();
-        enroll.setUserId("ebdb98c0920042eb85f127ba8628c32f");
+        enroll.setUserId("6d4120c9047f41f8a7517b7f81a4bb6e");
         enroll.setNewPassword("000000");
         byte[] buff = enroll.build().toByteArray();
         byte[] retTmp = sendPacket(ph.toJSONString(),ap.toJSONString(),buff);
@@ -90,7 +90,7 @@ public class EnrollClient {
         String appHead = ap.toJSONString();//"{ \"name\": \"hello\"}";
         EnrollMessage.Enroll.Builder enroll = EnrollMessage.Enroll.newBuilder();
         enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987478)));
-        enroll.setEmail("34793278@qq.com");
+        enroll.setEmail("chengfei@qq.com");
         enroll.setCheckCode("ABCD");
         enroll.setPassword(String.valueOf(RandomUtil.nextInt(100000)));
         enroll.setLoginType(1);
@@ -105,7 +105,7 @@ public class EnrollClient {
 		try {
 
             resetPassword();
-            enroll();
+          //  enroll();
         } catch (Exception e) {
 			e.printStackTrace();
 		}
