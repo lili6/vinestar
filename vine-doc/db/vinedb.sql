@@ -40,8 +40,8 @@ CREATE TABLE `calendar_category` (
 -- ----------------------------
 -- Table structure for calendar_comment
 -- ----------------------------
-DROP TABLE IF EXISTS `calendar_comment`;
-CREATE TABLE `calendar_comment` (
+DROP TABLE IF EXISTS `calendar_additive`;
+CREATE TABLE `calendar_additive` (
   `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
   `userId` int(11) DEFAULT NULL,
   `cmtUserId` int(11) DEFAULT NULL COMMENT '评论用户Id',
