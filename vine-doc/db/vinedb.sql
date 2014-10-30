@@ -38,7 +38,7 @@ CREATE TABLE `calendar_category` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for calendar_comment
+-- Table structure for calendar_additive
 -- ----------------------------
 DROP TABLE IF EXISTS `calendar_additive`;
 CREATE TABLE `calendar_additive` (
