@@ -16,6 +16,8 @@ public enum RETCODE {
     PACKETID_EMPTY(102),//,"请求消息包ID为空"
     PACKETID_NOT_EXIST(103),//,"请求包ID不存在"
     PACKETID_LOCKED(104), //"请求包锁定中"
+    VALIDATECODE_ERROR(105), //"校验码不正确"
+
     /*----------201-300为Enroll模块的返回码--同客户端相同的校验类的直接返回业务错误拒绝*/
     ENROLL_MOBILE_EXIST(201), //手机号已注册
     ENROLL_EMAIL_EXIST(202); //邮件已注册

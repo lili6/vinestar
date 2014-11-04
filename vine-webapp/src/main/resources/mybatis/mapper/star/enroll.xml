@@ -23,6 +23,11 @@
         SELECT * FROM user_enroll WHERE email=#{email}
     </select>
 
+    <select id="findEnrollByMobileNo" resultType="UserEnroll">
+        SELECT * FROM user_enroll WHERE mobileNo=#{mobileNo}
+
+    </select>
+
     <select id="selectAllEnroll" resultType="UserEnroll">
 
         SELECT * FROM user_enroll
@@ -45,6 +50,7 @@
         updater = #{userId}
         WHERE  userId = #{userId}
     </select>
+
 
 
 

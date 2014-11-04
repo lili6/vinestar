@@ -71,12 +71,8 @@ public class TestEnrollDao {
 //        SpringUtil.init();
         String resource = "mybatis/mybatis-test.xml";
         Reader reader = Resources.getResourceAsReader(resource);
-
         SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);
-
         session = ssf.openSession();
-
-
         try{
             UserEnroll user2 = new UserEnroll();
             String userId = UUIDGenerator.getUUID();
@@ -88,10 +84,7 @@ public class TestEnrollDao {
             int ret =  session.insert("insertEnroll",user2);
             log.debug("ret:",ret);
             session.commit();
-
-
 //            insertEnroll();
-
         } catch (Exception e) {
 
             e.printStackTrace();

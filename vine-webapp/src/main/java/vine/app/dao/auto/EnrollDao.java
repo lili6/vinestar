@@ -14,6 +14,8 @@ public interface EnrollDao {
 
 
     public UserEnroll findEnrollByMobileNo(@Param("mobileNo") String mobileNo);
+    public UserEnroll findEnrollByEmail(@Param("email") String email) ;
+
   /***/
     public int insertEnroll(UserEnroll userEnroll);
     public void updateEnroll(UserEnroll userEnroll);
@@ -23,5 +25,7 @@ public interface EnrollDao {
     public void deleteEnrollBySeqno(@Param("seqno") int seqno);
 
     public void resetPasswordByUserId(@Param("userId") String userId,@Param("password") String password);
+
+
 
 }

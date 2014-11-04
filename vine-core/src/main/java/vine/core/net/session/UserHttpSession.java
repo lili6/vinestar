@@ -27,6 +27,7 @@ public class UserHttpSession extends UserSession implements Serializable {
 	private transient HttpSession httpSession;
 	/*每个packetId对应一个stream*/
 	private transient Map<String, OutputStream> streams = new HashMap<String, OutputStream>();
+
 	private String remoteAddr;
     private HttpServletResponse httpResponse;
 	UserHttpSession(HttpSession httpSession){

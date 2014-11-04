@@ -10,6 +10,7 @@ import vine.app.message.EnrollMessage;
 import vine.app.message.EnrollMessage.Enroll;
 import vine.app.message.EnrollMessage.EnrollRet;
 import vine.app.message.HOpCodeEx;
+import vine.common.constant.SessionAttributeKey;
 import vine.core.net.packet.enums.RETCODE;
 import vine.app.service.EnrollService;
 import vine.core.net.action.clazz.Module;
@@ -17,6 +18,7 @@ import vine.core.net.action.clazz.RequestModule;
 import vine.core.net.packet.HttpPacket;
 import vine.core.net.session.UserSession;
 import vine.core.utils.RandomUtil;
+import vine.core.utils.RandomValidateCode;
 import vine.core.utils.TokenUtil;
 import vine.core.utils.UUIDGenerator;
 
@@ -28,6 +30,31 @@ import vine.core.utils.UUIDGenerator;
 public class EnrollAction {
     private static final Logger log = LoggerFactory.getLogger(EnrollAction.class);
     EnrollService enrollService=AppBeanFactory.getEnrollService();
+
+    @RequestModule(value = HOpCodeEx.GetValidateCode, needOnline = false)
+    public HttpPacket getValidateCode (UserSession session, HttpPacket packet) {
+        log.debug("getValidateCode begin...");
+        String validateCode = RandomValidateCode.getRandomString();
+        session.setAttribute(SessionAttributeKey.RANDOM_CODE_KEY,validateCode);
+        try {
+            EnrollMessage.GetValidateCode.Builder builder = EnrollMessage.GetValidateCode.newBuilder();
+            builder.setValidateCode(validateCode);
+            byte[] buff = builder.build().toByteArray();
+            packet.setAppBody(buff);
+            packet.setRetCode(RETCODE.SUCCESS);
+            packet.setStamp();
+        } catch (Exception e) {
+            //解析请求数据错误。。TODO
+            log.error("packetId[{}] request message parse error:{}",packet.getPacketId(),e);
+            e.printStackTrace();
+            packet.setRetCode(RETCODE.MESSAGE_PARSE_ERROR);
+            packet.setAppBody(null);
+            return packet;
+        }
+        log.debug("getValidateCode response packet:{}",packet);
+        return packet;
+    }
+
     /**
      * 注册接口
      * @param session
@@ -53,9 +80,27 @@ public class EnrollAction {
             packet.setAppBody(null);
             return packet;
         }
-        String checkCode = req.getCheckCode(); //  TODO对校验码的验证
+        //1、对校验码的验证
+        String checkCode = req.getCheckCode();
+        if (!checkCode.equalsIgnoreCase((String)session.getAttribute(SessionAttributeKey.RANDOM_CODE_KEY))) {
+            packet.setRetCode(RETCODE.VALIDATECODE_ERROR);
+            packet.setAppBody(null);
+            packet.setStamp();
+            return packet;
+        }
+        //2、对手机号或者邮箱号的唯一性验证
         String mobileNo = req.getMobileNo();
+        if (null == mobileNo || mobileNo.equals("") ||!enrollService.mobileNoExist(mobileNo)) {
+                //TODO 手机号存在
+        }
+
         String email = req.getEmail();
+
+        if (null == email || email.equals("") || enrollService.emailExist(email)) {
+            //TODO 手机号存在
+        }
+
+
         String password = req.getPassword();
         Integer loginType = req.getLoginType();
         UserEnroll userEnroll = new UserEnroll();

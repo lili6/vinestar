@@ -8,5 +8,5 @@ public class HOpCodeEx extends HOpCode {
 	public static final int UserInfoEdit = 10004;
 	public static final int ForgetPassword = 10005;
 	public static final int ResetPassword = 10006;
-
+    public static final int GetValidateCode = 10007;
 }

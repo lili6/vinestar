@@ -56,3 +56,8 @@ message ResetPassword
 	optional string		token					= 5;
 }
 //ResetPasswordRet only has retCode 
+//------------------------获取验证码------------------
+message GetValidateCode
+{
+    optional string validateCode        =   1; //返回的验证码,无请求数据
+}
