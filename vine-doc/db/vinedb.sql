@@ -38,10 +38,10 @@ CREATE TABLE `calendar_category` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for calendar_comment
+-- Table structure for calendar_additive
 -- ----------------------------
-DROP TABLE IF EXISTS `calendar_comment`;
-CREATE TABLE `calendar_comment` (
+DROP TABLE IF EXISTS `calendar_additive`;
+CREATE TABLE `calendar_additive` (
   `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
   `userId` int(11) DEFAULT NULL,
   `cmtUserId` int(11) DEFAULT NULL COMMENT '评论用户Id',
@@ -384,3 +384,38 @@ INSERT INTO `user_test` VALUES ('10', null, 'lily', '000000', '2014-10-29 10:52:
 INSERT INTO `user_test` VALUES ('99', null, 'lily', '000000', '2014-10-29 11:02:48', '2014-10-29 11:02:48', '测试插入数据返回主键功能');
 INSERT INTO `user_test` VALUES ('100', '174a52e7-f675-4002-ae65-ce54b6f99ceb', 'liguofang', '000000', '2014-10-29 11:16:27', '2014-10-29 11:16:27', '测试插入数据返回主键功能');
 INSERT INTO `user_test` VALUES ('101', 'a0a1a31901974af190db672baf8f4e47', 'liguofang', '000000', '2014-10-29 11:33:36', '2014-10-29 11:33:36', '测试插入数据返回主键功能');
+
+
+
+-- ----------------------------
+-- Table structure for user_token
+-- ----------------------------
+drop table if exists user_token;
+create table user_token
+(
+   seqno                bigint(20) not null auto_increment,
+   userId               varchar(128) not null,
+   token                varchar(50),
+   macId                varchar(50),
+   versionCode          bigint(20),
+   deviceSystem         varchar(50),
+   deviceName           varchar(50),
+   deviceBrand          varchar(50),
+   deviceType           varchar(50),
+   networkType          varchar(50),
+   operator             varchar(50),
+   area                 varchar(50),
+   country              varchar(50),
+   channelId            int(5) not null,
+   prisonBreak          tinyint,
+   serverId             decimal(10,7),
+   localInfo            int,
+   enabled              tinyint(1),
+   createTime           datetime,
+   creator              varchar(20),
+   updateTime           datetime,
+   updater              varchar(20),
+   primary key (seqno)
+);
+
+alter table user_token comment '记录用户登录记录';

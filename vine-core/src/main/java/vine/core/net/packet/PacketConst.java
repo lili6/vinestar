@@ -13,7 +13,7 @@ public class PacketConst {
     public static final String HTTP_KEY_APPHEAD 		= "appHead";
 //    public static final String APP_BODY 		= "appBody";
 
-    //======================框架报文结构定义==开始====================================================
+    //======================框架报文结构定义==结束====================================================
 
 	//======================框架报文头定义==开始====================================================
 	/** 向客户端发送的消息中包含的消息ID变量名称 */
@@ -24,6 +24,7 @@ public class PacketConst {
 	public static final String PACKET_KEY_RET_CODE  = "retCode";
 	/** 标识位key名称, 预留*/
 	public static final String PACKET_KEY_FLAG		= "flag";
+
 	//======================应用报文头定义==开始====================================================
     public static final String  APP_KEY_MAC_ID = "macId";
     /*apk version*/

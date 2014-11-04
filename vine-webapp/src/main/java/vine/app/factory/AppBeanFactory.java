@@ -4,6 +4,7 @@
 package vine.app.factory;
 
 import org.springframework.context.ApplicationContext;
+import vine.app.service.CalendarService;
 import vine.app.service.EnrollService;
 
 /**
@@ -24,9 +25,11 @@ public class AppBeanFactory {
 	private static ChatManager chatManager;
 */
     private static EnrollService enrollService;
+    private static CalendarService calendarService;
 	public static void init(){
 		ApplicationContext context = SpringUtil.getContext();
         enrollService =(EnrollService)context.getBean("enrollService");
+        calendarService =(CalendarService)context.getBean("calendarService");
         /*
 		personDAO = context.getBean(PersonDAO.class);
 		roleService = context.getBean(RoleService.class);
@@ -48,6 +51,16 @@ public class AppBeanFactory {
     public static void setEnrollService(EnrollService enrollService) {
         AppBeanFactory.enrollService = enrollService;
     }
+
+    public static CalendarService getCalendarService() {
+        return calendarService;
+    }
+
+    public static void setCalendarService(CalendarService calendarService) {
+        AppBeanFactory.calendarService = calendarService;
+    }
+
+
     /*
 	public static PersonDAO getPersonDAO() {
 		return personDAO;
