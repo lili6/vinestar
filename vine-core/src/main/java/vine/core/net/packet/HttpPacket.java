@@ -63,7 +63,6 @@ public class HttpPacket {
     @Override
     public String toString() {
         return "HttpPacket{" +
-                "appBody=" + StringUtil.bytes2HexStr(appBody) +
                 ", packetId=" + packetId +
                 ", packetHead=" + packetHead +
                 ", appHead=" + appHead +
@@ -73,13 +72,26 @@ public class HttpPacket {
     /**
      * 组错误包ＲＥＴＣＯＤＥ
      */
-    public void setRetCode(RETCODE retcode) {
-        this.getPacketHead().retCode = retcode.value();
+    public void setRetCode(int retCode) {
+        this.getPacketHead().retCode = retCode;
     }
+
     public void setStamp() {
         this.getPacketHead().stamp = System.currentTimeMillis();
     }
 
+    /**
+     * 组失败响应包
+     * 设置错误码，返回消息包，时间戳
+     * @param retCode
+     * @param buff
+     */
+    public void packResponse(int retCode,byte[] buff){
+        this.setRetCode(retCode);
+        this.setAppBody(buff);
+        this.setStamp();
+
+    }
  public  class PacketHead {
         /*为消息ID 用来路由Action*/
         public int packetId = 0;
@@ -118,6 +130,8 @@ public class HttpPacket {
         public String deviceSystem;
         /* 设备名称  */
         public String deviceName;
+        /* 设备编号*/
+        public String deviceNo;
         /* 网络类型*/
         public String networkType ;
         /*设备厂商*/
@@ -136,6 +150,8 @@ public class HttpPacket {
         public String prisonBreak;
         /*服务器号*/
         public String serverId;
+        /*用户ID*/
+        public String userId;
         /*令牌*/
         public String token;
         //TODO 添加完整。。。
@@ -144,6 +160,7 @@ public class HttpPacket {
             obj.put(PacketConst.APP_KEY_MAC_ID,macId);
             obj.put(PacketConst.APP_KEY_DEVICE_BRAND,deviceBrand);
             obj.put(PacketConst.APP_KEY_DEVICE_NAME,deviceName);
+            obj.put(PacketConst.APP_KEY_DEVICE_NO,deviceNo);
             obj.put(PacketConst.APP_KEY_DEVICE_SYSTEM,deviceSystem);
             obj.put(PacketConst.APP_KEY_DEVICE_TYPE,deviceType);
             obj.put(PacketConst.APP_KEY_NETWORK_TYPE,networkType);
@@ -155,6 +172,7 @@ public class HttpPacket {
             obj.put(PacketConst.APP_KEY_PRISONBREAK,prisonBreak);
             obj.put(PacketConst.APP_KEY_SERVERID,serverId);
             obj.put(PacketConst.APP_KEY_TOKEN,token);
+            obj.put(PacketConst.APP_KEY_USERID,userId);
             return obj.toJSONString();
         }
 
@@ -165,6 +183,7 @@ public class HttpPacket {
                     ", versionCode='" + versionCode + '\'' +
                     ", deviceSystem='" + deviceSystem + '\'' +
                     ", deviceName='" + deviceName + '\'' +
+                    ", deviceNo='" + deviceNo + '\'' +
                     ", networkType='" + networkType + '\'' +
                     ", deviceBrand='" + deviceBrand + '\'' +
                     ", deviceType='" + deviceType + '\'' +
@@ -174,6 +193,7 @@ public class HttpPacket {
                     ", channelId='" + channelId + '\'' +
                     ", prisonBreak='" + prisonBreak + '\'' +
                     ", serverId='" + serverId + '\'' +
+                    ", userId='" + userId + '\'' +
                     ", token='" + token + '\'' +
                     '}';
         }

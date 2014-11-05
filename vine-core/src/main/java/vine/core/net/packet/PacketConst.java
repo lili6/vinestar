@@ -32,7 +32,9 @@ public class PacketConst {
     /* 操作系统版本 */
     public static final String APP_KEY_DEVICE_SYSTEM = "deviceSystem";
     /* 设备名称  */
-    public static final String APP_KEY_DEVICE_NAME = "deviceNAME";
+    public static final String APP_KEY_DEVICE_NO = "deviceName";
+    /* 设备编号  */
+    public static final String APP_KEY_DEVICE_NAME = "deviceNo";
     /* 网络类型*/
     public static final String APP_KEY_NETWORK_TYPE = "networkType";
     /*设备厂商*/
@@ -54,6 +56,8 @@ public class PacketConst {
     public static final String APP_KEY_SERVERID="serverId";
     /*服务器下发令牌，每次要进行验证*/
     public static final String APP_KEY_TOKEN="token";
+    /*用户ID*/
+    public static final String APP_KEY_USERID="userId";
 
     //======================应用报文头定义==结束====================================================
 

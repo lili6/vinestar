@@ -8,6 +8,81 @@ public final class EnrollMessage {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public enum LoginType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    GUEST(0, 0),
+    LOGIN(1, 1),
+    ENROLL(2, 2),
+    RESUME(3, 3),
+    ;
+    
+    public static final int GUEST_VALUE = 0;
+    public static final int LOGIN_VALUE = 1;
+    public static final int ENROLL_VALUE = 2;
+    public static final int RESUME_VALUE = 3;
+    
+    
+    public final int getNumber() { return value; }
+    
+    public static LoginType valueOf(int value) {
+      switch (value) {
+        case 0: return GUEST;
+        case 1: return LOGIN;
+        case 2: return ENROLL;
+        case 3: return RESUME;
+        default: return null;
+      }
+    }
+    
+    public static com.google.protobuf.Internal.EnumLiteMap<LoginType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<LoginType>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<LoginType>() {
+            public LoginType findValueByNumber(int number) {
+              return LoginType.valueOf(number);
+            }
+          };
+    
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return EnrollMessage.getDescriptor().getEnumTypes().get(0);
+    }
+    
+    private static final LoginType[] VALUES = {
+      GUEST, LOGIN, ENROLL, RESUME, 
+    };
+    
+    public static LoginType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+    
+    private final int index;
+    private final int value;
+    
+    private LoginType(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+    
+    // @@protoc_insertion_point(enum_scope:LoginType)
+  }
+  
   public interface EnrollOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
@@ -27,9 +102,9 @@ public final class EnrollMessage {
     boolean hasCheckCode();
     String getCheckCode();
     
-    // optional int32 loginType = 5;
+    // optional .LoginType loginType = 5;
     boolean hasLoginType();
-    int getLoginType();
+    LoginType getLoginType();
   }
   public static final class Enroll extends
       com.google.protobuf.GeneratedMessage
@@ -188,13 +263,13 @@ public final class EnrollMessage {
       }
     }
     
-    // optional int32 loginType = 5;
+    // optional .LoginType loginType = 5;
     public static final int LOGINTYPE_FIELD_NUMBER = 5;
-    private int loginType_;
+    private LoginType loginType_;
     public boolean hasLoginType() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    public int getLoginType() {
+    public LoginType getLoginType() {
       return loginType_;
     }
     
@@ -203,7 +278,7 @@ public final class EnrollMessage {
       email_ = "";
       password_ = "";
       checkCode_ = "";
-      loginType_ = 0;
+      loginType_ = LoginType.GUEST;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -230,7 +305,7 @@ public final class EnrollMessage {
         output.writeBytes(4, getCheckCodeBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, loginType_);
+        output.writeEnum(5, loginType_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -259,7 +334,7 @@ public final class EnrollMessage {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, loginType_);
+          .computeEnumSize(5, loginType_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -393,7 +468,7 @@ public final class EnrollMessage {
         bitField0_ = (bitField0_ & ~0x00000004);
         checkCode_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        loginType_ = 0;
+        loginType_ = LoginType.GUEST;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
@@ -536,8 +611,14 @@ public final class EnrollMessage {
               break;
             }
             case 40: {
-              bitField0_ |= 0x00000010;
-              loginType_ = input.readInt32();
+              int rawValue = input.readEnum();
+              LoginType value = LoginType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(5, rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                loginType_ = value;
+              }
               break;
             }
           }
@@ -690,15 +771,18 @@ public final class EnrollMessage {
         onChanged();
       }
       
-      // optional int32 loginType = 5;
-      private int loginType_ ;
+      // optional .LoginType loginType = 5;
+      private LoginType loginType_ = LoginType.GUEST;
       public boolean hasLoginType() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      public int getLoginType() {
+      public LoginType getLoginType() {
         return loginType_;
       }
-      public Builder setLoginType(int value) {
+      public Builder setLoginType(LoginType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
         bitField0_ |= 0x00000010;
         loginType_ = value;
         onChanged();
@@ -706,7 +790,7 @@ public final class EnrollMessage {
       }
       public Builder clearLoginType() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        loginType_ = 0;
+        loginType_ = LoginType.GUEST;
         onChanged();
         return this;
       }
@@ -720,475 +804,6 @@ public final class EnrollMessage {
     }
     
     // @@protoc_insertion_point(class_scope:Enroll)
-  }
-  
-  public interface EnrollRetOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional string userId = 1;
-    boolean hasUserId();
-    String getUserId();
-    
-    // optional string token = 2;
-    boolean hasToken();
-    String getToken();
-  }
-  public static final class EnrollRet extends
-      com.google.protobuf.GeneratedMessage
-      implements EnrollRetOrBuilder {
-    // Use EnrollRet.newBuilder() to construct.
-    private EnrollRet(Builder builder) {
-      super(builder);
-    }
-    private EnrollRet(boolean noInit) {}
-    
-    private static final EnrollRet defaultInstance;
-    public static EnrollRet getDefaultInstance() {
-      return defaultInstance;
-    }
-    
-    public EnrollRet getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return EnrollMessage.internal_static_EnrollRet_descriptor;
-    }
-    
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return EnrollMessage.internal_static_EnrollRet_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // optional string userId = 1;
-    public static final int USERID_FIELD_NUMBER = 1;
-    private Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public String getUserId() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          userId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string token = 2;
-    public static final int TOKEN_FIELD_NUMBER = 2;
-    private Object token_;
-    public boolean hasToken() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getToken() {
-      Object ref = token_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          token_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getTokenBytes() {
-      Object ref = token_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    private void initFields() {
-      userId_ = "";
-      token_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getTokenBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getTokenBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
-    @Override
-    protected Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
-    public static EnrollRet parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static EnrollRet parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static EnrollRet parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static EnrollRet parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static EnrollRet parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static EnrollRet parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static EnrollRet parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static EnrollRet parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static EnrollRet parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static EnrollRet parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(EnrollRet prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements EnrollRetOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return EnrollMessage.internal_static_EnrollRet_descriptor;
-      }
-      
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return EnrollMessage.internal_static_EnrollRet_fieldAccessorTable;
-      }
-      
-      // Construct using vine.app.message.EnrollMessage.EnrollRet.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        userId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        token_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return EnrollRet.getDescriptor();
-      }
-      
-      public EnrollRet getDefaultInstanceForType() {
-        return EnrollRet.getDefaultInstance();
-      }
-      
-      public EnrollRet build() {
-        EnrollRet result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private EnrollRet buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        EnrollRet result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public EnrollRet buildPartial() {
-        EnrollRet result = new EnrollRet(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.userId_ = userId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.token_ = token_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof EnrollRet) {
-          return mergeFrom((EnrollRet)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(EnrollRet other) {
-        if (other == EnrollRet.getDefaultInstance()) return this;
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
-        }
-        if (other.hasToken()) {
-          setToken(other.getToken());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              userId_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              token_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      }
-      
-      private int bitField0_;
-      
-      // optional string userId = 1;
-      private Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getUserId() {
-        Object ref = userId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setUserId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = getDefaultInstance().getUserId();
-        onChanged();
-        return this;
-      }
-      void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        userId_ = value;
-        onChanged();
-      }
-      
-      // optional string token = 2;
-      private Object token_ = "";
-      public boolean hasToken() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public String getToken() {
-        Object ref = token_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          token_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setToken(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearToken() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      void setToken(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        token_ = value;
-        onChanged();
-      }
-      
-      // @@protoc_insertion_point(builder_scope:EnrollRet)
-    }
-    
-    static {
-      defaultInstance = new EnrollRet(true);
-      defaultInstance.initFields();
-    }
-    
-    // @@protoc_insertion_point(class_scope:EnrollRet)
   }
   
   public interface LogoutOrBuilder
@@ -3824,11 +3439,6 @@ public final class EnrollMessage {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Enroll_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_EnrollRet_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_EnrollRet_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Logout_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -3862,19 +3472,19 @@ public final class EnrollMessage {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\023EnrollMessage.proto\"a\n\006Enroll\022\020\n\010mobil" +
+      "\n\023EnrollMessage.proto\"m\n\006Enroll\022\020\n\010mobil" +
       "eNo\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\020\n\010password\030\003 \001" +
-      "(\t\022\021\n\tcheckCode\030\004 \001(\t\022\021\n\tloginType\030\005 \001(\005" +
-      "\"*\n\tEnrollRet\022\016\n\006userId\030\001 \001(\t\022\r\n\005token\030\002" +
-      " \001(\t\"\'\n\006Logout\022\016\n\006userId\030\001 \001(\t\022\r\n\005token\030" +
-      "\002 \001(\t\"\036\n\014UserInfoEdit\022\016\n\006userId\030\001 \001(\t\"S\n" +
-      "\016ForgetPassword\022\020\n\010mobileNo\030\001 \001(\t\022\r\n\005ema" +
-      "il\030\002 \001(\t\022\021\n\tcheckCode\030\003 \001(\t\022\r\n\005token\030\004 \001" +
-      "(\t\"k\n\rResetPassword\022\016\n\006userId\030\001 \001(\t\022\023\n\013o" +
-      "ldPassword\030\002 \001(\t\022\023\n\013newPassword\030\003 \001(\t\022\021\n",
-      "\tcheckCode\030\004 \001(\t\022\r\n\005token\030\005 \001(\t\"\'\n\017GetVa" +
-      "lidateCode\022\024\n\014validateCode\030\001 \001(\tB\022\n\020vine" +
-      ".app.message"
+      "(\t\022\021\n\tcheckCode\030\004 \001(\t\022\035\n\tloginType\030\005 \001(\016" +
+      "2\n.LoginType\"\'\n\006Logout\022\016\n\006userId\030\001 \001(\t\022\r" +
+      "\n\005token\030\002 \001(\t\"\036\n\014UserInfoEdit\022\016\n\006userId\030" +
+      "\001 \001(\t\"S\n\016ForgetPassword\022\020\n\010mobileNo\030\001 \001(" +
+      "\t\022\r\n\005email\030\002 \001(\t\022\021\n\tcheckCode\030\003 \001(\t\022\r\n\005t" +
+      "oken\030\004 \001(\t\"k\n\rResetPassword\022\016\n\006userId\030\001 " +
+      "\001(\t\022\023\n\013oldPassword\030\002 \001(\t\022\023\n\013newPassword\030" +
+      "\003 \001(\t\022\021\n\tcheckCode\030\004 \001(\t\022\r\n\005token\030\005 \001(\t\"",
+      "\'\n\017GetValidateCode\022\024\n\014validateCode\030\001 \001(\t" +
+      "*9\n\tLoginType\022\t\n\005GUEST\020\000\022\t\n\005LOGIN\020\001\022\n\n\006E" +
+      "NROLL\020\002\022\n\n\006RESUME\020\003B\022\n\020vine.app.message"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3889,16 +3499,8 @@ public final class EnrollMessage {
               new String[] { "MobileNo", "Email", "Password", "CheckCode", "LoginType", },
               Enroll.class,
               Enroll.Builder.class);
-          internal_static_EnrollRet_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_EnrollRet_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_EnrollRet_descriptor,
-              new String[] { "UserId", "Token", },
-              EnrollRet.class,
-              EnrollRet.Builder.class);
           internal_static_Logout_descriptor =
-            getDescriptor().getMessageTypes().get(2);
+            getDescriptor().getMessageTypes().get(1);
           internal_static_Logout_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Logout_descriptor,
@@ -3906,7 +3508,7 @@ public final class EnrollMessage {
               Logout.class,
               Logout.Builder.class);
           internal_static_UserInfoEdit_descriptor =
-            getDescriptor().getMessageTypes().get(3);
+            getDescriptor().getMessageTypes().get(2);
           internal_static_UserInfoEdit_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_UserInfoEdit_descriptor,
@@ -3914,7 +3516,7 @@ public final class EnrollMessage {
               UserInfoEdit.class,
               UserInfoEdit.Builder.class);
           internal_static_ForgetPassword_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(3);
           internal_static_ForgetPassword_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ForgetPassword_descriptor,
@@ -3922,7 +3524,7 @@ public final class EnrollMessage {
               ForgetPassword.class,
               ForgetPassword.Builder.class);
           internal_static_ResetPassword_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(4);
           internal_static_ResetPassword_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ResetPassword_descriptor,
@@ -3930,7 +3532,7 @@ public final class EnrollMessage {
               ResetPassword.class,
               ResetPassword.Builder.class);
           internal_static_GetValidateCode_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(5);
           internal_static_GetValidateCode_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_GetValidateCode_descriptor,

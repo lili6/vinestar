@@ -23,6 +23,7 @@ public class EnrollClient {
     private static final Logger log = LoggerFactory.getLogger(EnrollClient.class);
 	private static final String POST_URL = "http://localhost:8081/vineapp/server";
 //    private static final String POST_URL = "http://vstar.meibu.net:80/vineapp/server";
+    private static String checkCode;
 	
 	private static byte[] sendPacket(String packetHead,String appHead,byte[] buff) {
         try {
@@ -40,10 +41,12 @@ public class EnrollClient {
             connection.connect();
 
 			OutputStream os = connection.getOutputStream();
-            byte tmp[] = buff;
-			os.write(tmp);
-			os.flush();
-			os.close();
+            if (buff != null) { //为null时，不需要写入
+                byte tmp[] = buff;
+                os.write(tmp);
+            }
+            os.flush();
+            os.close();
 			byte retTmp [] = IOUtils.toByteArray(connection.getInputStream());
             log.debug("=============Response==================");
             System.out.println("Packet head :" + connection.getHeaderField(PacketConst.HTTP_KEY_PACKETHEAD));
@@ -72,10 +75,43 @@ public class EnrollClient {
         byte[] buff = enroll.build().toByteArray();
         byte[] retTmp = sendPacket(ph.toJSONString(),ap.toJSONString(),buff);
 
-        EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
-        log.debug("resetPassword response:userId:[{}]" , retPacket.getUserId());
+//        EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
+//        log.debug("resetPassword response:userId:[{}]" , retPacket.getUserId());
+                log.debug("resetPassword--end!");
     }
 
+    private static  void login() throws InvalidProtocolBufferException {
+        int packetId = HOpCodeEx.Enroll;
+        JSONObject ph = new JSONObject();
+        ph.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
+        ph.put(PacketConst.PACKET_KEY_STAMP,System.currentTimeMillis());
+
+        JSONObject ap = new JSONObject();
+        ap.put(PacketConst.APP_KEY_CHANNELID,"09");
+        ap.put(PacketConst.APP_KEY_SERVERID,"12");
+        ap.put(PacketConst.APP_KEY_USERID,"67cb796f61794f76a2751f9a3fd88545");
+        String packetHead =  ph.toJSONString();
+        String appHead = ap.toJSONString();
+        EnrollMessage.Enroll.Builder enroll = EnrollMessage.Enroll.newBuilder();
+//        enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987478)));
+        enroll.setMobileNo("13096936483");
+//        enroll.setEmail("chengfei@qq.com");
+//        getValidateCode();
+//        enroll.setCheckCode(checkCode);
+        enroll.setPassword("111111");
+        enroll.setLoginType(EnrollMessage.LoginType.LOGIN);
+//        enroll.setLoginType(EnrollMessage.LoginType.LOGIN);
+        byte[] buff = enroll.build().toByteArray();
+        byte[] retTmp = sendPacket(packetHead,appHead,buff);
+        log.debug("enroll--[login] end!");
+//        EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
+//        log.debug("enroll response:userId:[{}],token:[{}]" , retPacket.getUserId(),retPacket.getToken());
+    }
+    /**
+     * 新用户注册
+     * 邮箱名和手机号不能重复
+     * @throws InvalidProtocolBufferException
+     */
     private static void enroll()throws InvalidProtocolBufferException {
         int packetId = HOpCodeEx.Enroll;
         JSONObject ph = new JSONObject();
@@ -85,27 +121,44 @@ public class EnrollClient {
         JSONObject ap = new JSONObject();
         ap.put(PacketConst.APP_KEY_CHANNELID,"09");
         ap.put(PacketConst.APP_KEY_SERVERID,"12");
-
         String packetHead =  ph.toJSONString();//"{ \"name\": \"hello\", \"packetId\":" +packetId+" }";
         String appHead = ap.toJSONString();//"{ \"name\": \"hello\"}";
         EnrollMessage.Enroll.Builder enroll = EnrollMessage.Enroll.newBuilder();
-        enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987478)));
-        enroll.setEmail("chengfei@qq.com");
-        enroll.setCheckCode("ABCD");
+//        enroll.setMobileNo(String.valueOf(RandomUtil.nextInt(1856987478)));
+        enroll.setMobileNo("13096936485");
+//        enroll.setEmail("guofang@qq.com");
+//        getValidateCode();
+//        enroll.setCheckCode(checkCode);
         enroll.setPassword(String.valueOf(RandomUtil.nextInt(100000)));
-        enroll.setLoginType(1);
+//        enroll.setLoginType(1);
+        enroll.setLoginType(EnrollMessage.LoginType.ENROLL);
         byte[] buff = enroll.build().toByteArray();
         byte[] retTmp = sendPacket(packetHead,appHead,buff);
 
-        EnrollMessage.EnrollRet retPacket = EnrollMessage.EnrollRet.parseFrom(retTmp);
-        log.debug("enroll response:userId:[{}],token:[{}]" , retPacket.getUserId(),retPacket.getToken());
+        log.debug("enroll end!");
+    }
+
+    private static void getValidateCode() throws InvalidProtocolBufferException {
+        int packetId = HOpCodeEx.GetValidateCode;
+        JSONObject ph = new JSONObject();
+        ph.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
+        ph.put(PacketConst.PACKET_KEY_STAMP,System.currentTimeMillis());
+        JSONObject ap = new JSONObject();
+        ap.put(PacketConst.APP_KEY_CHANNELID,"09");
+        ap.put(PacketConst.APP_KEY_SERVERID,"12");
+        byte[] retTmp = sendPacket(ph.toJSONString(),ap.toJSONString(),null);
+        EnrollMessage.GetValidateCode retPacket =EnrollMessage.GetValidateCode.parseFrom(retTmp);
+        checkCode = retPacket.getValidateCode();
+        log.debug("getValidateCode, response:[{}]",retPacket);
     }
 
 	 public static void main(String args[]){
 		try {
+            login();
+//            resetPassword();
+            getValidateCode();
+            enroll();
 
-            resetPassword();
-          //  enroll();
         } catch (Exception e) {
 			e.printStackTrace();
 		}

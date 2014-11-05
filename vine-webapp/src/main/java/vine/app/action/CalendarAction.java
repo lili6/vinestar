@@ -42,7 +42,7 @@ public class CalendarAction {
             //解析请求数据错误。。TODO
             log.error("packetId[{}] request message parse error:{}",packet.getPacketId(),e);
             e.printStackTrace();
-            packet.setRetCode(RETCODE.MESSAGE_PARSE_ERROR);
+//            packet.setRetCode();
             packet.setAppBody(null);
             return packet;
         }

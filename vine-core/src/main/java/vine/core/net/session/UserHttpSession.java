@@ -26,7 +26,7 @@ public class UserHttpSession extends UserSession implements Serializable {
 	private static final Logger log = LoggerFactory.getLogger(UserHttpSession.class);
 	private transient HttpSession httpSession;
 	/*每个packetId对应一个stream*/
-	private transient Map<String, OutputStream> streams = new HashMap<String, OutputStream>();
+	private transient Map<Integer, OutputStream> streams = new HashMap<Integer, OutputStream>();
 
 	private String remoteAddr;
     private HttpServletResponse httpResponse;
@@ -61,12 +61,14 @@ public class UserHttpSession extends UserSession implements Serializable {
 
 		int command = packet.getPacketId();// 使用请求的命令编号作为获取缓存的OutputStream的ID//		
 		if (command > 0) {
-//			OutputStream stream = streams.get(command);
-			OutputStream stream = streams.get(this.sessionId); //根据sessionId获取缓存的OutputStream			
-			if(log.isDebugEnabled()) {log.debug("==packetId[{}],sessionId[{}],stream:{},",command,this.sessionId, stream);}
+			OutputStream stream = streams.get(command);
+//			OutputStream stream = streams.get(this.sessionId); //根据sessionId获取缓存的OutputStream
+			if(log.isDebugEnabled()) {log.debug("==packetId[{}],stream:{},",command,stream);}
 			try {
-				stream.write(willSendMsg);
-				log.info("PacketId[{}]发送数据完毕! \n response buffer:\n[{}]",command, StringUtil.bytes2HexStr(willSendMsg));
+                if (willSendMsg !=null) { //消息体不为空
+                    stream.write(willSendMsg);
+				    log.info("PacketId[{}]发送数据完毕! \n ",command);
+                }
 			} catch (Exception e) {
 				log.error("响应数据出错：MessageId[{}]" , command); // TODO 设置响应数据
 				e.printStackTrace();
@@ -79,7 +81,7 @@ public class UserHttpSession extends UserSession implements Serializable {
 					
 				}
 				if(log.isDebugEnabled()) {log.debug("移除缓存的OutputStream,SessionId[{}]",this.sessionId);}
-				streams.remove(this.sessionId);
+				streams.remove(command);
 			}			
 		}
 	}
@@ -156,10 +158,10 @@ public class UserHttpSession extends UserSession implements Serializable {
 		
 	/**
 	 * 缓存HttpServletResponse对象
-	 * @param sessionId 使用请求命令标识请求的唯一ID，用于向客户端发送数据时从缓存中查找response
+	 * @param packetId 使用请求命令标识请求的唯一ID，用于向客户端发送数据时从缓存中查找response
 	 * @param httpResponse
 	 */
-	public void putHttpResponse(String sessionId, HttpServletResponse httpResponse) {
+	public void putHttpResponse(int packetId, HttpServletResponse httpResponse) {
 		if (httpResponse != null) {
 			try {
                this.httpResponse = httpResponse;
@@ -169,9 +171,9 @@ public class UserHttpSession extends UserSession implements Serializable {
 				httpResponse.setDateHeader("Expires",0);
 				httpResponse.setHeader("Cache-Control","no-cache");
 				OutputStream stream = httpResponse.getOutputStream();
-				if (streams == null) streams = new HashMap<String, OutputStream>();
-				if(log.isDebugEnabled()) {log.debug("设置输出流缓存:SessionId[{}]",sessionId);}
-				streams.put(sessionId, stream);
+				if (streams == null) streams = new HashMap<Integer, OutputStream>();
+				if(log.isDebugEnabled()) {log.debug("设置输出流缓存:packetId[{}]",packetId);}
+				streams.put(packetId, stream);
 				if(log.isDebugEnabled()) {log.debug("设置输出流缓存Streams:[{}]",streams);}
 			} catch (Exception e) {
 				log.error("获取用于发送数据的Http PrintWriter出错!",e);
