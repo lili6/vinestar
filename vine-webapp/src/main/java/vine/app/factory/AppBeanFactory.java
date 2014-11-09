@@ -4,7 +4,9 @@
 package vine.app.factory;
 
 import org.springframework.context.ApplicationContext;
-import vine.app.service.CalendarService;
+import vine.app.service.CalendarCategoryService;
+import vine.app.service.CalendarCommentService;
+import vine.app.service.CalendarInfoService;
 import vine.app.service.EnrollService;
 
 /**
@@ -25,11 +27,16 @@ public class AppBeanFactory {
 	private static ChatManager chatManager;
 */
     private static EnrollService enrollService;
-    private static CalendarService calendarService;
-	public static void init(){
+    private static CalendarInfoService calendarInfoService;
+    private static CalendarCategoryService calendarCategoryService;
+    private static CalendarCommentService calendarCommentService;
+    public static void init(){
 		ApplicationContext context = SpringUtil.getContext();
         enrollService =(EnrollService)context.getBean("enrollService");
-        calendarService =(CalendarService)context.getBean("calendarService");
+        calendarInfoService =(CalendarInfoService)context.getBean("calendarInfoService");
+        calendarCategoryService =(CalendarCategoryService)context.getBean("calendarCategoryService");
+        calendarCommentService = (CalendarCommentService) context.getBean("calendarCommentService");
+
         /*
 		personDAO = context.getBean(PersonDAO.class);
 		roleService = context.getBean(RoleService.class);
@@ -52,14 +59,28 @@ public class AppBeanFactory {
         AppBeanFactory.enrollService = enrollService;
     }
 
-    public static CalendarService getCalendarService() {
-        return calendarService;
+    public static CalendarInfoService getCalendarInfoService() {
+        return calendarInfoService;
     }
 
-    public static void setCalendarService(CalendarService calendarService) {
-        AppBeanFactory.calendarService = calendarService;
+    public static void setCalendarInfoService(CalendarInfoService calendarInfoService) {
+        AppBeanFactory.calendarInfoService = calendarInfoService;
+    }
+    public static CalendarCategoryService getCalendarCategoryService() {
+        return calendarCategoryService;
     }
 
+    public static void setCalendarCategoryService(CalendarCategoryService calendarCategoryService) {
+        AppBeanFactory.calendarCategoryService = calendarCategoryService;
+    }
+
+    public static CalendarCommentService getCalendarCommentService() {
+        return calendarCommentService;
+    }
+
+    public static void setCalendarCommentService(CalendarCommentService calendarCommentService) {
+        AppBeanFactory.calendarCommentService = calendarCommentService;
+    }
 
     /*
 	public static PersonDAO getPersonDAO() {

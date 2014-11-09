@@ -1,0 +1,223 @@
+//@module=calendar,StartIndex=11001,classname=Calendar
+option java_package = "vine.app.message";
+
+//客户端日程列表请求消息包
+message FindCalendarList
+{
+	optional string startTime			= 	1;	//开始时间
+	optional string	endTime				= 	2;	//结束时间
+	optional int64  calCategoryId		= 	3;	//日程分类Id
+	optional int32	priority   		    = 	4;	//优先级
+	optional string keyword 			= 	5;	//搜索关键字
+}
+ message CalendarComment
+    {
+        optional int64  id       			= 	1;	//自增Id
+        optional string	userId				= 	2;	//用户Id
+        optional int64	calendarId			= 	3;	//日程Id
+        optional string calCommentDesc      = 	4;	//日程评论内容
+        optional string calCommentPic       = 	5;	//日程评论图片
+        optional string calCommentVoice     = 	6;	//日程评论音频
+        optional string calCommentVideo     = 	7;	//日程评论视频
+        optional int64  longitude           = 	8;	//地理经度 TODO 微调：类型为decimal(10,7)
+        optional int64  latitude            = 	9;	//地理经度 TODO 微调：类型为decimal(10,7)
+        optional string localInfo           = 	10;	//地理信息
+        optional int32  enabled             = 	11;	//是否可用
+        optional int64  createTime          = 	12;	//创建时间
+        optional string creator            = 	13;	//创建者
+        optional int64  updateTime          = 	14;	//更新时间
+        optional string updater            = 	15;	//更新者
+    }
+
+ message Calendar
+    {
+        optional int64  id       			= 	1;	//自增Id
+        optional string	userId				= 	2;	//用户Id
+        optional int64  calCategoryId		= 	3;	//日程分类Id
+        optional string calName             = 	4;	//日程名称
+        optional string calDesc             = 	5;	//日程文字内容
+        optional string calPic              = 	6;	//日程图片
+        optional string calVoice            = 	7;	//日程音频
+        optional string calVideo            = 	8;	//日程视频
+        optional int32	priority   		    = 	9;	//优先级
+        optional int32  alterEnabled        = 	10;	//是否提醒1提醒0不提醒
+        optional int32  openEnabled         = 	11;	//是否公开1提醒0不提醒
+        optional int32  endEnabled          = 	12;	//是否结束1未结束0结束
+        optional int64  alterTime           = 	13;	//提醒时间
+        optional int32  alterForward        = 	14;	//提前几分钟提醒
+        optional int64  longitude           = 	15;	//地理经度 TODO 微调：类型为decimal(10,7)
+        optional int64  latitude            = 	16;	//地理经度 TODO 微调：类型为decimal(10,7)
+        optional string localInfo           = 	17;	//地理信息
+        optional int32  enabled             = 	18;	//是否可用
+        optional int64  createTime          = 	19;	//创建时间
+        optional string creator            = 	20;	//创建者
+        optional int64  updateTime          = 	21;	//更新时间
+        optional string updater            = 	22;	//更新者
+        repeated CalendarComment calendarComments  = 	23; //评论追加
+    }
+message FindCalendarListRet
+{
+   
+	repeated Calendar calendars			    =	1;	//日程列表
+
+}
+
+
+
+//----------------------查看单个日程详情----------------------
+message FindCalendarById
+{	
+	optional int64  calendarId			    = 1;	//日程ID
+}
+
+message FindCalendarByIdRet
+{
+
+    optional Calendar Calendar 		    	= 1;	//日程详情
+}
+
+//--------------------新增日程--------------------
+
+message AddCalendar
+{	
+	optional Calendar calendar				= 1;	//日程详情
+}
+
+//----message AddCalendarRet not need
+
+   
+//-------------------- 修改日程(设置分类,标记为重要,提醒推后一天,设置为已结束/未结束)--------------------
+
+message EditCalendarById
+{
+	optional Calendar calendar				= 1;	//日程详情
+}
+
+//-----message EditCalendarByIdRet not need
+
+//-------------------- 删除日程--------------------
+
+message DeleteCalendarById
+{
+	optional int64  calendarId					= 1;	//日程Id
+}
+
+//message DeleteCalendarByIdRet{ not need
+ 
+
+//客户端日程列表请求消息包
+message FindCalendarCategoryList
+{
+	optional string startTime			= 	1;	//开始时间
+	optional string	endTime				= 	2;	//结束时间
+	optional string keyword 			= 	3;	//搜索关键字
+}
+
+message FindCalendarCategoryListRet
+{
+   
+	repeated CalendarCategory calendarCategorys			    =	1;	//日程分类列表
+
+}
+ message CalendarCategory
+    {
+        optional int64  id       			= 	1;	//自增Id
+        optional string	userId				= 	2;	//用户Id
+        optional string name                = 	3;	//日程分类名称
+        optional int32  showOrder           = 	4;	//显示顺序
+        optional int32  enabled             = 	5;	//是否可用
+        optional int64  createTime          = 	6;	//创建时间
+        optional string creator            = 	7;	//创建者
+        optional int64  updateTime          = 	8;	//更新时间
+        optional string updater            = 	9;	//更新者
+    }
+
+
+//----------------------查看单个日程分类详情（应该不用）----------------------
+message FindCalendarCategoryById
+{	
+	optional int64  calendarCategoryId			    = 1;	//日程分类ID
+}
+
+message FindCalendarCategoryByIdRet
+{
+
+    optional CalendarCategory calendarCategory 		    	= 1;	//日程分类详情
+}
+
+//--------------------新增日程分类--------------------
+
+message AddCalendarCategory
+{	
+	optional CalendarCategory calendarCategory				= 1;	//日程分类详情
+}
+
+//------message AddCalendarCategoryRet{ not need
+ 
+
+//-------------------- 修改日程分类(调准顺序,修改名称)--------------------
+
+message EditCalendarCategoryById
+{
+	optional CalendarCategory calendarCategory		= 1;	//日程分类详情
+}
+
+//message EditCalendarCategoryByIdRet{
+
+
+//-------------------- 删除日程分类--------------------
+
+message DeleteCalendarCategoryById
+{
+	optional int64  calendarCategoryId			= 1;	//日程Id
+}
+
+//----message DeleteCalendarCategoryByIdRet{
+  
+
+//-----------------客户端日程评论列表请求消息包order By createTime---------
+message FindCalendarCommentList
+{
+	optional int64  calendarId		    = 	1;	//日程Id
+}
+
+message FindCalendarCommentListRet
+{
+  
+	repeated CalendarComment calendarComments			    =	1;	//日程评论列表
+
+}
+ 
+
+//----------------------查看单个日程评论详情----------------------
+message FindCalendarCommentById
+{
+    optional int64  calendarId			            = 1;	//日程ID
+	optional int64  calendarCommentId			    = 2;	//日程评论ID
+}
+
+message FindCalendarCommentByIdRet
+{
+    optional CalendarComment calendarComment 		= 1;	//日程评论详情
+}
+
+//--------------------新增日程评论--------------------
+
+message AddCalendarComment
+{	
+	optional CalendarComment calendarComment				= 1;	//日程评论详情
+}
+
+//------message AddCalendarCommentRet{
+ 
+
+
+//-------------------- 删除日程评论--------------------
+
+message DeleteCalendarCommentById
+{
+    optional int64  calendarId			            = 1;	//日程ID
+    optional int64  calendarCommentId			    = 2;	//日程评论ID
+}
+
+//-------message DeleteCalendarCommentByIdRet{

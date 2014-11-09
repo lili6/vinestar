@@ -26,7 +26,7 @@ public interface EnrollDao {
 
     public List<UserEnroll> selectAllEnroll();
 
-    public void deleteEnrollBySeqno(@Param("seqno") int seqno);
+    public void deleteEnrollBySeqno(UserEnroll userEnroll);
 
     /**
      * 重置密码

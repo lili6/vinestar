@@ -685,6 +685,1438 @@ public final class CalendarMessage {
     // @@protoc_insertion_point(class_scope:FindCalendarList)
   }
   
+  public interface CalendarCommentOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+    
+    // optional int64 id = 1;
+    boolean hasId();
+    long getId();
+    
+    // optional string userId = 2;
+    boolean hasUserId();
+    String getUserId();
+    
+    // optional int64 calendarId = 3;
+    boolean hasCalendarId();
+    long getCalendarId();
+    
+    // optional string calCommentDesc = 4;
+    boolean hasCalCommentDesc();
+    String getCalCommentDesc();
+    
+    // optional string calCommentPic = 5;
+    boolean hasCalCommentPic();
+    String getCalCommentPic();
+    
+    // optional string calCommentVoice = 6;
+    boolean hasCalCommentVoice();
+    String getCalCommentVoice();
+    
+    // optional string calCommentVideo = 7;
+    boolean hasCalCommentVideo();
+    String getCalCommentVideo();
+    
+    // optional int64 longitude = 8;
+    boolean hasLongitude();
+    long getLongitude();
+    
+    // optional int64 latitude = 9;
+    boolean hasLatitude();
+    long getLatitude();
+    
+    // optional string localInfo = 10;
+    boolean hasLocalInfo();
+    String getLocalInfo();
+    
+    // optional int32 enabled = 11;
+    boolean hasEnabled();
+    int getEnabled();
+    
+    // optional int64 createTime = 12;
+    boolean hasCreateTime();
+    long getCreateTime();
+    
+    // optional string creator = 13;
+    boolean hasCreator();
+    String getCreator();
+    
+    // optional int64 updateTime = 14;
+    boolean hasUpdateTime();
+    long getUpdateTime();
+    
+    // optional string updater = 15;
+    boolean hasUpdater();
+    String getUpdater();
+  }
+  public static final class CalendarComment extends
+      com.google.protobuf.GeneratedMessage
+      implements CalendarCommentOrBuilder {
+    // Use CalendarComment.newBuilder() to construct.
+    private CalendarComment(Builder builder) {
+      super(builder);
+    }
+    private CalendarComment(boolean noInit) {}
+    
+    private static final CalendarComment defaultInstance;
+    public static CalendarComment getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public CalendarComment getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CalendarMessage.internal_static_CalendarComment_descriptor;
+    }
+    
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CalendarMessage.internal_static_CalendarComment_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // optional int64 id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public long getId() {
+      return id_;
+    }
+    
+    // optional string userId = 2;
+    public static final int USERID_FIELD_NUMBER = 2;
+    private Object userId_;
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getUserId() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          userId_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getUserIdBytes() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional int64 calendarId = 3;
+    public static final int CALENDARID_FIELD_NUMBER = 3;
+    private long calendarId_;
+    public boolean hasCalendarId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public long getCalendarId() {
+      return calendarId_;
+    }
+    
+    // optional string calCommentDesc = 4;
+    public static final int CALCOMMENTDESC_FIELD_NUMBER = 4;
+    private Object calCommentDesc_;
+    public boolean hasCalCommentDesc() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public String getCalCommentDesc() {
+      Object ref = calCommentDesc_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          calCommentDesc_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCalCommentDescBytes() {
+      Object ref = calCommentDesc_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        calCommentDesc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string calCommentPic = 5;
+    public static final int CALCOMMENTPIC_FIELD_NUMBER = 5;
+    private Object calCommentPic_;
+    public boolean hasCalCommentPic() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    public String getCalCommentPic() {
+      Object ref = calCommentPic_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          calCommentPic_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCalCommentPicBytes() {
+      Object ref = calCommentPic_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        calCommentPic_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string calCommentVoice = 6;
+    public static final int CALCOMMENTVOICE_FIELD_NUMBER = 6;
+    private Object calCommentVoice_;
+    public boolean hasCalCommentVoice() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    public String getCalCommentVoice() {
+      Object ref = calCommentVoice_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          calCommentVoice_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCalCommentVoiceBytes() {
+      Object ref = calCommentVoice_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        calCommentVoice_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string calCommentVideo = 7;
+    public static final int CALCOMMENTVIDEO_FIELD_NUMBER = 7;
+    private Object calCommentVideo_;
+    public boolean hasCalCommentVideo() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    public String getCalCommentVideo() {
+      Object ref = calCommentVideo_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          calCommentVideo_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCalCommentVideoBytes() {
+      Object ref = calCommentVideo_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        calCommentVideo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional int64 longitude = 8;
+    public static final int LONGITUDE_FIELD_NUMBER = 8;
+    private long longitude_;
+    public boolean hasLongitude() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    public long getLongitude() {
+      return longitude_;
+    }
+    
+    // optional int64 latitude = 9;
+    public static final int LATITUDE_FIELD_NUMBER = 9;
+    private long latitude_;
+    public boolean hasLatitude() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    public long getLatitude() {
+      return latitude_;
+    }
+    
+    // optional string localInfo = 10;
+    public static final int LOCALINFO_FIELD_NUMBER = 10;
+    private Object localInfo_;
+    public boolean hasLocalInfo() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    public String getLocalInfo() {
+      Object ref = localInfo_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          localInfo_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getLocalInfoBytes() {
+      Object ref = localInfo_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        localInfo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional int32 enabled = 11;
+    public static final int ENABLED_FIELD_NUMBER = 11;
+    private int enabled_;
+    public boolean hasEnabled() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    public int getEnabled() {
+      return enabled_;
+    }
+    
+    // optional int64 createTime = 12;
+    public static final int CREATETIME_FIELD_NUMBER = 12;
+    private long createTime_;
+    public boolean hasCreateTime() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    public long getCreateTime() {
+      return createTime_;
+    }
+    
+    // optional string creator = 13;
+    public static final int CREATOR_FIELD_NUMBER = 13;
+    private Object creator_;
+    public boolean hasCreator() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    public String getCreator() {
+      Object ref = creator_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          creator_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getCreatorBytes() {
+      Object ref = creator_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        creator_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional int64 updateTime = 14;
+    public static final int UPDATETIME_FIELD_NUMBER = 14;
+    private long updateTime_;
+    public boolean hasUpdateTime() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    public long getUpdateTime() {
+      return updateTime_;
+    }
+    
+    // optional string updater = 15;
+    public static final int UPDATER_FIELD_NUMBER = 15;
+    private Object updater_;
+    public boolean hasUpdater() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    public String getUpdater() {
+      Object ref = updater_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          updater_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getUpdaterBytes() {
+      Object ref = updater_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        updater_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    private void initFields() {
+      id_ = 0L;
+      userId_ = "";
+      calendarId_ = 0L;
+      calCommentDesc_ = "";
+      calCommentPic_ = "";
+      calCommentVoice_ = "";
+      calCommentVideo_ = "";
+      longitude_ = 0L;
+      latitude_ = 0L;
+      localInfo_ = "";
+      enabled_ = 0;
+      createTime_ = 0L;
+      creator_ = "";
+      updateTime_ = 0L;
+      updater_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getUserIdBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, calendarId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, getCalCommentDescBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getCalCommentPicBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getCalCommentVoiceBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getCalCommentVideoBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt64(8, longitude_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt64(9, latitude_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeBytes(10, getLocalInfoBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(11, enabled_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeInt64(12, createTime_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeBytes(13, getCreatorBytes());
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeInt64(14, updateTime_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeBytes(15, getUpdaterBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getUserIdBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, calendarId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getCalCommentDescBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getCalCommentPicBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getCalCommentVoiceBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getCalCommentVideoBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, longitude_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, latitude_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(10, getLocalInfoBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(11, enabled_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(12, createTime_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(13, getCreatorBytes());
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(14, updateTime_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(15, getUpdaterBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @Override
+    protected Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static CalendarComment parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static CalendarComment parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static CalendarComment parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static CalendarComment parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static CalendarComment parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static CalendarComment parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static CalendarComment parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static CalendarComment parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static CalendarComment parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static CalendarComment parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(CalendarComment prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements CalendarCommentOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CalendarMessage.internal_static_CalendarComment_descriptor;
+      }
+      
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CalendarMessage.internal_static_CalendarComment_fieldAccessorTable;
+      }
+      
+      // Construct using vine.app.message.CalendarMessage.CalendarComment.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        id_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        calendarId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        calCommentDesc_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        calCommentPic_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        calCommentVoice_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        calCommentVideo_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        longitude_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        latitude_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        localInfo_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
+        enabled_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        createTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        creator_ = "";
+        bitField0_ = (bitField0_ & ~0x00001000);
+        updateTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        updater_ = "";
+        bitField0_ = (bitField0_ & ~0x00004000);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CalendarComment.getDescriptor();
+      }
+      
+      public CalendarComment getDefaultInstanceForType() {
+        return CalendarComment.getDefaultInstance();
+      }
+      
+      public CalendarComment build() {
+        CalendarComment result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private CalendarComment buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        CalendarComment result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public CalendarComment buildPartial() {
+        CalendarComment result = new CalendarComment(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.calendarId_ = calendarId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.calCommentDesc_ = calCommentDesc_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.calCommentPic_ = calCommentPic_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.calCommentVoice_ = calCommentVoice_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.calCommentVideo_ = calCommentVideo_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.longitude_ = longitude_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.latitude_ = latitude_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.localInfo_ = localInfo_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.enabled_ = enabled_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
+        result.createTime_ = createTime_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.creator_ = creator_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.updateTime_ = updateTime_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.updater_ = updater_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof CalendarComment) {
+          return mergeFrom((CalendarComment)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(CalendarComment other) {
+        if (other == CalendarComment.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasCalendarId()) {
+          setCalendarId(other.getCalendarId());
+        }
+        if (other.hasCalCommentDesc()) {
+          setCalCommentDesc(other.getCalCommentDesc());
+        }
+        if (other.hasCalCommentPic()) {
+          setCalCommentPic(other.getCalCommentPic());
+        }
+        if (other.hasCalCommentVoice()) {
+          setCalCommentVoice(other.getCalCommentVoice());
+        }
+        if (other.hasCalCommentVideo()) {
+          setCalCommentVideo(other.getCalCommentVideo());
+        }
+        if (other.hasLongitude()) {
+          setLongitude(other.getLongitude());
+        }
+        if (other.hasLatitude()) {
+          setLatitude(other.getLatitude());
+        }
+        if (other.hasLocalInfo()) {
+          setLocalInfo(other.getLocalInfo());
+        }
+        if (other.hasEnabled()) {
+          setEnabled(other.getEnabled());
+        }
+        if (other.hasCreateTime()) {
+          setCreateTime(other.getCreateTime());
+        }
+        if (other.hasCreator()) {
+          setCreator(other.getCreator());
+        }
+        if (other.hasUpdateTime()) {
+          setUpdateTime(other.getUpdateTime());
+        }
+        if (other.hasUpdater()) {
+          setUpdater(other.getUpdater());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              userId_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              calendarId_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              calCommentDesc_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              calCommentPic_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000020;
+              calCommentVoice_ = input.readBytes();
+              break;
+            }
+            case 58: {
+              bitField0_ |= 0x00000040;
+              calCommentVideo_ = input.readBytes();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              longitude_ = input.readInt64();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              latitude_ = input.readInt64();
+              break;
+            }
+            case 82: {
+              bitField0_ |= 0x00000200;
+              localInfo_ = input.readBytes();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000400;
+              enabled_ = input.readInt32();
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000800;
+              createTime_ = input.readInt64();
+              break;
+            }
+            case 106: {
+              bitField0_ |= 0x00001000;
+              creator_ = input.readBytes();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              updateTime_ = input.readInt64();
+              break;
+            }
+            case 122: {
+              bitField0_ |= 0x00004000;
+              updater_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // optional int64 id = 1;
+      private long id_ ;
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public long getId() {
+        return id_;
+      }
+      public Builder setId(long value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+      
+      // optional string userId = 2;
+      private Object userId_ = "";
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getUserId() {
+        Object ref = userId_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setUserId(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        userId_ = getDefaultInstance().getUserId();
+        onChanged();
+        return this;
+      }
+      void setUserId(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        userId_ = value;
+        onChanged();
+      }
+      
+      // optional int64 calendarId = 3;
+      private long calendarId_ ;
+      public boolean hasCalendarId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public long getCalendarId() {
+        return calendarId_;
+      }
+      public Builder setCalendarId(long value) {
+        bitField0_ |= 0x00000004;
+        calendarId_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCalendarId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        calendarId_ = 0L;
+        onChanged();
+        return this;
+      }
+      
+      // optional string calCommentDesc = 4;
+      private Object calCommentDesc_ = "";
+      public boolean hasCalCommentDesc() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      public String getCalCommentDesc() {
+        Object ref = calCommentDesc_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          calCommentDesc_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setCalCommentDesc(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        calCommentDesc_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCalCommentDesc() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        calCommentDesc_ = getDefaultInstance().getCalCommentDesc();
+        onChanged();
+        return this;
+      }
+      void setCalCommentDesc(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000008;
+        calCommentDesc_ = value;
+        onChanged();
+      }
+      
+      // optional string calCommentPic = 5;
+      private Object calCommentPic_ = "";
+      public boolean hasCalCommentPic() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      public String getCalCommentPic() {
+        Object ref = calCommentPic_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          calCommentPic_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setCalCommentPic(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        calCommentPic_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCalCommentPic() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        calCommentPic_ = getDefaultInstance().getCalCommentPic();
+        onChanged();
+        return this;
+      }
+      void setCalCommentPic(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000010;
+        calCommentPic_ = value;
+        onChanged();
+      }
+      
+      // optional string calCommentVoice = 6;
+      private Object calCommentVoice_ = "";
+      public boolean hasCalCommentVoice() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      public String getCalCommentVoice() {
+        Object ref = calCommentVoice_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          calCommentVoice_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setCalCommentVoice(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        calCommentVoice_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCalCommentVoice() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        calCommentVoice_ = getDefaultInstance().getCalCommentVoice();
+        onChanged();
+        return this;
+      }
+      void setCalCommentVoice(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000020;
+        calCommentVoice_ = value;
+        onChanged();
+      }
+      
+      // optional string calCommentVideo = 7;
+      private Object calCommentVideo_ = "";
+      public boolean hasCalCommentVideo() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      public String getCalCommentVideo() {
+        Object ref = calCommentVideo_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          calCommentVideo_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setCalCommentVideo(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        calCommentVideo_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCalCommentVideo() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        calCommentVideo_ = getDefaultInstance().getCalCommentVideo();
+        onChanged();
+        return this;
+      }
+      void setCalCommentVideo(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000040;
+        calCommentVideo_ = value;
+        onChanged();
+      }
+      
+      // optional int64 longitude = 8;
+      private long longitude_ ;
+      public boolean hasLongitude() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      public long getLongitude() {
+        return longitude_;
+      }
+      public Builder setLongitude(long value) {
+        bitField0_ |= 0x00000080;
+        longitude_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLongitude() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        longitude_ = 0L;
+        onChanged();
+        return this;
+      }
+      
+      // optional int64 latitude = 9;
+      private long latitude_ ;
+      public boolean hasLatitude() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      public long getLatitude() {
+        return latitude_;
+      }
+      public Builder setLatitude(long value) {
+        bitField0_ |= 0x00000100;
+        latitude_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLatitude() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        latitude_ = 0L;
+        onChanged();
+        return this;
+      }
+      
+      // optional string localInfo = 10;
+      private Object localInfo_ = "";
+      public boolean hasLocalInfo() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      public String getLocalInfo() {
+        Object ref = localInfo_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          localInfo_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setLocalInfo(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        localInfo_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLocalInfo() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        localInfo_ = getDefaultInstance().getLocalInfo();
+        onChanged();
+        return this;
+      }
+      void setLocalInfo(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000200;
+        localInfo_ = value;
+        onChanged();
+      }
+      
+      // optional int32 enabled = 11;
+      private int enabled_ ;
+      public boolean hasEnabled() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      public int getEnabled() {
+        return enabled_;
+      }
+      public Builder setEnabled(int value) {
+        bitField0_ |= 0x00000400;
+        enabled_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearEnabled() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        enabled_ = 0;
+        onChanged();
+        return this;
+      }
+      
+      // optional int64 createTime = 12;
+      private long createTime_ ;
+      public boolean hasCreateTime() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      public long getCreateTime() {
+        return createTime_;
+      }
+      public Builder setCreateTime(long value) {
+        bitField0_ |= 0x00000800;
+        createTime_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCreateTime() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        createTime_ = 0L;
+        onChanged();
+        return this;
+      }
+      
+      // optional string creator = 13;
+      private Object creator_ = "";
+      public boolean hasCreator() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      public String getCreator() {
+        Object ref = creator_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          creator_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setCreator(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+        creator_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCreator() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        creator_ = getDefaultInstance().getCreator();
+        onChanged();
+        return this;
+      }
+      void setCreator(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00001000;
+        creator_ = value;
+        onChanged();
+      }
+      
+      // optional int64 updateTime = 14;
+      private long updateTime_ ;
+      public boolean hasUpdateTime() {
+        return ((bitField0_ & 0x00002000) == 0x00002000);
+      }
+      public long getUpdateTime() {
+        return updateTime_;
+      }
+      public Builder setUpdateTime(long value) {
+        bitField0_ |= 0x00002000;
+        updateTime_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearUpdateTime() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        updateTime_ = 0L;
+        onChanged();
+        return this;
+      }
+      
+      // optional string updater = 15;
+      private Object updater_ = "";
+      public boolean hasUpdater() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
+      }
+      public String getUpdater() {
+        Object ref = updater_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          updater_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setUpdater(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00004000;
+        updater_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearUpdater() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        updater_ = getDefaultInstance().getUpdater();
+        onChanged();
+        return this;
+      }
+      void setUpdater(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00004000;
+        updater_ = value;
+        onChanged();
+      }
+      
+      // @@protoc_insertion_point(builder_scope:CalendarComment)
+    }
+    
+    static {
+      defaultInstance = new CalendarComment(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:CalendarComment)
+  }
+  
   public interface CalendarOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
@@ -692,9 +2124,9 @@ public final class CalendarMessage {
     boolean hasId();
     long getId();
     
-    // optional int64 userId = 2;
+    // optional string userId = 2;
     boolean hasUserId();
-    long getUserId();
+    String getUserId();
     
     // optional int64 calCategoryId = 3;
     boolean hasCalCategoryId();
@@ -764,17 +2196,27 @@ public final class CalendarMessage {
     boolean hasCreateTime();
     long getCreateTime();
     
-    // optional string createBy = 20;
-    boolean hasCreateBy();
-    String getCreateBy();
+    // optional string creator = 20;
+    boolean hasCreator();
+    String getCreator();
     
     // optional int64 updateTime = 21;
     boolean hasUpdateTime();
     long getUpdateTime();
     
-    // optional string updateBy = 22;
-    boolean hasUpdateBy();
-    String getUpdateBy();
+    // optional string updater = 22;
+    boolean hasUpdater();
+    String getUpdater();
+    
+    // repeated .CalendarComment calendarComments = 23;
+    java.util.List<CalendarComment>
+        getCalendarCommentsList();
+    CalendarComment getCalendarComments(int index);
+    int getCalendarCommentsCount();
+    java.util.List<? extends CalendarCommentOrBuilder>
+        getCalendarCommentsOrBuilderList();
+    CalendarCommentOrBuilder getCalendarCommentsOrBuilder(
+            int index);
   }
   public static final class Calendar extends
       com.google.protobuf.GeneratedMessage
@@ -815,14 +2257,36 @@ public final class CalendarMessage {
       return id_;
     }
     
-    // optional int64 userId = 2;
+    // optional string userId = 2;
     public static final int USERID_FIELD_NUMBER = 2;
-    private long userId_;
+    private Object userId_;
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public long getUserId() {
-      return userId_;
+    public String getUserId() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          userId_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getUserIdBytes() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
     // optional int64 calCategoryId = 3;
@@ -1127,14 +2591,14 @@ public final class CalendarMessage {
       return createTime_;
     }
     
-    // optional string createBy = 20;
-    public static final int CREATEBY_FIELD_NUMBER = 20;
-    private Object createBy_;
-    public boolean hasCreateBy() {
+    // optional string creator = 20;
+    public static final int CREATOR_FIELD_NUMBER = 20;
+    private Object creator_;
+    public boolean hasCreator() {
       return ((bitField0_ & 0x00080000) == 0x00080000);
     }
-    public String getCreateBy() {
-      Object ref = createBy_;
+    public String getCreator() {
+      Object ref = creator_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -1142,17 +2606,17 @@ public final class CalendarMessage {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createBy_ = s;
+          creator_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getCreateByBytes() {
-      Object ref = createBy_;
+    private com.google.protobuf.ByteString getCreatorBytes() {
+      Object ref = creator_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createBy_ = b;
+        creator_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1169,14 +2633,14 @@ public final class CalendarMessage {
       return updateTime_;
     }
     
-    // optional string updateBy = 22;
-    public static final int UPDATEBY_FIELD_NUMBER = 22;
-    private Object updateBy_;
-    public boolean hasUpdateBy() {
+    // optional string updater = 22;
+    public static final int UPDATER_FIELD_NUMBER = 22;
+    private Object updater_;
+    public boolean hasUpdater() {
       return ((bitField0_ & 0x00200000) == 0x00200000);
     }
-    public String getUpdateBy() {
-      Object ref = updateBy_;
+    public String getUpdater() {
+      Object ref = updater_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -1184,26 +2648,47 @@ public final class CalendarMessage {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          updateBy_ = s;
+          updater_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getUpdateByBytes() {
-      Object ref = updateBy_;
+    private com.google.protobuf.ByteString getUpdaterBytes() {
+      Object ref = updater_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        updateBy_ = b;
+        updater_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     
+    // repeated .CalendarComment calendarComments = 23;
+    public static final int CALENDARCOMMENTS_FIELD_NUMBER = 23;
+    private java.util.List<CalendarComment> calendarComments_;
+    public java.util.List<CalendarComment> getCalendarCommentsList() {
+      return calendarComments_;
+    }
+    public java.util.List<? extends CalendarCommentOrBuilder>
+        getCalendarCommentsOrBuilderList() {
+      return calendarComments_;
+    }
+    public int getCalendarCommentsCount() {
+      return calendarComments_.size();
+    }
+    public CalendarComment getCalendarComments(int index) {
+      return calendarComments_.get(index);
+    }
+    public CalendarCommentOrBuilder getCalendarCommentsOrBuilder(
+        int index) {
+      return calendarComments_.get(index);
+    }
+    
     private void initFields() {
       id_ = 0L;
-      userId_ = 0L;
+      userId_ = "";
       calCategoryId_ = 0L;
       calName_ = "";
       calDesc_ = "";
@@ -1221,9 +2706,10 @@ public final class CalendarMessage {
       localInfo_ = "";
       enabled_ = 0;
       createTime_ = 0L;
-      createBy_ = "";
+      creator_ = "";
       updateTime_ = 0L;
-      updateBy_ = "";
+      updater_ = "";
+      calendarComments_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1241,7 +2727,7 @@ public final class CalendarMessage {
         output.writeInt64(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, userId_);
+        output.writeBytes(2, getUserIdBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt64(3, calCategoryId_);
@@ -1295,13 +2781,16 @@ public final class CalendarMessage {
         output.writeInt64(19, createTime_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeBytes(20, getCreateByBytes());
+        output.writeBytes(20, getCreatorBytes());
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         output.writeInt64(21, updateTime_);
       }
       if (((bitField0_ & 0x00200000) == 0x00200000)) {
-        output.writeBytes(22, getUpdateByBytes());
+        output.writeBytes(22, getUpdaterBytes());
+      }
+      for (int i = 0; i < calendarComments_.size(); i++) {
+        output.writeMessage(23, calendarComments_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -1318,7 +2807,7 @@ public final class CalendarMessage {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, userId_);
+          .computeBytesSize(2, getUserIdBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1390,7 +2879,7 @@ public final class CalendarMessage {
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(20, getCreateByBytes());
+          .computeBytesSize(20, getCreatorBytes());
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1398,7 +2887,11 @@ public final class CalendarMessage {
       }
       if (((bitField0_ & 0x00200000) == 0x00200000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(22, getUpdateByBytes());
+          .computeBytesSize(22, getUpdaterBytes());
+      }
+      for (int i = 0; i < calendarComments_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(23, calendarComments_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1516,6 +3009,7 @@ public final class CalendarMessage {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getCalendarCommentsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1526,7 +3020,7 @@ public final class CalendarMessage {
         super.clear();
         id_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0L;
+        userId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         calCategoryId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -1562,12 +3056,18 @@ public final class CalendarMessage {
         bitField0_ = (bitField0_ & ~0x00020000);
         createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00040000);
-        createBy_ = "";
+        creator_ = "";
         bitField0_ = (bitField0_ & ~0x00080000);
         updateTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00100000);
-        updateBy_ = "";
+        updater_ = "";
         bitField0_ = (bitField0_ & ~0x00200000);
+        if (calendarCommentsBuilder_ == null) {
+          calendarComments_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00400000);
+        } else {
+          calendarCommentsBuilder_.clear();
+        }
         return this;
       }
       
@@ -1685,7 +3185,7 @@ public final class CalendarMessage {
         if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
           to_bitField0_ |= 0x00080000;
         }
-        result.createBy_ = createBy_;
+        result.creator_ = creator_;
         if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
           to_bitField0_ |= 0x00100000;
         }
@@ -1693,7 +3193,16 @@ public final class CalendarMessage {
         if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
           to_bitField0_ |= 0x00200000;
         }
-        result.updateBy_ = updateBy_;
+        result.updater_ = updater_;
+        if (calendarCommentsBuilder_ == null) {
+          if (((bitField0_ & 0x00400000) == 0x00400000)) {
+            calendarComments_ = java.util.Collections.unmodifiableList(calendarComments_);
+            bitField0_ = (bitField0_ & ~0x00400000);
+          }
+          result.calendarComments_ = calendarComments_;
+        } else {
+          result.calendarComments_ = calendarCommentsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1767,14 +3276,40 @@ public final class CalendarMessage {
         if (other.hasCreateTime()) {
           setCreateTime(other.getCreateTime());
         }
-        if (other.hasCreateBy()) {
-          setCreateBy(other.getCreateBy());
+        if (other.hasCreator()) {
+          setCreator(other.getCreator());
         }
         if (other.hasUpdateTime()) {
           setUpdateTime(other.getUpdateTime());
         }
-        if (other.hasUpdateBy()) {
-          setUpdateBy(other.getUpdateBy());
+        if (other.hasUpdater()) {
+          setUpdater(other.getUpdater());
+        }
+        if (calendarCommentsBuilder_ == null) {
+          if (!other.calendarComments_.isEmpty()) {
+            if (calendarComments_.isEmpty()) {
+              calendarComments_ = other.calendarComments_;
+              bitField0_ = (bitField0_ & ~0x00400000);
+            } else {
+              ensureCalendarCommentsIsMutable();
+              calendarComments_.addAll(other.calendarComments_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.calendarComments_.isEmpty()) {
+            if (calendarCommentsBuilder_.isEmpty()) {
+              calendarCommentsBuilder_.dispose();
+              calendarCommentsBuilder_ = null;
+              calendarComments_ = other.calendarComments_;
+              bitField0_ = (bitField0_ & ~0x00400000);
+              calendarCommentsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getCalendarCommentsFieldBuilder() : null;
+            } else {
+              calendarCommentsBuilder_.addAllMessages(other.calendarComments_);
+            }
+          }
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1812,9 +3347,9 @@ public final class CalendarMessage {
               id_ = input.readInt64();
               break;
             }
-            case 16: {
+            case 18: {
               bitField0_ |= 0x00000002;
-              userId_ = input.readInt64();
+              userId_ = input.readBytes();
               break;
             }
             case 24: {
@@ -1904,7 +3439,7 @@ public final class CalendarMessage {
             }
             case 162: {
               bitField0_ |= 0x00080000;
-              createBy_ = input.readBytes();
+              creator_ = input.readBytes();
               break;
             }
             case 168: {
@@ -1914,7 +3449,13 @@ public final class CalendarMessage {
             }
             case 178: {
               bitField0_ |= 0x00200000;
-              updateBy_ = input.readBytes();
+              updater_ = input.readBytes();
+              break;
+            }
+            case 186: {
+              CalendarComment.Builder subBuilder = CalendarComment.newBuilder();
+              input.readMessage(subBuilder, extensionRegistry);
+              addCalendarComments(subBuilder.buildPartial());
               break;
             }
           }
@@ -1944,25 +3485,40 @@ public final class CalendarMessage {
         return this;
       }
       
-      // optional int64 userId = 2;
-      private long userId_ ;
+      // optional string userId = 2;
+      private Object userId_ = "";
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public long getUserId() {
-        return userId_;
+      public String getUserId() {
+        Object ref = userId_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
       }
-      public Builder setUserId(long value) {
-        bitField0_ |= 0x00000002;
+      public Builder setUserId(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         userId_ = value;
         onChanged();
         return this;
       }
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0L;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
+      }
+      void setUserId(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        userId_ = value;
+        onChanged();
       }
       
       // optional int64 calCategoryId = 3;
@@ -2412,39 +3968,39 @@ public final class CalendarMessage {
         return this;
       }
       
-      // optional string createBy = 20;
-      private Object createBy_ = "";
-      public boolean hasCreateBy() {
+      // optional string creator = 20;
+      private Object creator_ = "";
+      public boolean hasCreator() {
         return ((bitField0_ & 0x00080000) == 0x00080000);
       }
-      public String getCreateBy() {
-        Object ref = createBy_;
+      public String getCreator() {
+        Object ref = creator_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createBy_ = s;
+          creator_ = s;
           return s;
         } else {
           return (String) ref;
         }
       }
-      public Builder setCreateBy(String value) {
+      public Builder setCreator(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00080000;
-        createBy_ = value;
+        creator_ = value;
         onChanged();
         return this;
       }
-      public Builder clearCreateBy() {
+      public Builder clearCreator() {
         bitField0_ = (bitField0_ & ~0x00080000);
-        createBy_ = getDefaultInstance().getCreateBy();
+        creator_ = getDefaultInstance().getCreator();
         onChanged();
         return this;
       }
-      void setCreateBy(com.google.protobuf.ByteString value) {
+      void setCreator(com.google.protobuf.ByteString value) {
         bitField0_ |= 0x00080000;
-        createBy_ = value;
+        creator_ = value;
         onChanged();
       }
       
@@ -2469,40 +4025,226 @@ public final class CalendarMessage {
         return this;
       }
       
-      // optional string updateBy = 22;
-      private Object updateBy_ = "";
-      public boolean hasUpdateBy() {
+      // optional string updater = 22;
+      private Object updater_ = "";
+      public boolean hasUpdater() {
         return ((bitField0_ & 0x00200000) == 0x00200000);
       }
-      public String getUpdateBy() {
-        Object ref = updateBy_;
+      public String getUpdater() {
+        Object ref = updater_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          updateBy_ = s;
+          updater_ = s;
           return s;
         } else {
           return (String) ref;
         }
       }
-      public Builder setUpdateBy(String value) {
+      public Builder setUpdater(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00200000;
-        updateBy_ = value;
+        updater_ = value;
         onChanged();
         return this;
       }
-      public Builder clearUpdateBy() {
+      public Builder clearUpdater() {
         bitField0_ = (bitField0_ & ~0x00200000);
-        updateBy_ = getDefaultInstance().getUpdateBy();
+        updater_ = getDefaultInstance().getUpdater();
         onChanged();
         return this;
       }
-      void setUpdateBy(com.google.protobuf.ByteString value) {
+      void setUpdater(com.google.protobuf.ByteString value) {
         bitField0_ |= 0x00200000;
-        updateBy_ = value;
+        updater_ = value;
         onChanged();
+      }
+      
+      // repeated .CalendarComment calendarComments = 23;
+      private java.util.List<CalendarComment> calendarComments_ =
+        java.util.Collections.emptyList();
+      private void ensureCalendarCommentsIsMutable() {
+        if (!((bitField0_ & 0x00400000) == 0x00400000)) {
+          calendarComments_ = new java.util.ArrayList<CalendarComment>(calendarComments_);
+          bitField0_ |= 0x00400000;
+         }
+      }
+      
+      private com.google.protobuf.RepeatedFieldBuilder<
+          CalendarComment, CalendarComment.Builder, CalendarCommentOrBuilder> calendarCommentsBuilder_;
+      
+      public java.util.List<CalendarComment> getCalendarCommentsList() {
+        if (calendarCommentsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(calendarComments_);
+        } else {
+          return calendarCommentsBuilder_.getMessageList();
+        }
+      }
+      public int getCalendarCommentsCount() {
+        if (calendarCommentsBuilder_ == null) {
+          return calendarComments_.size();
+        } else {
+          return calendarCommentsBuilder_.getCount();
+        }
+      }
+      public CalendarComment getCalendarComments(int index) {
+        if (calendarCommentsBuilder_ == null) {
+          return calendarComments_.get(index);
+        } else {
+          return calendarCommentsBuilder_.getMessage(index);
+        }
+      }
+      public Builder setCalendarComments(
+          int index, CalendarComment value) {
+        if (calendarCommentsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.set(index, value);
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      public Builder setCalendarComments(
+          int index, CalendarComment.Builder builderForValue) {
+        if (calendarCommentsBuilder_ == null) {
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      public Builder addCalendarComments(CalendarComment value) {
+        if (calendarCommentsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.add(value);
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      public Builder addCalendarComments(
+          int index, CalendarComment value) {
+        if (calendarCommentsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.add(index, value);
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      public Builder addCalendarComments(
+          CalendarComment.Builder builderForValue) {
+        if (calendarCommentsBuilder_ == null) {
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.add(builderForValue.build());
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      public Builder addCalendarComments(
+          int index, CalendarComment.Builder builderForValue) {
+        if (calendarCommentsBuilder_ == null) {
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      public Builder addAllCalendarComments(
+          Iterable<? extends CalendarComment> values) {
+        if (calendarCommentsBuilder_ == null) {
+          ensureCalendarCommentsIsMutable();
+          super.addAll(values, calendarComments_);
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      public Builder clearCalendarComments() {
+        if (calendarCommentsBuilder_ == null) {
+          calendarComments_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00400000);
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.clear();
+        }
+        return this;
+      }
+      public Builder removeCalendarComments(int index) {
+        if (calendarCommentsBuilder_ == null) {
+          ensureCalendarCommentsIsMutable();
+          calendarComments_.remove(index);
+          onChanged();
+        } else {
+          calendarCommentsBuilder_.remove(index);
+        }
+        return this;
+      }
+      public CalendarComment.Builder getCalendarCommentsBuilder(
+          int index) {
+        return getCalendarCommentsFieldBuilder().getBuilder(index);
+      }
+      public CalendarCommentOrBuilder getCalendarCommentsOrBuilder(
+          int index) {
+        if (calendarCommentsBuilder_ == null) {
+          return calendarComments_.get(index);  } else {
+          return calendarCommentsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      public java.util.List<? extends CalendarCommentOrBuilder>
+           getCalendarCommentsOrBuilderList() {
+        if (calendarCommentsBuilder_ != null) {
+          return calendarCommentsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(calendarComments_);
+        }
+      }
+      public CalendarComment.Builder addCalendarCommentsBuilder() {
+        return getCalendarCommentsFieldBuilder().addBuilder(
+            CalendarComment.getDefaultInstance());
+      }
+      public CalendarComment.Builder addCalendarCommentsBuilder(
+          int index) {
+        return getCalendarCommentsFieldBuilder().addBuilder(
+            index, CalendarComment.getDefaultInstance());
+      }
+      public java.util.List<CalendarComment.Builder>
+           getCalendarCommentsBuilderList() {
+        return getCalendarCommentsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          CalendarComment, CalendarComment.Builder, CalendarCommentOrBuilder>
+          getCalendarCommentsFieldBuilder() {
+        if (calendarCommentsBuilder_ == null) {
+          calendarCommentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              CalendarComment, CalendarComment.Builder, CalendarCommentOrBuilder>(
+                  calendarComments_,
+                  ((bitField0_ & 0x00400000) == 0x00400000),
+                  getParentForChildren(),
+                  isClean());
+          calendarComments_ = null;
+        }
+        return calendarCommentsBuilder_;
       }
       
       // @@protoc_insertion_point(builder_scope:Calendar)
@@ -6136,9 +7878,9 @@ public final class CalendarMessage {
     boolean hasId();
     long getId();
     
-    // optional int64 userId = 2;
+    // optional string userId = 2;
     boolean hasUserId();
-    long getUserId();
+    String getUserId();
     
     // optional string name = 3;
     boolean hasName();
@@ -6156,17 +7898,17 @@ public final class CalendarMessage {
     boolean hasCreateTime();
     long getCreateTime();
     
-    // optional string createBy = 7;
-    boolean hasCreateBy();
-    String getCreateBy();
+    // optional string creator = 7;
+    boolean hasCreator();
+    String getCreator();
     
     // optional int64 updateTime = 8;
     boolean hasUpdateTime();
     long getUpdateTime();
     
-    // optional string updateBy = 9;
-    boolean hasUpdateBy();
-    String getUpdateBy();
+    // optional string updater = 9;
+    boolean hasUpdater();
+    String getUpdater();
   }
   public static final class CalendarCategory extends
       com.google.protobuf.GeneratedMessage
@@ -6207,14 +7949,36 @@ public final class CalendarMessage {
       return id_;
     }
     
-    // optional int64 userId = 2;
+    // optional string userId = 2;
     public static final int USERID_FIELD_NUMBER = 2;
-    private long userId_;
+    private Object userId_;
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public long getUserId() {
-      return userId_;
+    public String getUserId() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          userId_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getUserIdBytes() {
+      Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     
     // optional string name = 3;
@@ -6279,14 +8043,14 @@ public final class CalendarMessage {
       return createTime_;
     }
     
-    // optional string createBy = 7;
-    public static final int CREATEBY_FIELD_NUMBER = 7;
-    private Object createBy_;
-    public boolean hasCreateBy() {
+    // optional string creator = 7;
+    public static final int CREATOR_FIELD_NUMBER = 7;
+    private Object creator_;
+    public boolean hasCreator() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
-    public String getCreateBy() {
-      Object ref = createBy_;
+    public String getCreator() {
+      Object ref = creator_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -6294,17 +8058,17 @@ public final class CalendarMessage {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createBy_ = s;
+          creator_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getCreateByBytes() {
-      Object ref = createBy_;
+    private com.google.protobuf.ByteString getCreatorBytes() {
+      Object ref = creator_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createBy_ = b;
+        creator_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6321,14 +8085,14 @@ public final class CalendarMessage {
       return updateTime_;
     }
     
-    // optional string updateBy = 9;
-    public static final int UPDATEBY_FIELD_NUMBER = 9;
-    private Object updateBy_;
-    public boolean hasUpdateBy() {
+    // optional string updater = 9;
+    public static final int UPDATER_FIELD_NUMBER = 9;
+    private Object updater_;
+    public boolean hasUpdater() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
-    public String getUpdateBy() {
-      Object ref = updateBy_;
+    public String getUpdater() {
+      Object ref = updater_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -6336,17 +8100,17 @@ public final class CalendarMessage {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          updateBy_ = s;
+          updater_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getUpdateByBytes() {
-      Object ref = updateBy_;
+    private com.google.protobuf.ByteString getUpdaterBytes() {
+      Object ref = updater_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        updateBy_ = b;
+        updater_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6355,14 +8119,14 @@ public final class CalendarMessage {
     
     private void initFields() {
       id_ = 0L;
-      userId_ = 0L;
+      userId_ = "";
       name_ = "";
       showOrder_ = 0;
       enabled_ = 0;
       createTime_ = 0L;
-      createBy_ = "";
+      creator_ = "";
       updateTime_ = 0L;
-      updateBy_ = "";
+      updater_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6380,7 +8144,7 @@ public final class CalendarMessage {
         output.writeInt64(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, userId_);
+        output.writeBytes(2, getUserIdBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getNameBytes());
@@ -6395,13 +8159,13 @@ public final class CalendarMessage {
         output.writeInt64(6, createTime_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(7, getCreateByBytes());
+        output.writeBytes(7, getCreatorBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeInt64(8, updateTime_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBytes(9, getUpdateByBytes());
+        output.writeBytes(9, getUpdaterBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -6418,7 +8182,7 @@ public final class CalendarMessage {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, userId_);
+          .computeBytesSize(2, getUserIdBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6438,7 +8202,7 @@ public final class CalendarMessage {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getCreateByBytes());
+          .computeBytesSize(7, getCreatorBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6446,7 +8210,7 @@ public final class CalendarMessage {
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getUpdateByBytes());
+          .computeBytesSize(9, getUpdaterBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6574,7 +8338,7 @@ public final class CalendarMessage {
         super.clear();
         id_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0L;
+        userId_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -6584,11 +8348,11 @@ public final class CalendarMessage {
         bitField0_ = (bitField0_ & ~0x00000010);
         createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000020);
-        createBy_ = "";
+        creator_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
         updateTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000080);
-        updateBy_ = "";
+        updater_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
@@ -6655,7 +8419,7 @@ public final class CalendarMessage {
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.createBy_ = createBy_;
+        result.creator_ = creator_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
@@ -6663,7 +8427,7 @@ public final class CalendarMessage {
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.updateBy_ = updateBy_;
+        result.updater_ = updater_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6698,14 +8462,14 @@ public final class CalendarMessage {
         if (other.hasCreateTime()) {
           setCreateTime(other.getCreateTime());
         }
-        if (other.hasCreateBy()) {
-          setCreateBy(other.getCreateBy());
+        if (other.hasCreator()) {
+          setCreator(other.getCreator());
         }
         if (other.hasUpdateTime()) {
           setUpdateTime(other.getUpdateTime());
         }
-        if (other.hasUpdateBy()) {
-          setUpdateBy(other.getUpdateBy());
+        if (other.hasUpdater()) {
+          setUpdater(other.getUpdater());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -6743,9 +8507,9 @@ public final class CalendarMessage {
               id_ = input.readInt64();
               break;
             }
-            case 16: {
+            case 18: {
               bitField0_ |= 0x00000002;
-              userId_ = input.readInt64();
+              userId_ = input.readBytes();
               break;
             }
             case 26: {
@@ -6770,7 +8534,7 @@ public final class CalendarMessage {
             }
             case 58: {
               bitField0_ |= 0x00000040;
-              createBy_ = input.readBytes();
+              creator_ = input.readBytes();
               break;
             }
             case 64: {
@@ -6780,7 +8544,7 @@ public final class CalendarMessage {
             }
             case 74: {
               bitField0_ |= 0x00000100;
-              updateBy_ = input.readBytes();
+              updater_ = input.readBytes();
               break;
             }
           }
@@ -6810,25 +8574,40 @@ public final class CalendarMessage {
         return this;
       }
       
-      // optional int64 userId = 2;
-      private long userId_ ;
+      // optional string userId = 2;
+      private Object userId_ = "";
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public long getUserId() {
-        return userId_;
+      public String getUserId() {
+        Object ref = userId_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          userId_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
       }
-      public Builder setUserId(long value) {
-        bitField0_ |= 0x00000002;
+      public Builder setUserId(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         userId_ = value;
         onChanged();
         return this;
       }
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0L;
+        userId_ = getDefaultInstance().getUserId();
         onChanged();
         return this;
+      }
+      void setUserId(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        userId_ = value;
+        onChanged();
       }
       
       // optional string name = 3;
@@ -6930,39 +8709,39 @@ public final class CalendarMessage {
         return this;
       }
       
-      // optional string createBy = 7;
-      private Object createBy_ = "";
-      public boolean hasCreateBy() {
+      // optional string creator = 7;
+      private Object creator_ = "";
+      public boolean hasCreator() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
-      public String getCreateBy() {
-        Object ref = createBy_;
+      public String getCreator() {
+        Object ref = creator_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createBy_ = s;
+          creator_ = s;
           return s;
         } else {
           return (String) ref;
         }
       }
-      public Builder setCreateBy(String value) {
+      public Builder setCreator(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000040;
-        createBy_ = value;
+        creator_ = value;
         onChanged();
         return this;
       }
-      public Builder clearCreateBy() {
+      public Builder clearCreator() {
         bitField0_ = (bitField0_ & ~0x00000040);
-        createBy_ = getDefaultInstance().getCreateBy();
+        creator_ = getDefaultInstance().getCreator();
         onChanged();
         return this;
       }
-      void setCreateBy(com.google.protobuf.ByteString value) {
+      void setCreator(com.google.protobuf.ByteString value) {
         bitField0_ |= 0x00000040;
-        createBy_ = value;
+        creator_ = value;
         onChanged();
       }
       
@@ -6987,39 +8766,39 @@ public final class CalendarMessage {
         return this;
       }
       
-      // optional string updateBy = 9;
-      private Object updateBy_ = "";
-      public boolean hasUpdateBy() {
+      // optional string updater = 9;
+      private Object updater_ = "";
+      public boolean hasUpdater() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
-      public String getUpdateBy() {
-        Object ref = updateBy_;
+      public String getUpdater() {
+        Object ref = updater_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          updateBy_ = s;
+          updater_ = s;
           return s;
         } else {
           return (String) ref;
         }
       }
-      public Builder setUpdateBy(String value) {
+      public Builder setUpdater(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000100;
-        updateBy_ = value;
+        updater_ = value;
         onChanged();
         return this;
       }
-      public Builder clearUpdateBy() {
+      public Builder clearUpdater() {
         bitField0_ = (bitField0_ & ~0x00000100);
-        updateBy_ = getDefaultInstance().getUpdateBy();
+        updater_ = getDefaultInstance().getUpdater();
         onChanged();
         return this;
       }
-      void setUpdateBy(com.google.protobuf.ByteString value) {
+      void setUpdater(com.google.protobuf.ByteString value) {
         bitField0_ |= 0x00000100;
-        updateBy_ = value;
+        updater_ = value;
         onChanged();
       }
       
@@ -8985,7 +10764,7 @@ public final class CalendarMessage {
   public interface FindCalendarCommentListOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
-    // optional int64 calendarId = 3;
+    // optional int64 calendarId = 1;
     boolean hasCalendarId();
     long getCalendarId();
   }
@@ -9018,8 +10797,8 @@ public final class CalendarMessage {
     }
     
     private int bitField0_;
-    // optional int64 calendarId = 3;
-    public static final int CALENDARID_FIELD_NUMBER = 3;
+    // optional int64 calendarId = 1;
+    public static final int CALENDARID_FIELD_NUMBER = 1;
     private long calendarId_;
     public boolean hasCalendarId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -9044,7 +10823,7 @@ public final class CalendarMessage {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(3, calendarId_);
+        output.writeInt64(1, calendarId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9057,7 +10836,7 @@ public final class CalendarMessage {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, calendarId_);
+          .computeInt64Size(1, calendarId_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9277,7 +11056,7 @@ public final class CalendarMessage {
               }
               break;
             }
-            case 24: {
+            case 8: {
               bitField0_ |= 0x00000001;
               calendarId_ = input.readInt64();
               break;
@@ -9288,7 +11067,7 @@ public final class CalendarMessage {
       
       private int bitField0_;
       
-      // optional int64 calendarId = 3;
+      // optional int64 calendarId = 1;
       private long calendarId_ ;
       public boolean hasCalendarId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -9869,1401 +11648,6 @@ public final class CalendarMessage {
     }
     
     // @@protoc_insertion_point(class_scope:FindCalendarCommentListRet)
-  }
-  
-  public interface CalendarCommentOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional int64 id = 1;
-    boolean hasId();
-    long getId();
-    
-    // optional int64 userId = 2;
-    boolean hasUserId();
-    long getUserId();
-    
-    // optional int64 cmtUserId = 3;
-    boolean hasCmtUserId();
-    long getCmtUserId();
-    
-    // optional string calCommentDesc = 5;
-    boolean hasCalCommentDesc();
-    String getCalCommentDesc();
-    
-    // optional string calCommentPic = 6;
-    boolean hasCalCommentPic();
-    String getCalCommentPic();
-    
-    // optional string calCommentVoice = 7;
-    boolean hasCalCommentVoice();
-    String getCalCommentVoice();
-    
-    // optional string calCommentVideo = 8;
-    boolean hasCalCommentVideo();
-    String getCalCommentVideo();
-    
-    // optional int64 longitude = 10;
-    boolean hasLongitude();
-    long getLongitude();
-    
-    // optional int64 latitude = 11;
-    boolean hasLatitude();
-    long getLatitude();
-    
-    // optional string localInfo = 12;
-    boolean hasLocalInfo();
-    String getLocalInfo();
-    
-    // optional int32 enabled = 13;
-    boolean hasEnabled();
-    int getEnabled();
-    
-    // optional int64 createTime = 14;
-    boolean hasCreateTime();
-    long getCreateTime();
-    
-    // optional string createBy = 15;
-    boolean hasCreateBy();
-    String getCreateBy();
-    
-    // optional int64 updateTime = 16;
-    boolean hasUpdateTime();
-    long getUpdateTime();
-    
-    // optional string updateBy = 17;
-    boolean hasUpdateBy();
-    String getUpdateBy();
-  }
-  public static final class CalendarComment extends
-      com.google.protobuf.GeneratedMessage
-      implements CalendarCommentOrBuilder {
-    // Use CalendarComment.newBuilder() to construct.
-    private CalendarComment(Builder builder) {
-      super(builder);
-    }
-    private CalendarComment(boolean noInit) {}
-    
-    private static final CalendarComment defaultInstance;
-    public static CalendarComment getDefaultInstance() {
-      return defaultInstance;
-    }
-    
-    public CalendarComment getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return CalendarMessage.internal_static_CalendarComment_descriptor;
-    }
-    
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return CalendarMessage.internal_static_CalendarComment_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // optional int64 id = 1;
-    public static final int ID_FIELD_NUMBER = 1;
-    private long id_;
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public long getId() {
-      return id_;
-    }
-    
-    // optional int64 userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private long userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public long getUserId() {
-      return userId_;
-    }
-    
-    // optional int64 cmtUserId = 3;
-    public static final int CMTUSERID_FIELD_NUMBER = 3;
-    private long cmtUserId_;
-    public boolean hasCmtUserId() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    public long getCmtUserId() {
-      return cmtUserId_;
-    }
-    
-    // optional string calCommentDesc = 5;
-    public static final int CALCOMMENTDESC_FIELD_NUMBER = 5;
-    private Object calCommentDesc_;
-    public boolean hasCalCommentDesc() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    public String getCalCommentDesc() {
-      Object ref = calCommentDesc_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          calCommentDesc_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCalCommentDescBytes() {
-      Object ref = calCommentDesc_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        calCommentDesc_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string calCommentPic = 6;
-    public static final int CALCOMMENTPIC_FIELD_NUMBER = 6;
-    private Object calCommentPic_;
-    public boolean hasCalCommentPic() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    public String getCalCommentPic() {
-      Object ref = calCommentPic_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          calCommentPic_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCalCommentPicBytes() {
-      Object ref = calCommentPic_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        calCommentPic_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string calCommentVoice = 7;
-    public static final int CALCOMMENTVOICE_FIELD_NUMBER = 7;
-    private Object calCommentVoice_;
-    public boolean hasCalCommentVoice() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    public String getCalCommentVoice() {
-      Object ref = calCommentVoice_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          calCommentVoice_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCalCommentVoiceBytes() {
-      Object ref = calCommentVoice_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        calCommentVoice_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional string calCommentVideo = 8;
-    public static final int CALCOMMENTVIDEO_FIELD_NUMBER = 8;
-    private Object calCommentVideo_;
-    public boolean hasCalCommentVideo() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    public String getCalCommentVideo() {
-      Object ref = calCommentVideo_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          calCommentVideo_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCalCommentVideoBytes() {
-      Object ref = calCommentVideo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        calCommentVideo_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int64 longitude = 10;
-    public static final int LONGITUDE_FIELD_NUMBER = 10;
-    private long longitude_;
-    public boolean hasLongitude() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    public long getLongitude() {
-      return longitude_;
-    }
-    
-    // optional int64 latitude = 11;
-    public static final int LATITUDE_FIELD_NUMBER = 11;
-    private long latitude_;
-    public boolean hasLatitude() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    public long getLatitude() {
-      return latitude_;
-    }
-    
-    // optional string localInfo = 12;
-    public static final int LOCALINFO_FIELD_NUMBER = 12;
-    private Object localInfo_;
-    public boolean hasLocalInfo() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
-    }
-    public String getLocalInfo() {
-      Object ref = localInfo_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          localInfo_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getLocalInfoBytes() {
-      Object ref = localInfo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        localInfo_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int32 enabled = 13;
-    public static final int ENABLED_FIELD_NUMBER = 13;
-    private int enabled_;
-    public boolean hasEnabled() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
-    }
-    public int getEnabled() {
-      return enabled_;
-    }
-    
-    // optional int64 createTime = 14;
-    public static final int CREATETIME_FIELD_NUMBER = 14;
-    private long createTime_;
-    public boolean hasCreateTime() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
-    }
-    public long getCreateTime() {
-      return createTime_;
-    }
-    
-    // optional string createBy = 15;
-    public static final int CREATEBY_FIELD_NUMBER = 15;
-    private Object createBy_;
-    public boolean hasCreateBy() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
-    }
-    public String getCreateBy() {
-      Object ref = createBy_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createBy_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCreateByBytes() {
-      Object ref = createBy_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createBy_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int64 updateTime = 16;
-    public static final int UPDATETIME_FIELD_NUMBER = 16;
-    private long updateTime_;
-    public boolean hasUpdateTime() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
-    }
-    public long getUpdateTime() {
-      return updateTime_;
-    }
-    
-    // optional string updateBy = 17;
-    public static final int UPDATEBY_FIELD_NUMBER = 17;
-    private Object updateBy_;
-    public boolean hasUpdateBy() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
-    }
-    public String getUpdateBy() {
-      Object ref = updateBy_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          updateBy_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUpdateByBytes() {
-      Object ref = updateBy_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        updateBy_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    private void initFields() {
-      id_ = 0L;
-      userId_ = 0L;
-      cmtUserId_ = 0L;
-      calCommentDesc_ = "";
-      calCommentPic_ = "";
-      calCommentVoice_ = "";
-      calCommentVideo_ = "";
-      longitude_ = 0L;
-      latitude_ = 0L;
-      localInfo_ = "";
-      enabled_ = 0;
-      createTime_ = 0L;
-      createBy_ = "";
-      updateTime_ = 0L;
-      updateBy_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(1, id_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, userId_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt64(3, cmtUserId_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(5, getCalCommentDescBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(6, getCalCommentPicBytes());
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(7, getCalCommentVoiceBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(8, getCalCommentVideoBytes());
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt64(10, longitude_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeInt64(11, latitude_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(12, getLocalInfoBytes());
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(13, enabled_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeInt64(14, createTime_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeBytes(15, getCreateByBytes());
-      }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeInt64(16, updateTime_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeBytes(17, getUpdateByBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, id_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, userId_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, cmtUserId_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getCalCommentDescBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(6, getCalCommentPicBytes());
-      }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(7, getCalCommentVoiceBytes());
-      }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getCalCommentVideoBytes());
-      }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(10, longitude_);
-      }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(11, latitude_);
-      }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(12, getLocalInfoBytes());
-      }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, enabled_);
-      }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(14, createTime_);
-      }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(15, getCreateByBytes());
-      }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(16, updateTime_);
-      }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(17, getUpdateByBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
-    @Override
-    protected Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
-    public static CalendarComment parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static CalendarComment parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static CalendarComment parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static CalendarComment parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static CalendarComment parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static CalendarComment parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static CalendarComment parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static CalendarComment parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static CalendarComment parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static CalendarComment parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(CalendarComment prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements CalendarCommentOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return CalendarMessage.internal_static_CalendarComment_descriptor;
-      }
-      
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return CalendarMessage.internal_static_CalendarComment_fieldAccessorTable;
-      }
-      
-      // Construct using vine.app.message.CalendarMessage.CalendarComment.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        id_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        cmtUserId_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        calCommentDesc_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        calCommentPic_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
-        calCommentVoice_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
-        calCommentVideo_ = "";
-        bitField0_ = (bitField0_ & ~0x00000040);
-        longitude_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000080);
-        latitude_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000100);
-        localInfo_ = "";
-        bitField0_ = (bitField0_ & ~0x00000200);
-        enabled_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000400);
-        createTime_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000800);
-        createBy_ = "";
-        bitField0_ = (bitField0_ & ~0x00001000);
-        updateTime_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00002000);
-        updateBy_ = "";
-        bitField0_ = (bitField0_ & ~0x00004000);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return CalendarComment.getDescriptor();
-      }
-      
-      public CalendarComment getDefaultInstanceForType() {
-        return CalendarComment.getDefaultInstance();
-      }
-      
-      public CalendarComment build() {
-        CalendarComment result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private CalendarComment buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        CalendarComment result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public CalendarComment buildPartial() {
-        CalendarComment result = new CalendarComment(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.userId_ = userId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.cmtUserId_ = cmtUserId_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.calCommentDesc_ = calCommentDesc_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.calCommentPic_ = calCommentPic_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
-        }
-        result.calCommentVoice_ = calCommentVoice_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
-        }
-        result.calCommentVideo_ = calCommentVideo_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
-        }
-        result.longitude_ = longitude_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.latitude_ = latitude_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
-        }
-        result.localInfo_ = localInfo_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
-        }
-        result.enabled_ = enabled_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
-          to_bitField0_ |= 0x00000800;
-        }
-        result.createTime_ = createTime_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-          to_bitField0_ |= 0x00001000;
-        }
-        result.createBy_ = createBy_;
-        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
-          to_bitField0_ |= 0x00002000;
-        }
-        result.updateTime_ = updateTime_;
-        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
-          to_bitField0_ |= 0x00004000;
-        }
-        result.updateBy_ = updateBy_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof CalendarComment) {
-          return mergeFrom((CalendarComment)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(CalendarComment other) {
-        if (other == CalendarComment.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          setId(other.getId());
-        }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
-        }
-        if (other.hasCmtUserId()) {
-          setCmtUserId(other.getCmtUserId());
-        }
-        if (other.hasCalCommentDesc()) {
-          setCalCommentDesc(other.getCalCommentDesc());
-        }
-        if (other.hasCalCommentPic()) {
-          setCalCommentPic(other.getCalCommentPic());
-        }
-        if (other.hasCalCommentVoice()) {
-          setCalCommentVoice(other.getCalCommentVoice());
-        }
-        if (other.hasCalCommentVideo()) {
-          setCalCommentVideo(other.getCalCommentVideo());
-        }
-        if (other.hasLongitude()) {
-          setLongitude(other.getLongitude());
-        }
-        if (other.hasLatitude()) {
-          setLatitude(other.getLatitude());
-        }
-        if (other.hasLocalInfo()) {
-          setLocalInfo(other.getLocalInfo());
-        }
-        if (other.hasEnabled()) {
-          setEnabled(other.getEnabled());
-        }
-        if (other.hasCreateTime()) {
-          setCreateTime(other.getCreateTime());
-        }
-        if (other.hasCreateBy()) {
-          setCreateBy(other.getCreateBy());
-        }
-        if (other.hasUpdateTime()) {
-          setUpdateTime(other.getUpdateTime());
-        }
-        if (other.hasUpdateBy()) {
-          setUpdateBy(other.getUpdateBy());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              id_ = input.readInt64();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              userId_ = input.readInt64();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              cmtUserId_ = input.readInt64();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000008;
-              calCommentDesc_ = input.readBytes();
-              break;
-            }
-            case 50: {
-              bitField0_ |= 0x00000010;
-              calCommentPic_ = input.readBytes();
-              break;
-            }
-            case 58: {
-              bitField0_ |= 0x00000020;
-              calCommentVoice_ = input.readBytes();
-              break;
-            }
-            case 66: {
-              bitField0_ |= 0x00000040;
-              calCommentVideo_ = input.readBytes();
-              break;
-            }
-            case 80: {
-              bitField0_ |= 0x00000080;
-              longitude_ = input.readInt64();
-              break;
-            }
-            case 88: {
-              bitField0_ |= 0x00000100;
-              latitude_ = input.readInt64();
-              break;
-            }
-            case 98: {
-              bitField0_ |= 0x00000200;
-              localInfo_ = input.readBytes();
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00000400;
-              enabled_ = input.readInt32();
-              break;
-            }
-            case 112: {
-              bitField0_ |= 0x00000800;
-              createTime_ = input.readInt64();
-              break;
-            }
-            case 122: {
-              bitField0_ |= 0x00001000;
-              createBy_ = input.readBytes();
-              break;
-            }
-            case 128: {
-              bitField0_ |= 0x00002000;
-              updateTime_ = input.readInt64();
-              break;
-            }
-            case 138: {
-              bitField0_ |= 0x00004000;
-              updateBy_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      }
-      
-      private int bitField0_;
-      
-      // optional int64 id = 1;
-      private long id_ ;
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public long getId() {
-        return id_;
-      }
-      public Builder setId(long value) {
-        bitField0_ |= 0x00000001;
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional int64 userId = 2;
-      private long userId_ ;
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public long getUserId() {
-        return userId_;
-      }
-      public Builder setUserId(long value) {
-        bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional int64 cmtUserId = 3;
-      private long cmtUserId_ ;
-      public boolean hasCmtUserId() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      public long getCmtUserId() {
-        return cmtUserId_;
-      }
-      public Builder setCmtUserId(long value) {
-        bitField0_ |= 0x00000004;
-        cmtUserId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCmtUserId() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        cmtUserId_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional string calCommentDesc = 5;
-      private Object calCommentDesc_ = "";
-      public boolean hasCalCommentDesc() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      public String getCalCommentDesc() {
-        Object ref = calCommentDesc_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          calCommentDesc_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setCalCommentDesc(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        calCommentDesc_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCalCommentDesc() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        calCommentDesc_ = getDefaultInstance().getCalCommentDesc();
-        onChanged();
-        return this;
-      }
-      void setCalCommentDesc(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
-        calCommentDesc_ = value;
-        onChanged();
-      }
-      
-      // optional string calCommentPic = 6;
-      private Object calCommentPic_ = "";
-      public boolean hasCalCommentPic() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      public String getCalCommentPic() {
-        Object ref = calCommentPic_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          calCommentPic_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setCalCommentPic(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        calCommentPic_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCalCommentPic() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        calCommentPic_ = getDefaultInstance().getCalCommentPic();
-        onChanged();
-        return this;
-      }
-      void setCalCommentPic(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000010;
-        calCommentPic_ = value;
-        onChanged();
-      }
-      
-      // optional string calCommentVoice = 7;
-      private Object calCommentVoice_ = "";
-      public boolean hasCalCommentVoice() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      public String getCalCommentVoice() {
-        Object ref = calCommentVoice_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          calCommentVoice_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setCalCommentVoice(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
-        calCommentVoice_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCalCommentVoice() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        calCommentVoice_ = getDefaultInstance().getCalCommentVoice();
-        onChanged();
-        return this;
-      }
-      void setCalCommentVoice(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000020;
-        calCommentVoice_ = value;
-        onChanged();
-      }
-      
-      // optional string calCommentVideo = 8;
-      private Object calCommentVideo_ = "";
-      public boolean hasCalCommentVideo() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      public String getCalCommentVideo() {
-        Object ref = calCommentVideo_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          calCommentVideo_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setCalCommentVideo(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
-        calCommentVideo_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCalCommentVideo() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        calCommentVideo_ = getDefaultInstance().getCalCommentVideo();
-        onChanged();
-        return this;
-      }
-      void setCalCommentVideo(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000040;
-        calCommentVideo_ = value;
-        onChanged();
-      }
-      
-      // optional int64 longitude = 10;
-      private long longitude_ ;
-      public boolean hasLongitude() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      public long getLongitude() {
-        return longitude_;
-      }
-      public Builder setLongitude(long value) {
-        bitField0_ |= 0x00000080;
-        longitude_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearLongitude() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        longitude_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional int64 latitude = 11;
-      private long latitude_ ;
-      public boolean hasLatitude() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      public long getLatitude() {
-        return latitude_;
-      }
-      public Builder setLatitude(long value) {
-        bitField0_ |= 0x00000100;
-        latitude_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearLatitude() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        latitude_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional string localInfo = 12;
-      private Object localInfo_ = "";
-      public boolean hasLocalInfo() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      public String getLocalInfo() {
-        Object ref = localInfo_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          localInfo_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setLocalInfo(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
-        localInfo_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearLocalInfo() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        localInfo_ = getDefaultInstance().getLocalInfo();
-        onChanged();
-        return this;
-      }
-      void setLocalInfo(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000200;
-        localInfo_ = value;
-        onChanged();
-      }
-      
-      // optional int32 enabled = 13;
-      private int enabled_ ;
-      public boolean hasEnabled() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
-      }
-      public int getEnabled() {
-        return enabled_;
-      }
-      public Builder setEnabled(int value) {
-        bitField0_ |= 0x00000400;
-        enabled_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearEnabled() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        enabled_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // optional int64 createTime = 14;
-      private long createTime_ ;
-      public boolean hasCreateTime() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
-      }
-      public long getCreateTime() {
-        return createTime_;
-      }
-      public Builder setCreateTime(long value) {
-        bitField0_ |= 0x00000800;
-        createTime_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCreateTime() {
-        bitField0_ = (bitField0_ & ~0x00000800);
-        createTime_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional string createBy = 15;
-      private Object createBy_ = "";
-      public boolean hasCreateBy() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
-      }
-      public String getCreateBy() {
-        Object ref = createBy_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createBy_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setCreateBy(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
-        createBy_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearCreateBy() {
-        bitField0_ = (bitField0_ & ~0x00001000);
-        createBy_ = getDefaultInstance().getCreateBy();
-        onChanged();
-        return this;
-      }
-      void setCreateBy(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00001000;
-        createBy_ = value;
-        onChanged();
-      }
-      
-      // optional int64 updateTime = 16;
-      private long updateTime_ ;
-      public boolean hasUpdateTime() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
-      }
-      public long getUpdateTime() {
-        return updateTime_;
-      }
-      public Builder setUpdateTime(long value) {
-        bitField0_ |= 0x00002000;
-        updateTime_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUpdateTime() {
-        bitField0_ = (bitField0_ & ~0x00002000);
-        updateTime_ = 0L;
-        onChanged();
-        return this;
-      }
-      
-      // optional string updateBy = 17;
-      private Object updateBy_ = "";
-      public boolean hasUpdateBy() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
-      }
-      public String getUpdateBy() {
-        Object ref = updateBy_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          updateBy_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setUpdateBy(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00004000;
-        updateBy_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUpdateBy() {
-        bitField0_ = (bitField0_ & ~0x00004000);
-        updateBy_ = getDefaultInstance().getUpdateBy();
-        onChanged();
-        return this;
-      }
-      void setUpdateBy(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00004000;
-        updateBy_ = value;
-        onChanged();
-      }
-      
-      // @@protoc_insertion_point(builder_scope:CalendarComment)
-    }
-    
-    static {
-      defaultInstance = new CalendarComment(true);
-      defaultInstance.initFields();
-    }
-    
-    // @@protoc_insertion_point(class_scope:CalendarComment)
   }
   
   public interface FindCalendarCommentByIdOrBuilder
@@ -12910,6 +13294,11 @@ public final class CalendarMessage {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FindCalendarList_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_CalendarComment_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CalendarComment_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Calendar_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -12995,11 +13384,6 @@ public final class CalendarMessage {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_FindCalendarCommentListRet_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_CalendarComment_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_CalendarComment_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_FindCalendarCommentById_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -13031,60 +13415,61 @@ public final class CalendarMessage {
       "\n\025CalendarMessage.proto\"p\n\020FindCalendarL" +
       "ist\022\021\n\tstartTime\030\001 \001(\t\022\017\n\007endTime\030\002 \001(\t\022" +
       "\025\n\rcalCategoryId\030\003 \001(\003\022\020\n\010priority\030\004 \001(\005" +
-      "\022\017\n\007keyword\030\005 \001(\t\"\242\003\n\010Calendar\022\n\n\002id\030\001 \001" +
-      "(\003\022\016\n\006userId\030\002 \001(\003\022\025\n\rcalCategoryId\030\003 \001(" +
-      "\003\022\017\n\007calName\030\004 \001(\t\022\017\n\007calDesc\030\005 \001(\t\022\016\n\006c" +
-      "alPic\030\006 \001(\t\022\020\n\010calVoice\030\007 \001(\t\022\020\n\010calVide" +
-      "o\030\010 \001(\t\022\020\n\010priority\030\t \001(\005\022\024\n\014alterEnable" +
-      "d\030\n \001(\005\022\023\n\013openEnabled\030\013 \001(\005\022\022\n\nendEnabl" +
-      "ed\030\014 \001(\005\022\021\n\talterTime\030\r \001(\003\022\024\n\014alterForw",
-      "ard\030\016 \001(\005\022\021\n\tlongitude\030\017 \001(\003\022\020\n\010latitude" +
-      "\030\020 \001(\003\022\021\n\tlocalInfo\030\021 \001(\t\022\017\n\007enabled\030\022 \001" +
-      "(\005\022\022\n\ncreateTime\030\023 \001(\003\022\020\n\010createBy\030\024 \001(\t" +
-      "\022\022\n\nupdateTime\030\025 \001(\003\022\020\n\010updateBy\030\026 \001(\t\"3" +
-      "\n\023FindCalendarListRet\022\034\n\tcalendars\030\001 \003(\013" +
-      "2\t.Calendar\"&\n\020FindCalendarById\022\022\n\ncalen" +
-      "darId\030\001 \001(\003\"2\n\023FindCalendarByIdRet\022\033\n\010Ca" +
-      "lendar\030\001 \001(\0132\t.Calendar\"*\n\013AddCalendar\022\033" +
-      "\n\010calendar\030\001 \001(\0132\t.Calendar\"/\n\020EditCalen" +
-      "darById\022\033\n\010calendar\030\001 \001(\0132\t.Calendar\"(\n\022",
-      "DeleteCalendarById\022\022\n\ncalendarId\030\001 \001(\003\"O" +
-      "\n\030FindCalendarCategoryList\022\021\n\tstartTime\030" +
-      "\001 \001(\t\022\017\n\007endTime\030\002 \001(\t\022\017\n\007keyword\030\003 \001(\t\"" +
-      "K\n\033FindCalendarCategoryListRet\022,\n\021calend" +
-      "arCategorys\030\001 \003(\0132\021.CalendarCategory\"\254\001\n" +
-      "\020CalendarCategory\022\n\n\002id\030\001 \001(\003\022\016\n\006userId\030" +
-      "\002 \001(\003\022\014\n\004name\030\003 \001(\t\022\021\n\tshowOrder\030\004 \001(\005\022\017" +
-      "\n\007enabled\030\005 \001(\005\022\022\n\ncreateTime\030\006 \001(\003\022\020\n\010c" +
-      "reateBy\030\007 \001(\t\022\022\n\nupdateTime\030\010 \001(\003\022\020\n\010upd" +
-      "ateBy\030\t \001(\t\"6\n\030FindCalendarCategoryById\022",
-      "\032\n\022calendarCategoryId\030\001 \001(\003\"J\n\033FindCalen" +
-      "darCategoryByIdRet\022+\n\020calendarCategory\030\001" +
-      " \001(\0132\021.CalendarCategory\"B\n\023AddCalendarCa" +
-      "tegory\022+\n\020calendarCategory\030\001 \001(\0132\021.Calen" +
-      "darCategory\"G\n\030EditCalendarCategoryById\022" +
-      "+\n\020calendarCategory\030\001 \001(\0132\021.CalendarCate" +
-      "gory\"8\n\032DeleteCalendarCategoryById\022\032\n\022ca" +
-      "lendarCategoryId\030\001 \001(\003\"-\n\027FindCalendarCo" +
-      "mmentList\022\022\n\ncalendarId\030\003 \001(\003\"H\n\032FindCal" +
-      "endarCommentListRet\022*\n\020calendarComments\030",
-      "\001 \003(\0132\020.CalendarComment\"\266\002\n\017CalendarComm" +
-      "ent\022\n\n\002id\030\001 \001(\003\022\016\n\006userId\030\002 \001(\003\022\021\n\tcmtUs" +
-      "erId\030\003 \001(\003\022\026\n\016calCommentDesc\030\005 \001(\t\022\025\n\rca" +
-      "lCommentPic\030\006 \001(\t\022\027\n\017calCommentVoice\030\007 \001" +
-      "(\t\022\027\n\017calCommentVideo\030\010 \001(\t\022\021\n\tlongitude" +
-      "\030\n \001(\003\022\020\n\010latitude\030\013 \001(\003\022\021\n\tlocalInfo\030\014 " +
-      "\001(\t\022\017\n\007enabled\030\r \001(\005\022\022\n\ncreateTime\030\016 \001(\003" +
-      "\022\020\n\010createBy\030\017 \001(\t\022\022\n\nupdateTime\030\020 \001(\003\022\020" +
-      "\n\010updateBy\030\021 \001(\t\"H\n\027FindCalendarCommentB" +
-      "yId\022\022\n\ncalendarId\030\001 \001(\003\022\031\n\021calendarComme",
-      "ntId\030\002 \001(\003\"G\n\032FindCalendarCommentByIdRet" +
-      "\022)\n\017calendarComment\030\001 \001(\0132\020.CalendarComm" +
-      "ent\"?\n\022AddCalendarComment\022)\n\017calendarCom" +
-      "ment\030\001 \001(\0132\020.CalendarComment\"J\n\031DeleteCa" +
-      "lendarCommentById\022\022\n\ncalendarId\030\001 \001(\003\022\031\n" +
-      "\021calendarCommentId\030\002 \001(\003B\022\n\020vine.app.mes" +
-      "sage"
+      "\022\017\n\007keyword\030\005 \001(\t\"\265\002\n\017CalendarComment\022\n\n" +
+      "\002id\030\001 \001(\003\022\016\n\006userId\030\002 \001(\t\022\022\n\ncalendarId\030" +
+      "\003 \001(\003\022\026\n\016calCommentDesc\030\004 \001(\t\022\025\n\rcalComm" +
+      "entPic\030\005 \001(\t\022\027\n\017calCommentVoice\030\006 \001(\t\022\027\n" +
+      "\017calCommentVideo\030\007 \001(\t\022\021\n\tlongitude\030\010 \001(" +
+      "\003\022\020\n\010latitude\030\t \001(\003\022\021\n\tlocalInfo\030\n \001(\t\022\017" +
+      "\n\007enabled\030\013 \001(\005\022\022\n\ncreateTime\030\014 \001(\003\022\017\n\007c",
+      "reator\030\r \001(\t\022\022\n\nupdateTime\030\016 \001(\003\022\017\n\007upda" +
+      "ter\030\017 \001(\t\"\314\003\n\010Calendar\022\n\n\002id\030\001 \001(\003\022\016\n\006us" +
+      "erId\030\002 \001(\t\022\025\n\rcalCategoryId\030\003 \001(\003\022\017\n\007cal" +
+      "Name\030\004 \001(\t\022\017\n\007calDesc\030\005 \001(\t\022\016\n\006calPic\030\006 " +
+      "\001(\t\022\020\n\010calVoice\030\007 \001(\t\022\020\n\010calVideo\030\010 \001(\t\022" +
+      "\020\n\010priority\030\t \001(\005\022\024\n\014alterEnabled\030\n \001(\005\022" +
+      "\023\n\013openEnabled\030\013 \001(\005\022\022\n\nendEnabled\030\014 \001(\005" +
+      "\022\021\n\talterTime\030\r \001(\003\022\024\n\014alterForward\030\016 \001(" +
+      "\005\022\021\n\tlongitude\030\017 \001(\003\022\020\n\010latitude\030\020 \001(\003\022\021" +
+      "\n\tlocalInfo\030\021 \001(\t\022\017\n\007enabled\030\022 \001(\005\022\022\n\ncr",
+      "eateTime\030\023 \001(\003\022\017\n\007creator\030\024 \001(\t\022\022\n\nupdat" +
+      "eTime\030\025 \001(\003\022\017\n\007updater\030\026 \001(\t\022*\n\020calendar" +
+      "Comments\030\027 \003(\0132\020.CalendarComment\"3\n\023Find" +
+      "CalendarListRet\022\034\n\tcalendars\030\001 \003(\0132\t.Cal" +
+      "endar\"&\n\020FindCalendarById\022\022\n\ncalendarId\030" +
+      "\001 \001(\003\"2\n\023FindCalendarByIdRet\022\033\n\010Calendar" +
+      "\030\001 \001(\0132\t.Calendar\"*\n\013AddCalendar\022\033\n\010cale" +
+      "ndar\030\001 \001(\0132\t.Calendar\"/\n\020EditCalendarByI" +
+      "d\022\033\n\010calendar\030\001 \001(\0132\t.Calendar\"(\n\022Delete" +
+      "CalendarById\022\022\n\ncalendarId\030\001 \001(\003\"O\n\030Find",
+      "CalendarCategoryList\022\021\n\tstartTime\030\001 \001(\t\022" +
+      "\017\n\007endTime\030\002 \001(\t\022\017\n\007keyword\030\003 \001(\t\"K\n\033Fin" +
+      "dCalendarCategoryListRet\022,\n\021calendarCate" +
+      "gorys\030\001 \003(\0132\021.CalendarCategory\"\252\001\n\020Calen" +
+      "darCategory\022\n\n\002id\030\001 \001(\003\022\016\n\006userId\030\002 \001(\t\022" +
+      "\014\n\004name\030\003 \001(\t\022\021\n\tshowOrder\030\004 \001(\005\022\017\n\007enab" +
+      "led\030\005 \001(\005\022\022\n\ncreateTime\030\006 \001(\003\022\017\n\007creator" +
+      "\030\007 \001(\t\022\022\n\nupdateTime\030\010 \001(\003\022\017\n\007updater\030\t " +
+      "\001(\t\"6\n\030FindCalendarCategoryById\022\032\n\022calen" +
+      "darCategoryId\030\001 \001(\003\"J\n\033FindCalendarCateg",
+      "oryByIdRet\022+\n\020calendarCategory\030\001 \001(\0132\021.C" +
+      "alendarCategory\"B\n\023AddCalendarCategory\022+" +
+      "\n\020calendarCategory\030\001 \001(\0132\021.CalendarCateg" +
+      "ory\"G\n\030EditCalendarCategoryById\022+\n\020calen" +
+      "darCategory\030\001 \001(\0132\021.CalendarCategory\"8\n\032" +
+      "DeleteCalendarCategoryById\022\032\n\022calendarCa" +
+      "tegoryId\030\001 \001(\003\"-\n\027FindCalendarCommentLis" +
+      "t\022\022\n\ncalendarId\030\001 \001(\003\"H\n\032FindCalendarCom" +
+      "mentListRet\022*\n\020calendarComments\030\001 \003(\0132\020." +
+      "CalendarComment\"H\n\027FindCalendarCommentBy",
+      "Id\022\022\n\ncalendarId\030\001 \001(\003\022\031\n\021calendarCommen" +
+      "tId\030\002 \001(\003\"G\n\032FindCalendarCommentByIdRet\022" +
+      ")\n\017calendarComment\030\001 \001(\0132\020.CalendarComme" +
+      "nt\"?\n\022AddCalendarComment\022)\n\017calendarComm" +
+      "ent\030\001 \001(\0132\020.CalendarComment\"J\n\031DeleteCal" +
+      "endarCommentById\022\022\n\ncalendarId\030\001 \001(\003\022\031\n\021" +
+      "calendarCommentId\030\002 \001(\003B\022\n\020vine.app.mess" +
+      "age"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -13099,16 +13484,24 @@ public final class CalendarMessage {
               new String[] { "StartTime", "EndTime", "CalCategoryId", "Priority", "Keyword", },
               FindCalendarList.class,
               FindCalendarList.Builder.class);
-          internal_static_Calendar_descriptor =
+          internal_static_CalendarComment_descriptor =
             getDescriptor().getMessageTypes().get(1);
+          internal_static_CalendarComment_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CalendarComment_descriptor,
+              new String[] { "Id", "UserId", "CalendarId", "CalCommentDesc", "CalCommentPic", "CalCommentVoice", "CalCommentVideo", "Longitude", "Latitude", "LocalInfo", "Enabled", "CreateTime", "Creator", "UpdateTime", "Updater", },
+              CalendarComment.class,
+              CalendarComment.Builder.class);
+          internal_static_Calendar_descriptor =
+            getDescriptor().getMessageTypes().get(2);
           internal_static_Calendar_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Calendar_descriptor,
-              new String[] { "Id", "UserId", "CalCategoryId", "CalName", "CalDesc", "CalPic", "CalVoice", "CalVideo", "Priority", "AlterEnabled", "OpenEnabled", "EndEnabled", "AlterTime", "AlterForward", "Longitude", "Latitude", "LocalInfo", "Enabled", "CreateTime", "CreateBy", "UpdateTime", "UpdateBy", },
+              new String[] { "Id", "UserId", "CalCategoryId", "CalName", "CalDesc", "CalPic", "CalVoice", "CalVideo", "Priority", "AlterEnabled", "OpenEnabled", "EndEnabled", "AlterTime", "AlterForward", "Longitude", "Latitude", "LocalInfo", "Enabled", "CreateTime", "Creator", "UpdateTime", "Updater", "CalendarComments", },
               Calendar.class,
               Calendar.Builder.class);
           internal_static_FindCalendarListRet_descriptor =
-            getDescriptor().getMessageTypes().get(2);
+            getDescriptor().getMessageTypes().get(3);
           internal_static_FindCalendarListRet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarListRet_descriptor,
@@ -13116,7 +13509,7 @@ public final class CalendarMessage {
               FindCalendarListRet.class,
               FindCalendarListRet.Builder.class);
           internal_static_FindCalendarById_descriptor =
-            getDescriptor().getMessageTypes().get(3);
+            getDescriptor().getMessageTypes().get(4);
           internal_static_FindCalendarById_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarById_descriptor,
@@ -13124,7 +13517,7 @@ public final class CalendarMessage {
               FindCalendarById.class,
               FindCalendarById.Builder.class);
           internal_static_FindCalendarByIdRet_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(5);
           internal_static_FindCalendarByIdRet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarByIdRet_descriptor,
@@ -13132,7 +13525,7 @@ public final class CalendarMessage {
               FindCalendarByIdRet.class,
               FindCalendarByIdRet.Builder.class);
           internal_static_AddCalendar_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(6);
           internal_static_AddCalendar_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_AddCalendar_descriptor,
@@ -13140,7 +13533,7 @@ public final class CalendarMessage {
               AddCalendar.class,
               AddCalendar.Builder.class);
           internal_static_EditCalendarById_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(7);
           internal_static_EditCalendarById_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_EditCalendarById_descriptor,
@@ -13148,7 +13541,7 @@ public final class CalendarMessage {
               EditCalendarById.class,
               EditCalendarById.Builder.class);
           internal_static_DeleteCalendarById_descriptor =
-            getDescriptor().getMessageTypes().get(7);
+            getDescriptor().getMessageTypes().get(8);
           internal_static_DeleteCalendarById_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DeleteCalendarById_descriptor,
@@ -13156,7 +13549,7 @@ public final class CalendarMessage {
               DeleteCalendarById.class,
               DeleteCalendarById.Builder.class);
           internal_static_FindCalendarCategoryList_descriptor =
-            getDescriptor().getMessageTypes().get(8);
+            getDescriptor().getMessageTypes().get(9);
           internal_static_FindCalendarCategoryList_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarCategoryList_descriptor,
@@ -13164,7 +13557,7 @@ public final class CalendarMessage {
               FindCalendarCategoryList.class,
               FindCalendarCategoryList.Builder.class);
           internal_static_FindCalendarCategoryListRet_descriptor =
-            getDescriptor().getMessageTypes().get(9);
+            getDescriptor().getMessageTypes().get(10);
           internal_static_FindCalendarCategoryListRet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarCategoryListRet_descriptor,
@@ -13172,15 +13565,15 @@ public final class CalendarMessage {
               FindCalendarCategoryListRet.class,
               FindCalendarCategoryListRet.Builder.class);
           internal_static_CalendarCategory_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_CalendarCategory_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_CalendarCategory_descriptor,
-              new String[] { "Id", "UserId", "Name", "ShowOrder", "Enabled", "CreateTime", "CreateBy", "UpdateTime", "UpdateBy", },
+              new String[] { "Id", "UserId", "Name", "ShowOrder", "Enabled", "CreateTime", "Creator", "UpdateTime", "Updater", },
               CalendarCategory.class,
               CalendarCategory.Builder.class);
           internal_static_FindCalendarCategoryById_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(12);
           internal_static_FindCalendarCategoryById_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarCategoryById_descriptor,
@@ -13188,7 +13581,7 @@ public final class CalendarMessage {
               FindCalendarCategoryById.class,
               FindCalendarCategoryById.Builder.class);
           internal_static_FindCalendarCategoryByIdRet_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(13);
           internal_static_FindCalendarCategoryByIdRet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarCategoryByIdRet_descriptor,
@@ -13196,7 +13589,7 @@ public final class CalendarMessage {
               FindCalendarCategoryByIdRet.class,
               FindCalendarCategoryByIdRet.Builder.class);
           internal_static_AddCalendarCategory_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(14);
           internal_static_AddCalendarCategory_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_AddCalendarCategory_descriptor,
@@ -13204,7 +13597,7 @@ public final class CalendarMessage {
               AddCalendarCategory.class,
               AddCalendarCategory.Builder.class);
           internal_static_EditCalendarCategoryById_descriptor =
-            getDescriptor().getMessageTypes().get(14);
+            getDescriptor().getMessageTypes().get(15);
           internal_static_EditCalendarCategoryById_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_EditCalendarCategoryById_descriptor,
@@ -13212,7 +13605,7 @@ public final class CalendarMessage {
               EditCalendarCategoryById.class,
               EditCalendarCategoryById.Builder.class);
           internal_static_DeleteCalendarCategoryById_descriptor =
-            getDescriptor().getMessageTypes().get(15);
+            getDescriptor().getMessageTypes().get(16);
           internal_static_DeleteCalendarCategoryById_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DeleteCalendarCategoryById_descriptor,
@@ -13220,7 +13613,7 @@ public final class CalendarMessage {
               DeleteCalendarCategoryById.class,
               DeleteCalendarCategoryById.Builder.class);
           internal_static_FindCalendarCommentList_descriptor =
-            getDescriptor().getMessageTypes().get(16);
+            getDescriptor().getMessageTypes().get(17);
           internal_static_FindCalendarCommentList_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarCommentList_descriptor,
@@ -13228,21 +13621,13 @@ public final class CalendarMessage {
               FindCalendarCommentList.class,
               FindCalendarCommentList.Builder.class);
           internal_static_FindCalendarCommentListRet_descriptor =
-            getDescriptor().getMessageTypes().get(17);
+            getDescriptor().getMessageTypes().get(18);
           internal_static_FindCalendarCommentListRet_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_FindCalendarCommentListRet_descriptor,
               new String[] { "CalendarComments", },
               FindCalendarCommentListRet.class,
               FindCalendarCommentListRet.Builder.class);
-          internal_static_CalendarComment_descriptor =
-            getDescriptor().getMessageTypes().get(18);
-          internal_static_CalendarComment_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_CalendarComment_descriptor,
-              new String[] { "Id", "UserId", "CmtUserId", "CalCommentDesc", "CalCommentPic", "CalCommentVoice", "CalCommentVideo", "Longitude", "Latitude", "LocalInfo", "Enabled", "CreateTime", "CreateBy", "UpdateTime", "UpdateBy", },
-              CalendarComment.class,
-              CalendarComment.Builder.class);
           internal_static_FindCalendarCommentById_descriptor =
             getDescriptor().getMessageTypes().get(19);
           internal_static_FindCalendarCommentById_fieldAccessorTable = new

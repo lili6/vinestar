@@ -36,7 +36,7 @@ public class TestEnrollDao {
     private static void deleteEnrollBySeqno() {
         UserEnroll userEnroll = new UserEnroll();
         userEnroll.setUpdater("liguofang");
-        userEnroll.setSeqno(2);
+        userEnroll.setSeqno(2l);
         userEnroll.setEnabled(Enabled.DELETED);
         session.update("deleteEnrollBySeqno",userEnroll);
         session.commit();

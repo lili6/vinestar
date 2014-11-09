@@ -1,22 +1,19 @@
 package vine.app.dao.model;
 
 import vine.app.dao.model.enums.Enabled;
-import vine.app.dao.model.enums.EnrollStatus;
 
-import java.util.Date;
-
+import java.sql.Date;
 
 /**
- * Created by liguofang on 2014/10/27.
- * 用户注册信息表
+ * Created by renfj on 2014/11/03.
+ * 日程信息表
  */
-public class UserEnroll {
+public class CalendarCategoryInfo {
     private Long seqno;
     private String userId;
-    private String mobileNo;
-    private String email;
-    private String password;
-    private EnrollStatus status;
+    private String name;
+    private Integer showOrder;
+
     private Date createTime;
     private String creator ;
     private Date updateTime;
@@ -39,36 +36,20 @@ public class UserEnroll {
         this.userId = userId;
     }
 
-    public String getMobileNo() {
-        return mobileNo;
+    public String getName() {
+        return name;
     }
 
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getShowOrder() {
+        return showOrder;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public EnrollStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(EnrollStatus status) {
-        this.status = status;
+    public void setShowOrder(Integer showOrder) {
+        this.showOrder = showOrder;
     }
 
     public Date getCreateTime() {
@@ -113,13 +94,11 @@ public class UserEnroll {
 
     @Override
     public String toString() {
-        return "UserEnroll{" +
+        return "CalendarCategoryInfo{" +
                 "seqno=" + seqno +
                 ", userId=" + userId +
-                ", mobileNo='" + mobileNo + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", status=" + status +
+                ", name=" + name +
+                ", showOrder='" + showOrder + '\'' +
                 ", createTime=" + createTime +
                 ", creator='" + creator + '\'' +
                 ", updateTime=" + updateTime +
