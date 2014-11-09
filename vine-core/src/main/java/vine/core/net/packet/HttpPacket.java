@@ -92,7 +92,7 @@ public class HttpPacket {
         this.setStamp();
 
     }
- public  class PacketHead {
+    public  class PacketHead {
         /*为消息ID 用来路由Action*/
         public int packetId = 0;
         /*客户端消息的唯一标识，通常用客户端的时间毫秒来标示*/
@@ -103,23 +103,23 @@ public class HttpPacket {
         public int flag = 0; */
 
 
-     public String toJson() {
-         JSONObject obj = new JSONObject();
-         obj.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
-         obj.put(PacketConst.PACKET_KEY_RET_CODE,retCode);
-         obj.put(PacketConst.PACKET_KEY_STAMP,stamp);
-         return obj.toJSONString();
-     }
+        public String toJson() {
+            JSONObject obj = new JSONObject();
+            obj.put(PacketConst.PACKET_KEY_PACKET_ID,packetId);
+            obj.put(PacketConst.PACKET_KEY_RET_CODE,retCode);
+            obj.put(PacketConst.PACKET_KEY_STAMP,stamp);
+            return obj.toJSONString();
+        }
 
-     @Override
-     public String toString() {
-         return "PacketHead{" +
-                 "packetId=" + packetId +
-                 ", stamp=" + stamp +
-                 ", retCode=" + retCode +
-                 '}';
-     }
- }
+        @Override
+        public String toString() {
+            return "PacketHead{" +
+                    "packetId=" + packetId +
+                    ", stamp=" + stamp +
+                    ", retCode=" + retCode +
+                    '}';
+        }
+    }
 
     public  class AppHead {
         /*macId*/
