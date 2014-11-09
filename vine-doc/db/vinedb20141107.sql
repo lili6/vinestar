@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `c_access_log`;
 CREATE TABLE `c_access_log` (
   `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
-  `userId` bigint(20) DEFAULT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL COMMENT '登录令牌',
   `expiresIn` bigint(20) DEFAULT NULL COMMENT '超时时间',
   `versionCode` varchar(128) DEFAULT NULL COMMENT '应用版本',
@@ -42,7 +42,7 @@ CREATE TABLE `c_access_log` (
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` tinyint(4) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,16 +55,16 @@ CREATE TABLE `c_access_log` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_calendar_category`;
 CREATE TABLE `c_calendar_category` (
-  `seqno` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryId` int(11) DEFAULT NULL,
+  `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
+  `categoryId` bigint(20) DEFAULT NULL,
   `category` varchar(50) DEFAULT NULL COMMENT '日程分类',
-  `userId` int(11) DEFAULT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `showOrder` tinyint(4) DEFAULT '0' COMMENT '显示顺序 0:正顺',
   `createTime` datetime DEFAULT NULL,
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` tinyint(4) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,8 +78,8 @@ CREATE TABLE `c_calendar_category` (
 DROP TABLE IF EXISTS `c_calendar_comment`;
 CREATE TABLE `c_calendar_comment` (
   `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) DEFAULT NULL,
-  `cmtUserId` int(11) DEFAULT NULL COMMENT '评论用户Id',
+  `userId` varchar(50) DEFAULT NULL,
+  `cmtUserId` varchar(50) DEFAULT NULL COMMENT '评论用户Id',
   `comment` text,
   `calTitle` varchar(255) DEFAULT NULL,
   `calDesc` varchar(255) DEFAULT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE `c_calendar_comment` (
 DROP TABLE IF EXISTS `c_calendar_info`;
 CREATE TABLE `c_calendar_info` (
   `seqno` bigint(20) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `categoryId` int(11) DEFAULT NULL,
   `calTitle` varchar(255) DEFAULT NULL,
   `calDesc` varchar(255) DEFAULT NULL,
@@ -139,12 +139,12 @@ CREATE TABLE `c_calendar_info` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_guest_info`;
 CREATE TABLE `c_guest_info` (
-  `seqno` int(11) DEFAULT NULL,
+  `seqno` bigint(20) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL
+  `enabled` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -156,7 +156,7 @@ CREATE TABLE `c_guest_info` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_guest_log`;
 CREATE TABLE `c_guest_log` (
-  `seqno` int(11) NOT NULL,
+  `seqno` bigint(20) NOT NULL,
   `guestId` int(11) DEFAULT NULL,
   `macId` varchar(20) DEFAULT NULL,
   `deviceNo` int(11) DEFAULT NULL,
@@ -168,7 +168,7 @@ CREATE TABLE `c_guest_log` (
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updator` varchar(20) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -182,7 +182,7 @@ CREATE TABLE `c_guest_log` (
 DROP TABLE IF EXISTS `c_user_access`;
 CREATE TABLE `c_user_access` (
   `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
-  `userId` bigint(20) DEFAULT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `token` varchar(255) NOT NULL COMMENT '登录令牌',
   `expiresIn` bigint(20) DEFAULT NULL COMMENT '超时时间',
   `versionCode` varchar(128) DEFAULT NULL COMMENT '应用版本',
@@ -199,7 +199,7 @@ CREATE TABLE `c_user_access` (
   `channelId` varchar(50) DEFAULT NULL COMMENT '渠道号',
   `prisonBreak` tinyint(4) DEFAULT '0' COMMENT '是否越狱0未越狱1越狱',
   `serverId` varchar(50) DEFAULT NULL COMMENT '服务器号',
-  `enabled` tinyint(4) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
@@ -216,8 +216,8 @@ CREATE TABLE `c_user_access` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_user_acct`;
 CREATE TABLE `c_user_acct` (
-  `seqno` int(11) DEFAULT NULL,
-  `userId` int(11) DEFAULT NULL,
+  `seqno` bigint(20) DEFAULT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `bankCard` varchar(20) DEFAULT NULL,
   `bankName` varchar(30) DEFAULT NULL,
   `bankAddress` varchar(50) DEFAULT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE `c_user_acct` (
   `creator` varchar(15) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(15) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL
+  `enabled` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -238,13 +238,13 @@ CREATE TABLE `c_user_acct` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_user_company`;
 CREATE TABLE `c_user_company` (
-  `seqno` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) DEFAULT NULL,
+  `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` varchar(50) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `creator` varchar(15) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(15) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -287,8 +287,8 @@ INSERT INTO `c_user_enroll` VALUES ('33', '131be08e0f344502ab42e8727e99844c', '1
 -- ----------------------------
 DROP TABLE IF EXISTS `c_user_files`;
 CREATE TABLE `c_user_files` (
-  `seqno` int(11) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
+  `seqno` bigint(20) NOT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `title` varchar(20) DEFAULT NULL COMMENT '文件显示名称',
   `fileName` varchar(20) DEFAULT NULL COMMENT '物理名称',
   `abstract` text COMMENT '摘要描述',
@@ -314,15 +314,15 @@ CREATE TABLE `c_user_files` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_user_friend`;
 CREATE TABLE `c_user_friend` (
-  `seqno` int(11) NOT NULL,
-  `userId` int(11) DEFAULT NULL COMMENT '用户id',
-  `friendId` int(11) DEFAULT NULL COMMENT '好友Id',
+  `seqno` bigint(20) NOT NULL,
+  `userId` varchar(50) DEFAULT NULL COMMENT '用户id',
+  `friendId` varchar(50) DEFAULT NULL COMMENT '好友Id',
   `relation` int(11) DEFAULT NULL COMMENT '关系',
   `createTime` datetime DEFAULT NULL,
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -335,9 +335,10 @@ CREATE TABLE `c_user_friend` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_user_info`;
 CREATE TABLE `c_user_info` (
-  `userId` int(11) NOT NULL,
+  `seqno` bigint(20) NOT NULL,
+  `userId` varchar(50) NOT NULL,
   `userName` varchar(255) DEFAULT NULL,
-  `nickName` varchar(255) DEFAULT NULL,
+  `nickname` varchar(255) DEFAULT NULL,
   `imageUrl` varchar(255) DEFAULT NULL,
   `sex` varchar(255) DEFAULT NULL,
   `idNo` int(11) DEFAULT NULL,
@@ -352,7 +353,8 @@ CREATE TABLE `c_user_info` (
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL
+  `enabled` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -365,7 +367,7 @@ CREATE TABLE `c_user_info` (
 DROP TABLE IF EXISTS `c_user_log`;
 CREATE TABLE `c_user_log` (
   `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) DEFAULT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `action` varchar(50) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
@@ -373,7 +375,7 @@ CREATE TABLE `c_user_log` (
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -386,8 +388,8 @@ CREATE TABLE `c_user_log` (
 -- ----------------------------
 DROP TABLE IF EXISTS `c_user_mail`;
 CREATE TABLE `c_user_mail` (
-  `seqno` int(11) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
+  `seqno` bigint(20) NOT NULL,
+  `userId` varchar(50) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
   `mobile` varchar(30) DEFAULT NULL,
   `telephone` varchar(30) DEFAULT NULL,
@@ -397,7 +399,7 @@ CREATE TABLE `c_user_mail` (
   `creator` varchar(20) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `updater` varchar(20) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -410,14 +412,14 @@ CREATE TABLE `c_user_mail` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user_test`;
 CREATE TABLE `user_test` (
-  `id` bigint(11) NOT NULL AUTO_INCREMENT,
-  `userId` varchar(255) DEFAULT NULL,
+  `seqno` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userId` varchar(50) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
   `comment` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`seqno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 -- ----------------------------

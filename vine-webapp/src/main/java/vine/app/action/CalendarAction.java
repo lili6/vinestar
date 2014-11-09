@@ -24,6 +24,7 @@ import java.util.List;
 @Controller
 @Module(100)
 public class CalendarAction {
+
     private static final Logger log = LoggerFactory.getLogger(CalendarAction.class);
     CalendarInfoService calendarService= AppBeanFactory.getCalendarInfoService();
     CalendarCategoryService calendarCategoryService= AppBeanFactory.getCalendarCategoryService();
