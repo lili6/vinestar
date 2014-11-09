@@ -4,6 +4,7 @@ import vine.app.dao.model.enums.Enabled;
 import vine.app.dao.model.enums.EnrollStatus;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by liguofang on 2014/10/27.
@@ -16,9 +17,9 @@ public class UserEnroll {
     private String email;
     private String password;
     private EnrollStatus status;
-    private Date createTime;
+    private Timestamp createTime;
     private String creator ;
-    private Date updateTime;
+    private Timestamp updateTime;
     private String updater;
     private Enabled enabled;
 
@@ -70,11 +71,11 @@ public class UserEnroll {
         this.status = status;
     }
 
-    public Date getCreateTime() {
+    public Timestamp getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
     }
 
@@ -86,11 +87,11 @@ public class UserEnroll {
         this.creator = creator;
     }
 
-    public Date getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 

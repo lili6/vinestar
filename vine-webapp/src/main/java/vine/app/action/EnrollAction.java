@@ -4,12 +4,14 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import vine.app.dao.model.User;
 import vine.app.dao.model.UserEnroll;
 import vine.app.factory.AppBeanFactory;
 import vine.app.message.EnrollMessage;
 import vine.app.message.EnrollMessage.Enroll;
-import vine.app.message.EnrollMessage.EnrollRet;
 import vine.app.message.HOpCodeEx;
+import vine.common.cache.UserLoginCache;
+import vine.common.constant.MessageResult;
 import vine.common.constant.SessionAttributeKey;
 import vine.core.net.packet.enums.RETCODE;
 import vine.app.service.EnrollService;
@@ -17,7 +19,6 @@ import vine.core.net.action.clazz.Module;
 import vine.core.net.action.clazz.RequestModule;
 import vine.core.net.packet.HttpPacket;
 import vine.core.net.session.UserSession;
-import vine.core.utils.RandomUtil;
 import vine.core.utils.RandomValidateCode;
 import vine.core.utils.TokenUtil;
 import vine.core.utils.UUIDGenerator;
@@ -40,15 +41,12 @@ public class EnrollAction {
             EnrollMessage.GetValidateCode.Builder builder = EnrollMessage.GetValidateCode.newBuilder();
             builder.setValidateCode(validateCode);
             byte[] buff = builder.build().toByteArray();
-            packet.setAppBody(buff);
-            packet.setRetCode(RETCODE.SUCCESS);
-            packet.setStamp();
+            packet.packResponse(MessageResult.SUCCESS,buff);
         } catch (Exception e) {
             //解析请求数据错误。。TODO
             log.error("packetId[{}] request message parse error:{}",packet.getPacketId(),e);
             e.printStackTrace();
-            packet.setRetCode(RETCODE.MESSAGE_PARSE_ERROR);
-            packet.setAppBody(null);
+            packet.packResponse(MessageResult.EXCEPTION,null);
             return packet;
         }
         log.debug("getValidateCode response packet:{}",packet);
@@ -66,7 +64,7 @@ public class EnrollAction {
      */
     @RequestModule(value = HOpCodeEx.Enroll, needOnline = false)
     public HttpPacket enroll (UserSession session, HttpPacket packet) {
-        log.debug("eroll begin...");
+        log.debug("eroll[{}] begin...",packet.getPacketId());
         log.debug("eroll request packet:{}",packet);
         //接口数据验证
         Enroll req =null;
@@ -76,60 +74,88 @@ public class EnrollAction {
             //解析请求数据错误。。TODO
             log.error("packetId[{}] request message parse error:{}",packet.getPacketId(),e);
             e.printStackTrace();
-            packet.setRetCode(RETCODE.MESSAGE_PARSE_ERROR);
-            packet.setAppBody(null);
+            packet.packResponse(MessageResult.MESSAGE_PARSE_ERROR,null);
             return packet;
         }
-        //1、对校验码的验证
+        String userId = packet.getAppHead().userId;
+        EnrollMessage.LoginType loginType = req.getLoginType();
+        log.debug("用户登录类别=[{}]",loginType);
+        if (EnrollMessage.LoginType.GUEST == loginType) {
+            log.debug("游客浏览");
+            //TODO 记录游客浏览日志记录，直接返回
+            packet.packResponse(MessageResult.SUCCESS,null);
+            return packet;
+        } else if (EnrollMessage.LoginType.LOGIN== loginType) {
+            log.debug("用户登录");
+            //TODO 需要进行密码验证，且在日志表中更新用户登陆记录
+            log.debug("enroll[{}] checkPassword...userId=[{}],passwod=[{}]",packet.getPacketId(),userId,req.getPassword());
+            //根据邮箱号或者手机号，为主键判断密码是否正确。
+//            UserEnroll user = enrollService.findEnrollByUserId(userId);
+//            log.debug("user={}",user);
+
+            if (enrollService.checkPassword(req.getEmail(),req.getMobileNo(),req.getPassword())) {
+                //设置token，并返回给客户端
+                String token = TokenUtil.generateToken(userId + packet.getPacketHead().stamp);
+                log.debug("LOGIN TOKEN=[{}]",token);
+                UserLoginCache.setToken(token);
+                packet.getAppHead().token = token;
+                packet.packResponse(MessageResult.SUCCESS,null);
+                return packet;
+            } else {
+                log.error("password is not correct!!! please login again!!");
+                packet.packResponse(MessageResult.ENROLL_PASSWORD_ERROR,null);
+                return packet;
+            }
+        } else if (EnrollMessage.LoginType.ENROLL == loginType) {
+            log.debug("用户注册！");
+        }
+
+        //1、TODO 对校验码的验证,放在客户端进行验证，服务器不再进行验证
         String checkCode = req.getCheckCode();
-        if (!checkCode.equalsIgnoreCase((String)session.getAttribute(SessionAttributeKey.RANDOM_CODE_KEY))) {
-            packet.setRetCode(RETCODE.VALIDATECODE_ERROR);
-            packet.setAppBody(null);
-            packet.setStamp();
-            return packet;
-        }
+        log.debug("request checkCode=[{}]",checkCode);
+        log.debug("request validateCode=[{}]",session.getAttribute(SessionAttributeKey.RANDOM_CODE_KEY));
         //2、对手机号或者邮箱号的唯一性验证
         String mobileNo = req.getMobileNo();
-        if (null == mobileNo || mobileNo.equals("") ||!enrollService.mobileNoExist(mobileNo)) {
-                //TODO 手机号存在
-        }
-
         String email = req.getEmail();
-
-        if (null == email || email.equals("") || enrollService.emailExist(email)) {
-            //TODO 手机号存在
+        if (mobileNo.equals("") && email.equals("")) {
+            log.error("mobileNo or email must input!!!");
+            packet.packResponse(MessageResult.ENROLL_EMAIL_OR_MOBILE_EMPTY,null);
+            return packet;
         }
-
-
+        if (!mobileNo.equals("") && enrollService.findEnrollByMobileNo(mobileNo)!=null) {
+            log.error("mobileNo already exist!!!");
+            packet.packResponse(MessageResult.ENROLL_MOBILE_EXIST,null);
+            return packet;
+        } else if (!email.equals("")  && enrollService.findEnrollByEmail(email) != null) {
+            log.error("email already exist!!!");
+            packet.packResponse(MessageResult.ENROLL_EMAIL_EXIST,null);
+            return packet;
+        }
         String password = req.getPassword();
-        Integer loginType = req.getLoginType();
         UserEnroll userEnroll = new UserEnroll();
         userEnroll.setMobileNo(mobileNo);
         userEnroll.setEmail(email);
         userEnroll.setPassword(password);
         userEnroll.setCreator("admin");
-//        int userId = RandomUtil.nextInt(9999); 
-        String userId = UUIDGenerator.getUUID();
+        userId = UUIDGenerator.getUUID();
         userEnroll.setUserId(userId);
         enrollService.enroll(userEnroll);
-        /*if(loginType!=0) {
-            enrollService.enroll(userEnroll);
-        }  else {
-            log.debug("guest enroll，log guest..");
-            //TODO 游客登录
-        }*/
         long seqno = userEnroll.getSeqno();
-        EnrollRet.Builder builder = EnrollRet.newBuilder();
-        builder.setUserId(String.valueOf(userId));
-        builder.setToken(TokenUtil.generateToken(seqno+userId +packet.getPacketHead().stamp));
-        //TODO 将token放到session中，以后每次用户交互都要进行token的验证。
-        byte[] buff = builder.build().toByteArray();
-        packet.setAppBody(buff);
-        packet.setRetCode(RETCODE.SUCCESS);
-        packet.setStamp();
-        log.debug("eroll response packet:{}",packet);
+//        EnrollRet.Builder builder = EnrollRet.newBuilder();
+//        builder.setUserId(String.valueOf(userId));
+        String token = TokenUtil.generateToken(userId +packet.getPacketHead().stamp);
+        //将token放到缓存中，以后每次用户交互都要进行token的验证。
+        UserLoginCache.setToken(token);
+//        builder.setToken(token);
+//        byte[] buff = builder.build().toByteArray();
+        packet.getAppHead().token = token;
+        packet.getAppHead().userId = userId;
+        packet.packResponse(MessageResult.SUCCESS,null);
+        if (log.isDebugEnabled())
+            log.debug("enroll[{}], \n response packet:{}",packet.getPacketId(),packet);
         return packet;
     }
+
 
     /**
      * 注销用户
@@ -187,14 +213,12 @@ public class EnrollAction {
             enrollService.resetPasswordByUserId(userId, newPwd);
         } catch (Exception e) {
             log.debug("resetPassword action exception:",e);
-            packet.setRetCode(RETCODE.FAILED);
+            packet.packResponse(MessageResult.EXCEPTION,null);
             e.printStackTrace();
-            //TODO 做错误处理
             return packet;
         }
-        packet.setRetCode(RETCODE.SUCCESS);
-        packet.setStamp();
-        packet.setAppBody(null);
+
+        packet.packResponse(MessageResult.SUCCESS,null);
         log.debug("resetPassword action execute successful...");
         log.debug("resetPassword response packet:{}",packet);
         //TODO 输入数据为手机号或者email，后台进行验证

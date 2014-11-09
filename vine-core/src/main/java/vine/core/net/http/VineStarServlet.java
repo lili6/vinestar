@@ -6,8 +6,10 @@ package vine.core.net.http;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import vine.core.net.HOpCode;
 import vine.core.net.action.ActionRunner;
 import vine.core.net.packet.*;
+import vine.core.net.packet.enums.RETCODE;
 import vine.core.net.session.*;
 //import vine.core.net.thread.MessageDispatcher;
 import vine.core.utils.StringUtil;
@@ -107,10 +109,12 @@ public class VineStarServlet extends HttpServlet {
 		UserHttpSession userHttpSession = (UserHttpSession) session;
 		userHttpSession.setHttpRequest(req);// 设置最新的HttpRequest
 //		userHttpSession.putHttpResponse("default", resp);//缓存最新的HttpResponse
-        userHttpSession.putHttpResponse(session.getSessionId(), resp);//缓存最新的HttpResponse
+//        userHttpSession.putHttpResponse(session.getSessionId(), resp);//缓存最新的HttpResponse
+
 
 		//读取请求数据流
-		byte[] buff = readContent(req);		
+		byte[] buff = readContent(req);
+        log.debug("readContent:{}",buff);
 		if (buff == null) {
 			log.error("[IP:{}]请求的消息错误[{}]",ip, buff);
 			//对错误的相应数据处理
@@ -119,8 +123,10 @@ public class VineStarServlet extends HttpServlet {
 					PacketConst.RETCODE_REQUEST_MESSAGE_EMPTY, Packet.PacketType.valueOf(packetType));
 			GameActionTaskResultListener.sendData(new UserSession[]{session}, null, packet);
             */
-            //TODO 组错误包返回
-			return;
+            HttpPacket packet = new HttpPacket();
+            packet.setPacketId(HOpCode.OPCODE_COMM_ERROR);
+            packet.packResponse(RETCODE.MESSAGE_EMPTY.value(),null);
+            GameActionTaskResultListener.sendData(new UserSession[]{session}, null, packet);
 		}
 		log.info("接收[总长度：{}][HttpSessionId:{}][IP:{}] \n 请求buffer:\n[{}]",
 					buff.length, httpSession.getId(), ip, StringUtil.bytes2HexStr(buff));
@@ -135,7 +141,9 @@ public class VineStarServlet extends HttpServlet {
         if (packetId == null) {
                 log.error("packetId is null ,return...");
         }
-
+        if (!session.isLocked(packetId)) {// 请求命令是可执行的，缓存request和response
+            userHttpSession.putHttpResponse(packetId, resp);//缓存最新的HttpResponse
+        }
         if (null != ph && null != ah) {
            try {
                packet = unpackHead(ph, ah);
@@ -215,7 +223,23 @@ public class VineStarServlet extends HttpServlet {
         packet.setPacketHead(packetHead);
         packet.setPacketId(packetHead.packetId);
         HttpPacket.AppHead appHead = packet.new AppHead();
-        //TODO 完成appHead的定义
+        appHead.token = ahJson.getString(PacketConst.APP_KEY_TOKEN);
+        appHead.userId = ahJson.getString(PacketConst.APP_KEY_USERID);
+        appHead.area = ahJson.getString(PacketConst.APP_KEY_AREA);
+        appHead.channelId = ahJson.getString(PacketConst.APP_KEY_CHANNELID);
+        appHead.country = ahJson.getString(PacketConst.APP_KEY_COUNTRY);
+        appHead.deviceBrand =ahJson.getString(PacketConst.APP_KEY_DEVICE_BRAND);
+        appHead.deviceName =ahJson.getString(PacketConst.APP_KEY_DEVICE_NAME);
+        appHead.deviceNo =ahJson.getString(PacketConst.APP_KEY_DEVICE_NO);
+        appHead.deviceSystem =ahJson.getString(PacketConst.APP_KEY_DEVICE_SYSTEM);
+        appHead.deviceType =ahJson.getString(PacketConst.APP_KEY_DEVICE_TYPE);
+        appHead.macId =ahJson.getString(PacketConst.APP_KEY_MAC_ID);
+        appHead.networkType =ahJson.getString(PacketConst.APP_KEY_NETWORK_TYPE);
+        appHead.operator =ahJson.getString(PacketConst.APP_KEY_OPERATOR);
+        appHead.serverId =ahJson.getString(PacketConst.APP_KEY_SERVERID);
+        appHead.prisonBreak =ahJson.getString(PacketConst.APP_KEY_PRISONBREAK);
+        appHead.versionCode =ahJson.getString(PacketConst.APP_KEY_VERSION_CODE);
+//        appHead. =ahJson.getString(PacketConst.);
         packet.setAppHead(appHead);
         return  packet;
     }

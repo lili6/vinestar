@@ -63,44 +63,6 @@ public abstract class UserSession implements Serializable {
 	protected long lastRequestTime = 0;
 	/** 会话绑定的线程ID，缺省是ActionMessageHandler */
 	protected Long handleThreadId = null;
-	
-	/**
-	 * 每个session对应的请求消息队列
-	 */
-//	protected ConcurrentLinkedQueue<ThreadMessage> msgQueue = null;
-	
-//	public ConcurrentLinkedQueue<ThreadMessage> getMsgQueue() {
-//		return msgQueue;
-//	}
-	
-	
-	/**
-	 * 添加消息到对应的回话队列中
-	 * @param session
-	 * @param packet
-
-	public void addMessage(UserSession session, HttpPacket packet) {
-		ThreadMessage tm = new ThreadMessage(session,packet);
-		Long id = session.getHandleThreadId();			
-		if (msgQueue == null) {
-			msgQueue = new ConcurrentLinkedQueue<ThreadMessage>();
-		}
-		msgQueue.add(tm);
-		log.info("会话中[{}]线程[{}]加入新的消息[{}],当前队列消息数量：[{}]",session.getSessionId(),id,packet.getPacketId(), msgQueue.size());
-	}
-    */
-	/**
-	 * 删除queue中存在的所有消息
-
-	public void removeAll(UserSession session){
-		log.info("清除msgQueue中所有消息,当前长度Size:[{}]!",msgQueue.size());
-		msgQueue.clear();
-	}
-
-	public Long getHandleThreadId() {
-		return handleThreadId;
-	}
-    */
 
 	public void setHandleThreadId(Long handleThreadId) {
 		this.handleThreadId = handleThreadId;

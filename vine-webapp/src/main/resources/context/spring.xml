@@ -83,6 +83,8 @@
             </list>
         </property>
     </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
     <context:component-scan base-package="vine.app.dao" />
     <!--context:component-scan base-package="vine.app.action" /-->
     <context:component-scan base-package="vine.app.service"/>

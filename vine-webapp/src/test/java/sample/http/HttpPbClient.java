@@ -1,4 +1,4 @@
-package sample;
+package sample.http;
 
 import org.apache.poi.util.IOUtils;
 import vine.app.message.SampleMessage;

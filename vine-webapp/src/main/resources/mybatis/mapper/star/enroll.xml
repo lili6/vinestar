@@ -4,39 +4,41 @@
 <mapper namespace="vine.app.dao.auto.EnrollDao">
 
     <select id="selectEnrollBySeqno" parameterType="long" resultType="UserEnroll">
-        SELECT * FROM user_enroll WHERE seqno = #{seqno}
+        SELECT * FROM c_user_enroll WHERE seqno = #{seqno}
     </select>
 
     <select id="findEnrollByMobileNo" resultType="UserEnroll">
-        SELECT * FROM user_enroll WHERE mobileNo=#{mobileNo}
+        SELECT * FROM c_user_enroll WHERE mobileNo=#{mobileNo}
+    </select>
+    <select id="findEnrollByUserId" resultType="UserEnroll">
+        SELECT * FROM c_user_enroll WHERE userId=#{userId}
     </select>
 
     <insert id="insertEnroll"  useGeneratedKeys="true"  keyProperty="seqno" parameterType="UserEnroll">
         <![CDATA[
         insert into
-        user_enroll(userId,mobileNo,email,password,createTime,creator,updateTime,updater)
+        c_user_enroll(userId,mobileNo,email,password,createTime,creator,updateTime,updater)
         values(#{userId},#{mobileNo},#{email},#{password},now(),#{creator},now(),#{creator}) ]]>
     </insert>
 
 
     <select id="findEnrollByEmail" resultType="UserEnroll">
-        SELECT * FROM user_enroll WHERE email=#{email}
+        SELECT * FROM c_user_enroll WHERE email=#{email}
     </select>
-
+<!--
     <select id="findEnrollByMobileNo" resultType="UserEnroll">
-        SELECT * FROM user_enroll WHERE mobileNo=#{mobileNo}
-
+        SELECT * FROM c_user_enroll WHERE mobileNo=#{mobileNo}
     </select>
-
+-->
     <select id="selectAllEnroll" resultType="UserEnroll">
 
-        SELECT * FROM user_enroll
+        SELECT * FROM c_user_enroll
 
     </select>
 
     <select id="deleteEnrollBySeqno">
 
-        UPDATE user_enroll SET
+        UPDATE c_user_enroll SET
             enabled = #{enabled.code},
             updateTime= now(),
             updater = #{updater}
@@ -44,7 +46,7 @@
 
     </select>
     <select id="resetPasswordByUserId">
-        UPDATE user_enroll SET
+        UPDATE c_user_enroll SET
         password = #{password},
         updateTime= now(),
         updater = #{userId}
