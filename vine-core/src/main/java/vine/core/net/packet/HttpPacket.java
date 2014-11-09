@@ -63,7 +63,7 @@ public class HttpPacket {
     @Override
     public String toString() {
         return "HttpPacket{" +
-                "appBody=" + StringUtil.bytes2HexStr(appBody) +
+                "appBody=" + appBody+
                 ", packetId=" + packetId +
                 ", packetHead=" + packetHead +
                 ", appHead=" + appHead +
