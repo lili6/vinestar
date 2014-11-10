@@ -29,4 +29,36 @@ public class HOpCodeEx extends HOpCode {
 	public static final int ForgetPassword = 10005;
 	public static final int ResetPassword = 10006;
     public static final int GetValidateCode = 10007;
+
+    public static final int AddTopic = 12001;
+    public static final int DeleteTopic = 12002;
+    public static final int UpdateTopic = 12003;
+    public static final int ListPublicTopic = 12004;
+    public static final int ListTopicRet = 12005;
+    public static final int ListTopicByUid = 12006;
+    public static final int ListFriendTopic = 12007;
+    public static final int DoPraise = 12008;
+    public static final int DoComment = 12009;
+    public static final int DoForward = 12010;
+    public static final int DoFavorite = 12011;
+    public static final int ListFriendRequest = 12012;
+    public static final int ListFriendRequestRet = 12013;
+    public static final int UpdateFriendRequest = 12014;
+    public static final int AddFriend = 12015;
+    public static final int DeleteFriend = 12016;
+    public static final int ListFriend = 12017;
+    public static final int ListFriendRet = 12018;
+    public static final int ListNotice = 12019;
+    public static final int ListNoticeRet = 12020;
+    public static final int UpdateNotice = 12021;
+    public static final int DeleteNotice = 12022;
+    public static final int AddLetter = 12023;
+    public static final int UpdateLetter = 12024;
+    public static final int DeleteLetter = 12025;
+    public static final int ListLetter = 12026;
+    public static final int ListLetterRet = 12027;
+    public static final int Topic = 12028;
+    public static final int FriendRequest = 12029;
+    public static final int Notice = 12030;
+    public static final int Letter = 12031;
 }

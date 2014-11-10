@@ -1,0 +1,241 @@
+//@module=social,StartIndex=12001,classname=Social
+option java_package = "vine.app.message";
+
+//-------------发表一个主题---------------
+message AddTopic
+{
+	
+    optional    string      title             =   3; //话题标题
+    optional    string      content           =   4; //话题内容
+    optional    string      thumbnail         =   5; //话题缩略图
+    optional    string      image             =   6; //话题原图
+    optional    string      localImage        =   7; //话题本地图 ???
+    optional    string      visibleRange      =   8;  //可见范围    
+}
+
+//--------------删除一个主题----------------------
+message DeleteTopic
+{	
+	optional int64  	id				= 1;	// 主题ID
+}
+
+//--------------修改一个主题----------------------
+message UpdateTopic
+{
+	optional int64  	id				= 1;	// 主题ID
+}
+
+//--------------------获取公共话题列表-----------
+message ListPublicTopic
+{
+//无请求数据
+}
+message ListTopicRet
+{
+    repeated    Topic   topics  =   1; //话题列表
+}
+
+//--------------------获取指定用户发起话题的列表-----------
+message ListTopicByUid
+{
+    optional    string  userId              =2; //要查看的UserId的topic
+}
+//返回为ListTopicRet
+//--------------------获取好友话题列表-----------
+message ListFriendTopic
+{
+//无请求数据
+}
+//返回为ListTopicRet
+
+//------------------------点赞------------------
+message DoPraise
+{
+    optional    int64   topicId             =1; //主题id
+    optional    string  userId              =2; //点赞的用户
+}
+//message DoPraiseRet 只返回状态
+//------------------------评论------------------
+message DoComment
+{
+    optional    int64   topicId             =1; //主题id
+    optional    string  userId              =2; //评论的用户
+    optional    string  comment             =3; // 评论内容
+}
+//------------------------评论返回数据--带讨论，是否需要返回数据----------------
+//message DoCommentRet 只返回RetCode
+//------------------------转发------------------
+message DoForward
+{
+    optional    int64   topicId             =1; //主题id
+    optional    string  userId              =2; //转发的用户
+    optional    string  content             =3; // 转发时添加的内容
+}
+//DoForwardRet 转发只返回RetCode
+
+//------------------------收藏------------------
+message DoFavorite
+{
+    optional    int64   topicId             =1; //主题id
+    optional    string  userId              =2; //收藏的用户
+}
+//DoPrivateRet 转发只返回RetCode
+
+//--------------------获取好友请求列表-------------
+message ListFriendRequest
+{
+//无请求数据
+}
+//---
+message ListFriendRequestRet
+{
+    repeated    FriendRequest   requests    =   1; //还有请求列表
+}
+//--------------------更新好友请求------------------
+message UpdateFriendRequest
+{
+    optional   int64         requestId    =       1; //还有Id
+    optional   string        isAgree      =       2;
+    optional   string        isRead       =       3;
+}
+//无返回数据
+//-------------------添加好友/拉黑-----------------
+message AddFriend
+{
+    optional    string            friendId             = 1; //要添加的好友
+    optional    Relationship      relation             = 2; //关系
+}
+enum Relationship
+{
+            FRIEND          =   0;  //好友
+            WORKMATE        =   1;  //同事
+            CLASSMATE       =   2;  //同学
+            BLACKLIST       =   9;  //拉黑
+}
+//-------------------删除好友-----------------
+message DeleteFriend
+{
+    optional    string            friendId             = 1; //要删除的好友
+}
+
+//------------------我的好友列表-----------------
+ //userId + token在Apphead中，pb无请求数据
+message ListFriend
+{
+   
+}
+//------------------我的好友列表返回-----------------
+message ListFriendRet
+{
+    repeated Friend friends     =   1;
+}
+
+//-------------------显示通知列表-------------------
+//userId + token在Apphead中，pb无请求数据
+message ListNotice
+{
+  
+}
+
+message ListNoticeRet
+{
+    repeated Notice notices     =   1;
+}
+//更新通知为已读状态
+message UpdateNotice
+{
+    optional   int64         noticeId    =       1; //还有Id
+}
+//无返回数据
+message  DeleteNotice
+{
+    optional   int64         noticeId    =       1; //还有Id
+}
+//无返回数据
+
+//--------------------------发私信-----------------------
+message  AddLetter
+{
+    optional    string  content         =   1;
+    optional    string  toUid           =   2;
+}
+//--------------------------读私信-----------------------
+message updateLetter
+{
+    optional    int64  letterId         =   1;
+}
+//--------------------------删除一条私信-----------------------
+message DeleteLetter
+{
+    optional    int64  letterId         =   1;
+}
+//--------------------------获取私信列表-----------------------
+message ListLetter
+{
+    optional    int64  toUid         =   1;
+}
+//返回私信列表
+message ListLetterRet
+{
+    repeated    Letter  letters         =   1;
+}
+
+//-----------以下是定义列表的结构信息，不作为接口数据------------------------
+message Topic
+{
+    optional    int64       id                =   2; //话题 id
+    optional    string      title             =   3; //话题标题
+    optional    string      content           =   4; //话题内容
+    optional    string      thumbnail         =   5; //话题缩略图
+    optional    string      image             =   6; //话题原图
+    optional    string      localImage        =   7; //话题本地图 ???
+    optional    string      visibleRange      =   8;  //可见范围
+    optional    int32       praiseCount       =   9;  //点赞次数
+    optional    int32       commentCount      =   10; //评论次数
+    optional    int32       forwardCount      =   11; //转发次数
+    optional    int32       favoriteCount     =   12; //收藏次数
+    optional    string      createTime        =   13; //创建时间
+}
+
+message FriendRequest
+{
+     optional    int64       requestId       =   1; //请求Id
+     optional    string      content         =   2; //请求内容
+     optional    string      fromUid         =   3; //请求发送者
+     optional    string      fromAvatar      =   4; //发送者头像
+     optional    string      fromNickname    =   5; //发送者昵称
+     optional    string      isRead          =   6; //发送者头像
+     optional    string      isAgree         =   7; //发送者头像
+     optional    string      createTime      =   8; //发送时间
+}
+
+message Notice
+{
+    optional    string      noticeType           =   1; //通知类型
+    optional    int64       topicId              =   2; //话题 id
+    optional    string      topicTitle           =   3; //话题
+    optional    string      topicThumbnail       =   4; //话题缩略图
+    optional    int64       commentId            =   5;  //评论id
+    optional    string      commentContent       =   6; //评论内容
+    optional    int64       praiseId             =   7; //点赞者
+    optional    string      friendId             =   8; //userid
+    optional    string      friendAvator         =   9; //好友头像
+    optional    string      friendNickname       =   10; //好友昵称
+    optional    string      createTime           =   11; //发送时间
+}
+
+message Letter
+{
+    optional    string      content         =   1; //私信内容
+    optional    string      fromUid         =   2; //发送者
+    optional    string      fromAvatar      =   3; //发送者头像
+    optional    string      createTime      =   4; //发送时间
+}
+// 可以添加别的好友的信息，比如头像，描述之类的
+message Friend 
+{
+    optional    string          friendId         =       1; //还有Id
+    optional    string          friendAvator     =       2; //好友头像
+    optional    string          friendNickname   =       3; //好友昵称
+    optional    string          relationship     =       4; //关系
+}

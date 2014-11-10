@@ -10,7 +10,7 @@ message FindCalendarList
 	optional int32	priority   		    = 	4;	//优先级
 	optional string keyword 			= 	5;	//搜索关键字
 }
- message CalendarComment
+message CalendarComment
     {
         optional int64  id       			= 	1;	//自增Id
         optional string	userId				= 	2;	//用户Id
