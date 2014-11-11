@@ -3,10 +3,10 @@ option java_package = "vine.app.message";
 
 enum VisibleRange
 {			
-			Public	= 1 ;
-			Friend	= 2 ;
-			Private	= 3 ;
-			Nominate= 4 ;
+			PUBLIC		= 1 ;
+			ONLYFRIEND	= 2 ;
+			PRIVATE		= 3 ;
+			NOMINATE	= 4 ;
 
 }
 enum TopicClass
@@ -166,20 +166,20 @@ message UpdateNotice
     optional   int64         noticeId    =       1; //还有Id
 }
 //无返回数据
-message  DeleteNotice
+message DeleteNotice
 {
     repeated   int64         noticeId    =       1; //还有Id
 }
 //无返回数据
 
 //--------------------------发私信-----------------------
-message  AddLetter
+message AddLetter
 {
     optional    string  content         =   1;
     optional    string  toUid           =   2;
 }
 //--------------------------读私信-----------------------
-message updateLetter
+message UpdateLetter
 {
     optional    int64  letterId         =   1;
 }
@@ -213,7 +213,7 @@ message Topic
     optional    int32       commentCount      =   10; //评论次数
     optional    int32       forwardCount      =   11; //转发次数
     optional    int32       favoriteCount     =   12; //收藏次数
-    optional    int64      createTime        =   13; //创建时间
+    optional    int64       createTime        =   13; //创建时间
 }
 
 message FriendRequest
@@ -240,7 +240,7 @@ message Notice
     optional    string      friendId             =   8; //userid
     optional    string      friendAvator         =   9; //好友头像
     optional    string      friendNickname       =   10; //好友昵称
-    optional    int64      createTime           =   11; //发送时间
+    optional    int64       createTime           =   11; //发送时间
 }
 
 message Letter
@@ -248,10 +248,10 @@ message Letter
     optional    string      content         =   1; //私信内容
     optional    string      fromUid         =   2; //发送者
     optional    string      fromAvatar      =   3; //发送者头像
-    optional    int64      createTime      =   4; //发送时间
+    optional    int64      	createTime      =   4; //发送时间
 }
-// 可以添加别的好友的信息，比如头像，描述之类的
-message Friend 
+//可以添加别的好友的信息，比如头像，描述之类的
+message Friend
 {
     optional    string          friendId         =       1; //还有Id
     optional    string          friendAvator     =       2; //好友头像
