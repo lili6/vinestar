@@ -8,6 +8,153 @@ public final class SocialMessage {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public enum VisibleRange
+      implements com.google.protobuf.ProtocolMessageEnum {
+    PUBLIC(0, 1),
+    ONLYFRIEND(1, 2),
+    PRIVATE(2, 3),
+    NOMINATE(3, 4),
+    ;
+    
+    public static final int PUBLIC_VALUE = 1;
+    public static final int ONLYFRIEND_VALUE = 2;
+    public static final int PRIVATE_VALUE = 3;
+    public static final int NOMINATE_VALUE = 4;
+    
+    
+    public final int getNumber() { return value; }
+    
+    public static VisibleRange valueOf(int value) {
+      switch (value) {
+        case 1: return PUBLIC;
+        case 2: return ONLYFRIEND;
+        case 3: return PRIVATE;
+        case 4: return NOMINATE;
+        default: return null;
+      }
+    }
+    
+    public static com.google.protobuf.Internal.EnumLiteMap<VisibleRange>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<VisibleRange>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<VisibleRange>() {
+            public VisibleRange findValueByNumber(int number) {
+              return VisibleRange.valueOf(number);
+            }
+          };
+    
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return SocialMessage.getDescriptor().getEnumTypes().get(0);
+    }
+    
+    private static final VisibleRange[] VALUES = {
+      PUBLIC, ONLYFRIEND, PRIVATE, NOMINATE, 
+    };
+    
+    public static VisibleRange valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+    
+    private final int index;
+    private final int value;
+    
+    private VisibleRange(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+    
+    // @@protoc_insertion_point(enum_scope:VisibleRange)
+  }
+  
+  public enum TopicClass
+      implements com.google.protobuf.ProtocolMessageEnum {
+    hotspot(0, 1),
+    nearby(1, 2),
+    keyword(2, 3),
+    ;
+    
+    public static final int hotspot_VALUE = 1;
+    public static final int nearby_VALUE = 2;
+    public static final int keyword_VALUE = 3;
+    
+    
+    public final int getNumber() { return value; }
+    
+    public static TopicClass valueOf(int value) {
+      switch (value) {
+        case 1: return hotspot;
+        case 2: return nearby;
+        case 3: return keyword;
+        default: return null;
+      }
+    }
+    
+    public static com.google.protobuf.Internal.EnumLiteMap<TopicClass>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<TopicClass>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<TopicClass>() {
+            public TopicClass findValueByNumber(int number) {
+              return TopicClass.valueOf(number);
+            }
+          };
+    
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return SocialMessage.getDescriptor().getEnumTypes().get(1);
+    }
+    
+    private static final TopicClass[] VALUES = {
+      hotspot, nearby, keyword, 
+    };
+    
+    public static TopicClass valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+    
+    private final int index;
+    private final int value;
+    
+    private TopicClass(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+    
+    // @@protoc_insertion_point(enum_scope:TopicClass)
+  }
+  
   public enum Relationship
       implements com.google.protobuf.ProtocolMessageEnum {
     FRIEND(0, 0),
@@ -56,7 +203,7 @@ public final class SocialMessage {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return SocialMessage.getDescriptor().getEnumTypes().get(0);
+      return SocialMessage.getDescriptor().getEnumTypes().get(2);
     }
     
     private static final Relationship[] VALUES = {
@@ -1272,6 +1419,26 @@ public final class SocialMessage {
     // optional int64 id = 1;
     boolean hasId();
     long getId();
+    
+    // optional string title = 3;
+    boolean hasTitle();
+    String getTitle();
+    
+    // optional string content = 4;
+    boolean hasContent();
+    String getContent();
+    
+    // optional string image = 6;
+    boolean hasImage();
+    String getImage();
+    
+    // optional string localImage = 7;
+    boolean hasLocalImage();
+    String getLocalImage();
+    
+    // optional .VisibleRange visibleRange = 8;
+    boolean hasVisibleRange();
+    VisibleRange getVisibleRange();
   }
   public static final class UpdateTopic extends
       com.google.protobuf.GeneratedMessage
@@ -1312,8 +1479,151 @@ public final class SocialMessage {
       return id_;
     }
     
+    // optional string title = 3;
+    public static final int TITLE_FIELD_NUMBER = 3;
+    private Object title_;
+    public boolean hasTitle() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getTitle() {
+      Object ref = title_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          title_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getTitleBytes() {
+      Object ref = title_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        title_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string content = 4;
+    public static final int CONTENT_FIELD_NUMBER = 4;
+    private Object content_;
+    public boolean hasContent() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public String getContent() {
+      Object ref = content_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          content_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getContentBytes() {
+      Object ref = content_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string image = 6;
+    public static final int IMAGE_FIELD_NUMBER = 6;
+    private Object image_;
+    public boolean hasImage() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public String getImage() {
+      Object ref = image_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          image_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getImageBytes() {
+      Object ref = image_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        image_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string localImage = 7;
+    public static final int LOCALIMAGE_FIELD_NUMBER = 7;
+    private Object localImage_;
+    public boolean hasLocalImage() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    public String getLocalImage() {
+      Object ref = localImage_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          localImage_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getLocalImageBytes() {
+      Object ref = localImage_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        localImage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional .VisibleRange visibleRange = 8;
+    public static final int VISIBLERANGE_FIELD_NUMBER = 8;
+    private VisibleRange visibleRange_;
+    public boolean hasVisibleRange() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    public VisibleRange getVisibleRange() {
+      return visibleRange_;
+    }
+    
     private void initFields() {
       id_ = 0L;
+      title_ = "";
+      content_ = "";
+      image_ = "";
+      localImage_ = "";
+      visibleRange_ = VisibleRange.PUBLIC;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1330,6 +1640,21 @@ public final class SocialMessage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, id_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(3, getTitleBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(4, getContentBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(6, getImageBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(7, getLocalImageBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeEnum(8, visibleRange_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -1342,6 +1667,26 @@ public final class SocialMessage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getTitleBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getContentBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getImageBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getLocalImageBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, visibleRange_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1469,6 +1814,16 @@ public final class SocialMessage {
         super.clear();
         id_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
+        title_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        content_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        image_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        localImage_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        visibleRange_ = VisibleRange.PUBLIC;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       
@@ -1511,6 +1866,26 @@ public final class SocialMessage {
           to_bitField0_ |= 0x00000001;
         }
         result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.title_ = title_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.content_ = content_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.image_ = image_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.localImage_ = localImage_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.visibleRange_ = visibleRange_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1529,6 +1904,21 @@ public final class SocialMessage {
         if (other == UpdateTopic.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
+        }
+        if (other.hasTitle()) {
+          setTitle(other.getTitle());
+        }
+        if (other.hasContent()) {
+          setContent(other.getContent());
+        }
+        if (other.hasImage()) {
+          setImage(other.getImage());
+        }
+        if (other.hasLocalImage()) {
+          setLocalImage(other.getLocalImage());
+        }
+        if (other.hasVisibleRange()) {
+          setVisibleRange(other.getVisibleRange());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1566,6 +1956,37 @@ public final class SocialMessage {
               id_ = input.readInt64();
               break;
             }
+            case 26: {
+              bitField0_ |= 0x00000002;
+              title_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000004;
+              content_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000008;
+              image_ = input.readBytes();
+              break;
+            }
+            case 58: {
+              bitField0_ |= 0x00000010;
+              localImage_ = input.readBytes();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+              VisibleRange value = VisibleRange.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(8, rawValue);
+              } else {
+                bitField0_ |= 0x00000020;
+                visibleRange_ = value;
+              }
+              break;
+            }
           }
         }
       }
@@ -1593,6 +2014,174 @@ public final class SocialMessage {
         return this;
       }
       
+      // optional string title = 3;
+      private Object title_ = "";
+      public boolean hasTitle() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getTitle() {
+        Object ref = title_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          title_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setTitle(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        title_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearTitle() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        title_ = getDefaultInstance().getTitle();
+        onChanged();
+        return this;
+      }
+      void setTitle(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        title_ = value;
+        onChanged();
+      }
+      
+      // optional string content = 4;
+      private Object content_ = "";
+      public boolean hasContent() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public String getContent() {
+        Object ref = content_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setContent(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearContent() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      void setContent(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000004;
+        content_ = value;
+        onChanged();
+      }
+      
+      // optional string image = 6;
+      private Object image_ = "";
+      public boolean hasImage() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      public String getImage() {
+        Object ref = image_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          image_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setImage(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        image_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearImage() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        image_ = getDefaultInstance().getImage();
+        onChanged();
+        return this;
+      }
+      void setImage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000008;
+        image_ = value;
+        onChanged();
+      }
+      
+      // optional string localImage = 7;
+      private Object localImage_ = "";
+      public boolean hasLocalImage() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      public String getLocalImage() {
+        Object ref = localImage_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          localImage_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setLocalImage(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        localImage_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLocalImage() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        localImage_ = getDefaultInstance().getLocalImage();
+        onChanged();
+        return this;
+      }
+      void setLocalImage(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000010;
+        localImage_ = value;
+        onChanged();
+      }
+      
+      // optional .VisibleRange visibleRange = 8;
+      private VisibleRange visibleRange_ = VisibleRange.PUBLIC;
+      public boolean hasVisibleRange() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      public VisibleRange getVisibleRange() {
+        return visibleRange_;
+      }
+      public Builder setVisibleRange(VisibleRange value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        visibleRange_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearVisibleRange() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        visibleRange_ = VisibleRange.PUBLIC;
+        onChanged();
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:UpdateTopic)
     }
     
@@ -1606,6 +2195,18 @@ public final class SocialMessage {
   
   public interface ListPublicTopicOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
+    
+    // optional .TopicClass topicClass = 1;
+    boolean hasTopicClass();
+    TopicClass getTopicClass();
+    
+    // optional int32 currentPage = 2;
+    boolean hasCurrentPage();
+    int getCurrentPage();
+    
+    // optional int32 pageSize = 3;
+    boolean hasPageSize();
+    int getPageSize();
   }
   public static final class ListPublicTopic extends
       com.google.protobuf.GeneratedMessage
@@ -1635,7 +2236,41 @@ public final class SocialMessage {
       return SocialMessage.internal_static_ListPublicTopic_fieldAccessorTable;
     }
     
+    private int bitField0_;
+    // optional .TopicClass topicClass = 1;
+    public static final int TOPICCLASS_FIELD_NUMBER = 1;
+    private TopicClass topicClass_;
+    public boolean hasTopicClass() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public TopicClass getTopicClass() {
+      return topicClass_;
+    }
+    
+    // optional int32 currentPage = 2;
+    public static final int CURRENTPAGE_FIELD_NUMBER = 2;
+    private int currentPage_;
+    public boolean hasCurrentPage() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public int getCurrentPage() {
+      return currentPage_;
+    }
+    
+    // optional int32 pageSize = 3;
+    public static final int PAGESIZE_FIELD_NUMBER = 3;
+    private int pageSize_;
+    public boolean hasPageSize() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public int getPageSize() {
+      return pageSize_;
+    }
+    
     private void initFields() {
+      topicClass_ = TopicClass.hotspot;
+      currentPage_ = 0;
+      pageSize_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1649,6 +2284,15 @@ public final class SocialMessage {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, topicClass_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, currentPage_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, pageSize_);
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -1658,6 +2302,18 @@ public final class SocialMessage {
       if (size != -1) return size;
     
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, topicClass_.getNumber());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, currentPage_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, pageSize_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -1782,6 +2438,12 @@ public final class SocialMessage {
       
       public Builder clear() {
         super.clear();
+        topicClass_ = TopicClass.hotspot;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentPage_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pageSize_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       
@@ -1818,6 +2480,21 @@ public final class SocialMessage {
       
       public ListPublicTopic buildPartial() {
         ListPublicTopic result = new ListPublicTopic(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.topicClass_ = topicClass_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.currentPage_ = currentPage_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.pageSize_ = pageSize_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1833,6 +2510,15 @@ public final class SocialMessage {
       
       public Builder mergeFrom(ListPublicTopic other) {
         if (other == ListPublicTopic.getDefaultInstance()) return this;
+        if (other.hasTopicClass()) {
+          setTopicClass(other.getTopicClass());
+        }
+        if (other.hasCurrentPage()) {
+          setCurrentPage(other.getCurrentPage());
+        }
+        if (other.hasPageSize()) {
+          setPageSize(other.getPageSize());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -1864,10 +2550,98 @@ public final class SocialMessage {
               }
               break;
             }
+            case 8: {
+              int rawValue = input.readEnum();
+              TopicClass value = TopicClass.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                topicClass_ = value;
+              }
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              currentPage_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              pageSize_ = input.readInt32();
+              break;
+            }
           }
         }
       }
       
+      private int bitField0_;
+      
+      // optional .TopicClass topicClass = 1;
+      private TopicClass topicClass_ = TopicClass.hotspot;
+      public boolean hasTopicClass() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public TopicClass getTopicClass() {
+        return topicClass_;
+      }
+      public Builder setTopicClass(TopicClass value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        topicClass_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearTopicClass() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        topicClass_ = TopicClass.hotspot;
+        onChanged();
+        return this;
+      }
+      
+      // optional int32 currentPage = 2;
+      private int currentPage_ ;
+      public boolean hasCurrentPage() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public int getCurrentPage() {
+        return currentPage_;
+      }
+      public Builder setCurrentPage(int value) {
+        bitField0_ |= 0x00000002;
+        currentPage_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearCurrentPage() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        currentPage_ = 0;
+        onChanged();
+        return this;
+      }
+      
+      // optional int32 pageSize = 3;
+      private int pageSize_ ;
+      public boolean hasPageSize() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public int getPageSize() {
+        return pageSize_;
+      }
+      public Builder setPageSize(int value) {
+        bitField0_ |= 0x00000004;
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearPageSize() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
       
       // @@protoc_insertion_point(builder_scope:ListPublicTopic)
     }
@@ -3088,10 +3862,6 @@ public final class SocialMessage {
     // optional int64 topicId = 1;
     boolean hasTopicId();
     long getTopicId();
-    
-    // optional string userId = 2;
-    boolean hasUserId();
-    String getUserId();
   }
   public static final class DoPraise extends
       com.google.protobuf.GeneratedMessage
@@ -3132,41 +3902,8 @@ public final class SocialMessage {
       return topicId_;
     }
     
-    // optional string userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getUserId() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          userId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
     private void initFields() {
       topicId_ = 0L;
-      userId_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3183,9 +3920,6 @@ public final class SocialMessage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, topicId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserIdBytes());
-      }
       getUnknownFields().writeTo(output);
     }
     
@@ -3198,10 +3932,6 @@ public final class SocialMessage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, topicId_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserIdBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3329,8 +4059,6 @@ public final class SocialMessage {
         super.clear();
         topicId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       
@@ -3373,10 +4101,6 @@ public final class SocialMessage {
           to_bitField0_ |= 0x00000001;
         }
         result.topicId_ = topicId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.userId_ = userId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3395,9 +4119,6 @@ public final class SocialMessage {
         if (other == DoPraise.getDefaultInstance()) return this;
         if (other.hasTopicId()) {
           setTopicId(other.getTopicId());
-        }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3435,11 +4156,6 @@ public final class SocialMessage {
               topicId_ = input.readInt64();
               break;
             }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              userId_ = input.readBytes();
-              break;
-            }
           }
         }
       }
@@ -3467,42 +4183,6 @@ public final class SocialMessage {
         return this;
       }
       
-      // optional string userId = 2;
-      private Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public String getUserId() {
-        Object ref = userId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setUserId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = getDefaultInstance().getUserId();
-        onChanged();
-        return this;
-      }
-      void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-      }
-      
       // @@protoc_insertion_point(builder_scope:DoPraise)
     }
     
@@ -3520,10 +4200,6 @@ public final class SocialMessage {
     // optional int64 topicId = 1;
     boolean hasTopicId();
     long getTopicId();
-    
-    // optional string userId = 2;
-    boolean hasUserId();
-    String getUserId();
     
     // optional string comment = 3;
     boolean hasComment();
@@ -3568,43 +4244,11 @@ public final class SocialMessage {
       return topicId_;
     }
     
-    // optional string userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getUserId() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          userId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
     // optional string comment = 3;
     public static final int COMMENT_FIELD_NUMBER = 3;
     private Object comment_;
     public boolean hasComment() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     public String getComment() {
       Object ref = comment_;
@@ -3634,7 +4278,6 @@ public final class SocialMessage {
     
     private void initFields() {
       topicId_ = 0L;
-      userId_ = "";
       comment_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -3653,9 +4296,6 @@ public final class SocialMessage {
         output.writeInt64(1, topicId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getCommentBytes());
       }
       getUnknownFields().writeTo(output);
@@ -3672,10 +4312,6 @@ public final class SocialMessage {
           .computeInt64Size(1, topicId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getCommentBytes());
       }
@@ -3805,10 +4441,8 @@ public final class SocialMessage {
         super.clear();
         topicId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         comment_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       
@@ -3854,10 +4488,6 @@ public final class SocialMessage {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.userId_ = userId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.comment_ = comment_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3877,9 +4507,6 @@ public final class SocialMessage {
         if (other == DoComment.getDefaultInstance()) return this;
         if (other.hasTopicId()) {
           setTopicId(other.getTopicId());
-        }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
         }
         if (other.hasComment()) {
           setComment(other.getComment());
@@ -3920,13 +4547,8 @@ public final class SocialMessage {
               topicId_ = input.readInt64();
               break;
             }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              userId_ = input.readBytes();
-              break;
-            }
             case 26: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               comment_ = input.readBytes();
               break;
             }
@@ -3957,46 +4579,10 @@ public final class SocialMessage {
         return this;
       }
       
-      // optional string userId = 2;
-      private Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public String getUserId() {
-        Object ref = userId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setUserId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = getDefaultInstance().getUserId();
-        onChanged();
-        return this;
-      }
-      void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-      }
-      
       // optional string comment = 3;
       private Object comment_ = "";
       public boolean hasComment() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       public String getComment() {
         Object ref = comment_;
@@ -4012,19 +4598,19 @@ public final class SocialMessage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000002;
         comment_ = value;
         onChanged();
         return this;
       }
       public Builder clearComment() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         comment_ = getDefaultInstance().getComment();
         onChanged();
         return this;
       }
       void setComment(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         comment_ = value;
         onChanged();
       }
@@ -4046,10 +4632,6 @@ public final class SocialMessage {
     // optional int64 topicId = 1;
     boolean hasTopicId();
     long getTopicId();
-    
-    // optional string userId = 2;
-    boolean hasUserId();
-    String getUserId();
     
     // optional string content = 3;
     boolean hasContent();
@@ -4094,43 +4676,11 @@ public final class SocialMessage {
       return topicId_;
     }
     
-    // optional string userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getUserId() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          userId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
     // optional string content = 3;
     public static final int CONTENT_FIELD_NUMBER = 3;
     private Object content_;
     public boolean hasContent() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     public String getContent() {
       Object ref = content_;
@@ -4160,7 +4710,6 @@ public final class SocialMessage {
     
     private void initFields() {
       topicId_ = 0L;
-      userId_ = "";
       content_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -4179,9 +4728,6 @@ public final class SocialMessage {
         output.writeInt64(1, topicId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getContentBytes());
       }
       getUnknownFields().writeTo(output);
@@ -4198,10 +4744,6 @@ public final class SocialMessage {
           .computeInt64Size(1, topicId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserIdBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getContentBytes());
       }
@@ -4331,10 +4873,8 @@ public final class SocialMessage {
         super.clear();
         topicId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         content_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       
@@ -4380,10 +4920,6 @@ public final class SocialMessage {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.userId_ = userId_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.content_ = content_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -4403,9 +4939,6 @@ public final class SocialMessage {
         if (other == DoForward.getDefaultInstance()) return this;
         if (other.hasTopicId()) {
           setTopicId(other.getTopicId());
-        }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
         }
         if (other.hasContent()) {
           setContent(other.getContent());
@@ -4446,13 +4979,8 @@ public final class SocialMessage {
               topicId_ = input.readInt64();
               break;
             }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              userId_ = input.readBytes();
-              break;
-            }
             case 26: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               content_ = input.readBytes();
               break;
             }
@@ -4483,46 +5011,10 @@ public final class SocialMessage {
         return this;
       }
       
-      // optional string userId = 2;
-      private Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public String getUserId() {
-        Object ref = userId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setUserId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = getDefaultInstance().getUserId();
-        onChanged();
-        return this;
-      }
-      void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-      }
-      
       // optional string content = 3;
       private Object content_ = "";
       public boolean hasContent() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       public String getContent() {
         Object ref = content_;
@@ -4538,19 +5030,19 @@ public final class SocialMessage {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000002;
         content_ = value;
         onChanged();
         return this;
       }
       public Builder clearContent() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         content_ = getDefaultInstance().getContent();
         onChanged();
         return this;
       }
       void setContent(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         content_ = value;
         onChanged();
       }
@@ -4572,10 +5064,6 @@ public final class SocialMessage {
     // optional int64 topicId = 1;
     boolean hasTopicId();
     long getTopicId();
-    
-    // optional string userId = 2;
-    boolean hasUserId();
-    String getUserId();
   }
   public static final class DoFavorite extends
       com.google.protobuf.GeneratedMessage
@@ -4616,41 +5104,8 @@ public final class SocialMessage {
       return topicId_;
     }
     
-    // optional string userId = 2;
-    public static final int USERID_FIELD_NUMBER = 2;
-    private Object userId_;
-    public boolean hasUserId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public String getUserId() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          userId_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getUserIdBytes() {
-      Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
     private void initFields() {
       topicId_ = 0L;
-      userId_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4667,9 +5122,6 @@ public final class SocialMessage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, topicId_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getUserIdBytes());
-      }
       getUnknownFields().writeTo(output);
     }
     
@@ -4682,10 +5134,6 @@ public final class SocialMessage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, topicId_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getUserIdBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4813,8 +5261,6 @@ public final class SocialMessage {
         super.clear();
         topicId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        userId_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       
@@ -4857,10 +5303,6 @@ public final class SocialMessage {
           to_bitField0_ |= 0x00000001;
         }
         result.topicId_ = topicId_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.userId_ = userId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4879,9 +5321,6 @@ public final class SocialMessage {
         if (other == DoFavorite.getDefaultInstance()) return this;
         if (other.hasTopicId()) {
           setTopicId(other.getTopicId());
-        }
-        if (other.hasUserId()) {
-          setUserId(other.getUserId());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -4919,11 +5358,6 @@ public final class SocialMessage {
               topicId_ = input.readInt64();
               break;
             }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              userId_ = input.readBytes();
-              break;
-            }
           }
         }
       }
@@ -4949,42 +5383,6 @@ public final class SocialMessage {
         topicId_ = 0L;
         onChanged();
         return this;
-      }
-      
-      // optional string userId = 2;
-      private Object userId_ = "";
-      public boolean hasUserId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public String getUserId() {
-        Object ref = userId_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          userId_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      public Builder setUserId(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearUserId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        userId_ = getDefaultInstance().getUserId();
-        onChanged();
-        return this;
-      }
-      void setUserId(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        userId_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:DoFavorite)
@@ -5832,13 +6230,13 @@ public final class SocialMessage {
     boolean hasRequestId();
     long getRequestId();
     
-    // optional string isAgree = 2;
+    // optional int32 isAgree = 2;
     boolean hasIsAgree();
-    String getIsAgree();
+    int getIsAgree();
     
-    // optional string isRead = 3;
+    // optional int32 isRead = 3;
     boolean hasIsRead();
-    String getIsRead();
+    int getIsRead();
   }
   public static final class UpdateFriendRequest extends
       com.google.protobuf.GeneratedMessage
@@ -5879,74 +6277,30 @@ public final class SocialMessage {
       return requestId_;
     }
     
-    // optional string isAgree = 2;
+    // optional int32 isAgree = 2;
     public static final int ISAGREE_FIELD_NUMBER = 2;
-    private Object isAgree_;
+    private int isAgree_;
     public boolean hasIsAgree() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public String getIsAgree() {
-      Object ref = isAgree_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          isAgree_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getIsAgreeBytes() {
-      Object ref = isAgree_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        isAgree_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getIsAgree() {
+      return isAgree_;
     }
     
-    // optional string isRead = 3;
+    // optional int32 isRead = 3;
     public static final int ISREAD_FIELD_NUMBER = 3;
-    private Object isRead_;
+    private int isRead_;
     public boolean hasIsRead() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    public String getIsRead() {
-      Object ref = isRead_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          isRead_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getIsReadBytes() {
-      Object ref = isRead_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        isRead_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getIsRead() {
+      return isRead_;
     }
     
     private void initFields() {
       requestId_ = 0L;
-      isAgree_ = "";
-      isRead_ = "";
+      isAgree_ = 0;
+      isRead_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -5964,10 +6318,10 @@ public final class SocialMessage {
         output.writeInt64(1, requestId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getIsAgreeBytes());
+        output.writeInt32(2, isAgree_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getIsReadBytes());
+        output.writeInt32(3, isRead_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5984,11 +6338,11 @@ public final class SocialMessage {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getIsAgreeBytes());
+          .computeInt32Size(2, isAgree_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getIsReadBytes());
+          .computeInt32Size(3, isRead_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6116,9 +6470,9 @@ public final class SocialMessage {
         super.clear();
         requestId_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
-        isAgree_ = "";
+        isAgree_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        isRead_ = "";
+        isRead_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -6231,14 +6585,14 @@ public final class SocialMessage {
               requestId_ = input.readInt64();
               break;
             }
-            case 18: {
+            case 16: {
               bitField0_ |= 0x00000002;
-              isAgree_ = input.readBytes();
+              isAgree_ = input.readInt32();
               break;
             }
-            case 26: {
+            case 24: {
               bitField0_ |= 0x00000004;
-              isRead_ = input.readBytes();
+              isRead_ = input.readInt32();
               break;
             }
           }
@@ -6268,76 +6622,46 @@ public final class SocialMessage {
         return this;
       }
       
-      // optional string isAgree = 2;
-      private Object isAgree_ = "";
+      // optional int32 isAgree = 2;
+      private int isAgree_ ;
       public boolean hasIsAgree() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public String getIsAgree() {
-        Object ref = isAgree_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          isAgree_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public int getIsAgree() {
+        return isAgree_;
       }
-      public Builder setIsAgree(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      public Builder setIsAgree(int value) {
+        bitField0_ |= 0x00000002;
         isAgree_ = value;
         onChanged();
         return this;
       }
       public Builder clearIsAgree() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        isAgree_ = getDefaultInstance().getIsAgree();
+        isAgree_ = 0;
         onChanged();
         return this;
       }
-      void setIsAgree(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
-        isAgree_ = value;
-        onChanged();
-      }
       
-      // optional string isRead = 3;
-      private Object isRead_ = "";
+      // optional int32 isRead = 3;
+      private int isRead_ ;
       public boolean hasIsRead() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      public String getIsRead() {
-        Object ref = isRead_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          isRead_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public int getIsRead() {
+        return isRead_;
       }
-      public Builder setIsRead(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      public Builder setIsRead(int value) {
+        bitField0_ |= 0x00000004;
         isRead_ = value;
         onChanged();
         return this;
       }
       public Builder clearIsRead() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        isRead_ = getDefaultInstance().getIsRead();
+        isRead_ = 0;
         onChanged();
         return this;
-      }
-      void setIsRead(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
-        isRead_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:UpdateFriendRequest)
@@ -9162,9 +9486,10 @@ public final class SocialMessage {
   public interface DeleteNoticeOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
-    // optional int64 noticeId = 1;
-    boolean hasNoticeId();
-    long getNoticeId();
+    // repeated int64 noticeId = 1;
+    java.util.List<Long> getNoticeIdList();
+    int getNoticeIdCount();
+    long getNoticeId(int index);
   }
   public static final class DeleteNotice extends
       com.google.protobuf.GeneratedMessage
@@ -9194,19 +9519,22 @@ public final class SocialMessage {
       return SocialMessage.internal_static_DeleteNotice_fieldAccessorTable;
     }
     
-    private int bitField0_;
-    // optional int64 noticeId = 1;
+    // repeated int64 noticeId = 1;
     public static final int NOTICEID_FIELD_NUMBER = 1;
-    private long noticeId_;
-    public boolean hasNoticeId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public long getNoticeId() {
+    private java.util.List<Long> noticeId_;
+    public java.util.List<Long>
+        getNoticeIdList() {
       return noticeId_;
+    }
+    public int getNoticeIdCount() {
+      return noticeId_.size();
+    }
+    public long getNoticeId(int index) {
+      return noticeId_.get(index);
     }
     
     private void initFields() {
-      noticeId_ = 0L;
+      noticeId_ = java.util.Collections.emptyList();;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -9220,8 +9548,8 @@ public final class SocialMessage {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt64(1, noticeId_);
+      for (int i = 0; i < noticeId_.size(); i++) {
+        output.writeInt64(1, noticeId_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -9232,9 +9560,14 @@ public final class SocialMessage {
       if (size != -1) return size;
     
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, noticeId_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < noticeId_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(noticeId_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getNoticeIdList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9360,7 +9693,7 @@ public final class SocialMessage {
       
       public Builder clear() {
         super.clear();
-        noticeId_ = 0L;
+        noticeId_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -9399,12 +9732,11 @@ public final class SocialMessage {
       public DeleteNotice buildPartial() {
         DeleteNotice result = new DeleteNotice(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          noticeId_ = java.util.Collections.unmodifiableList(noticeId_);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.noticeId_ = noticeId_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -9420,8 +9752,15 @@ public final class SocialMessage {
       
       public Builder mergeFrom(DeleteNotice other) {
         if (other == DeleteNotice.getDefaultInstance()) return this;
-        if (other.hasNoticeId()) {
-          setNoticeId(other.getNoticeId());
+        if (!other.noticeId_.isEmpty()) {
+          if (noticeId_.isEmpty()) {
+            noticeId_ = other.noticeId_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureNoticeIdIsMutable();
+            noticeId_.addAll(other.noticeId_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -9455,8 +9794,17 @@ public final class SocialMessage {
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
-              noticeId_ = input.readInt64();
+              ensureNoticeIdIsMutable();
+              noticeId_.add(input.readInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              while (input.getBytesUntilLimit() > 0) {
+                addNoticeId(input.readInt64());
+              }
+              input.popLimit(limit);
               break;
             }
           }
@@ -9465,23 +9813,47 @@ public final class SocialMessage {
       
       private int bitField0_;
       
-      // optional int64 noticeId = 1;
-      private long noticeId_ ;
-      public boolean hasNoticeId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+      // repeated int64 noticeId = 1;
+      private java.util.List<Long> noticeId_ = java.util.Collections.emptyList();;
+      private void ensureNoticeIdIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          noticeId_ = new java.util.ArrayList<Long>(noticeId_);
+          bitField0_ |= 0x00000001;
+         }
       }
-      public long getNoticeId() {
-        return noticeId_;
+      public java.util.List<Long>
+          getNoticeIdList() {
+        return java.util.Collections.unmodifiableList(noticeId_);
       }
-      public Builder setNoticeId(long value) {
-        bitField0_ |= 0x00000001;
-        noticeId_ = value;
+      public int getNoticeIdCount() {
+        return noticeId_.size();
+      }
+      public long getNoticeId(int index) {
+        return noticeId_.get(index);
+      }
+      public Builder setNoticeId(
+          int index, long value) {
+        ensureNoticeIdIsMutable();
+        noticeId_.set(index, value);
+        onChanged();
+        return this;
+      }
+      public Builder addNoticeId(long value) {
+        ensureNoticeIdIsMutable();
+        noticeId_.add(value);
+        onChanged();
+        return this;
+      }
+      public Builder addAllNoticeId(
+          Iterable<? extends Long> values) {
+        ensureNoticeIdIsMutable();
+        super.addAll(values, noticeId_);
         onChanged();
         return this;
       }
       public Builder clearNoticeId() {
+        noticeId_ = java.util.Collections.emptyList();;
         bitField0_ = (bitField0_ & ~0x00000001);
-        noticeId_ = 0L;
         onChanged();
         return this;
       }
@@ -11578,9 +11950,9 @@ public final class SocialMessage {
     boolean hasFavoriteCount();
     int getFavoriteCount();
     
-    // optional string createTime = 13;
+    // optional int64 createTime = 13;
     boolean hasCreateTime();
-    String getCreateTime();
+    long getCreateTime();
   }
   public static final class Topic extends
       com.google.protobuf.GeneratedMessage
@@ -11853,36 +12225,14 @@ public final class SocialMessage {
       return favoriteCount_;
     }
     
-    // optional string createTime = 13;
+    // optional int64 createTime = 13;
     public static final int CREATETIME_FIELD_NUMBER = 13;
-    private Object createTime_;
+    private long createTime_;
     public boolean hasCreateTime() {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
-    public String getCreateTime() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createTime_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCreateTimeBytes() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createTime_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreateTime() {
+      return createTime_;
     }
     
     private void initFields() {
@@ -11897,7 +12247,7 @@ public final class SocialMessage {
       commentCount_ = 0;
       forwardCount_ = 0;
       favoriteCount_ = 0;
-      createTime_ = "";
+      createTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11945,7 +12295,7 @@ public final class SocialMessage {
         output.writeInt32(12, favoriteCount_);
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeBytes(13, getCreateTimeBytes());
+        output.writeInt64(13, createTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -12002,7 +12352,7 @@ public final class SocialMessage {
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(13, getCreateTimeBytes());
+          .computeInt64Size(13, createTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -12150,7 +12500,7 @@ public final class SocialMessage {
         bitField0_ = (bitField0_ & ~0x00000200);
         favoriteCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000400);
-        createTime_ = "";
+        createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
@@ -12376,9 +12726,9 @@ public final class SocialMessage {
               favoriteCount_ = input.readInt32();
               break;
             }
-            case 106: {
+            case 104: {
               bitField0_ |= 0x00000800;
-              createTime_ = input.readBytes();
+              createTime_ = input.readInt64();
               break;
             }
           }
@@ -12708,40 +13058,25 @@ public final class SocialMessage {
         return this;
       }
       
-      // optional string createTime = 13;
-      private Object createTime_ = "";
+      // optional int64 createTime = 13;
+      private long createTime_ ;
       public boolean hasCreateTime() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
-      public String getCreateTime() {
-        Object ref = createTime_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createTime_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public long getCreateTime() {
+        return createTime_;
       }
-      public Builder setCreateTime(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      public Builder setCreateTime(long value) {
+        bitField0_ |= 0x00000800;
         createTime_ = value;
         onChanged();
         return this;
       }
       public Builder clearCreateTime() {
         bitField0_ = (bitField0_ & ~0x00000800);
-        createTime_ = getDefaultInstance().getCreateTime();
+        createTime_ = 0L;
         onChanged();
         return this;
-      }
-      void setCreateTime(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000800;
-        createTime_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:Topic)
@@ -12786,9 +13121,9 @@ public final class SocialMessage {
     boolean hasIsAgree();
     String getIsAgree();
     
-    // optional string createTime = 8;
+    // optional int64 createTime = 8;
     boolean hasCreateTime();
-    String getCreateTime();
+    long getCreateTime();
   }
   public static final class FriendRequest extends
       com.google.protobuf.GeneratedMessage
@@ -13021,36 +13356,14 @@ public final class SocialMessage {
       }
     }
     
-    // optional string createTime = 8;
+    // optional int64 createTime = 8;
     public static final int CREATETIME_FIELD_NUMBER = 8;
-    private Object createTime_;
+    private long createTime_;
     public boolean hasCreateTime() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
-    public String getCreateTime() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createTime_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCreateTimeBytes() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createTime_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreateTime() {
+      return createTime_;
     }
     
     private void initFields() {
@@ -13061,7 +13374,7 @@ public final class SocialMessage {
       fromNickname_ = "";
       isRead_ = "";
       isAgree_ = "";
-      createTime_ = "";
+      createTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -13097,7 +13410,7 @@ public final class SocialMessage {
         output.writeBytes(7, getIsAgreeBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBytes(8, getCreateTimeBytes());
+        output.writeInt64(8, createTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -13138,7 +13451,7 @@ public final class SocialMessage {
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(8, getCreateTimeBytes());
+          .computeInt64Size(8, createTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13278,7 +13591,7 @@ public final class SocialMessage {
         bitField0_ = (bitField0_ & ~0x00000020);
         isAgree_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        createTime_ = "";
+        createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
@@ -13456,9 +13769,9 @@ public final class SocialMessage {
               isAgree_ = input.readBytes();
               break;
             }
-            case 66: {
+            case 64: {
               bitField0_ |= 0x00000080;
-              createTime_ = input.readBytes();
+              createTime_ = input.readInt64();
               break;
             }
           }
@@ -13704,40 +14017,25 @@ public final class SocialMessage {
         onChanged();
       }
       
-      // optional string createTime = 8;
-      private Object createTime_ = "";
+      // optional int64 createTime = 8;
+      private long createTime_ ;
       public boolean hasCreateTime() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
-      public String getCreateTime() {
-        Object ref = createTime_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createTime_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public long getCreateTime() {
+        return createTime_;
       }
-      public Builder setCreateTime(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      public Builder setCreateTime(long value) {
+        bitField0_ |= 0x00000080;
         createTime_ = value;
         onChanged();
         return this;
       }
       public Builder clearCreateTime() {
         bitField0_ = (bitField0_ & ~0x00000080);
-        createTime_ = getDefaultInstance().getCreateTime();
+        createTime_ = 0L;
         onChanged();
         return this;
-      }
-      void setCreateTime(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000080;
-        createTime_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:FriendRequest)
@@ -13794,9 +14092,9 @@ public final class SocialMessage {
     boolean hasFriendNickname();
     String getFriendNickname();
     
-    // optional string createTime = 11;
+    // optional int64 createTime = 11;
     boolean hasCreateTime();
-    String getCreateTime();
+    long getCreateTime();
   }
   public static final class Notice extends
       com.google.protobuf.GeneratedMessage
@@ -14081,36 +14379,14 @@ public final class SocialMessage {
       }
     }
     
-    // optional string createTime = 11;
+    // optional int64 createTime = 11;
     public static final int CREATETIME_FIELD_NUMBER = 11;
-    private Object createTime_;
+    private long createTime_;
     public boolean hasCreateTime() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
-    public String getCreateTime() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createTime_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCreateTimeBytes() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createTime_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreateTime() {
+      return createTime_;
     }
     
     private void initFields() {
@@ -14124,7 +14400,7 @@ public final class SocialMessage {
       friendId_ = "";
       friendAvator_ = "";
       friendNickname_ = "";
-      createTime_ = "";
+      createTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -14169,7 +14445,7 @@ public final class SocialMessage {
         output.writeBytes(10, getFriendNicknameBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(11, getCreateTimeBytes());
+        output.writeInt64(11, createTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -14222,7 +14498,7 @@ public final class SocialMessage {
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(11, getCreateTimeBytes());
+          .computeInt64Size(11, createTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -14368,7 +14644,7 @@ public final class SocialMessage {
         bitField0_ = (bitField0_ & ~0x00000100);
         friendNickname_ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
-        createTime_ = "";
+        createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
@@ -14582,9 +14858,9 @@ public final class SocialMessage {
               friendNickname_ = input.readBytes();
               break;
             }
-            case 90: {
+            case 88: {
               bitField0_ |= 0x00000400;
-              createTime_ = input.readBytes();
+              createTime_ = input.readInt64();
               break;
             }
           }
@@ -14908,40 +15184,25 @@ public final class SocialMessage {
         onChanged();
       }
       
-      // optional string createTime = 11;
-      private Object createTime_ = "";
+      // optional int64 createTime = 11;
+      private long createTime_ ;
       public boolean hasCreateTime() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
-      public String getCreateTime() {
-        Object ref = createTime_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createTime_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public long getCreateTime() {
+        return createTime_;
       }
-      public Builder setCreateTime(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      public Builder setCreateTime(long value) {
+        bitField0_ |= 0x00000400;
         createTime_ = value;
         onChanged();
         return this;
       }
       public Builder clearCreateTime() {
         bitField0_ = (bitField0_ & ~0x00000400);
-        createTime_ = getDefaultInstance().getCreateTime();
+        createTime_ = 0L;
         onChanged();
         return this;
-      }
-      void setCreateTime(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000400;
-        createTime_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:Notice)
@@ -14970,9 +15231,9 @@ public final class SocialMessage {
     boolean hasFromAvatar();
     String getFromAvatar();
     
-    // optional string createTime = 4;
+    // optional int64 createTime = 4;
     boolean hasCreateTime();
-    String getCreateTime();
+    long getCreateTime();
   }
   public static final class Letter extends
       com.google.protobuf.GeneratedMessage
@@ -15099,43 +15360,21 @@ public final class SocialMessage {
       }
     }
     
-    // optional string createTime = 4;
+    // optional int64 createTime = 4;
     public static final int CREATETIME_FIELD_NUMBER = 4;
-    private Object createTime_;
+    private long createTime_;
     public boolean hasCreateTime() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    public String getCreateTime() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          createTime_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getCreateTimeBytes() {
-      Object ref = createTime_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        createTime_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getCreateTime() {
+      return createTime_;
     }
     
     private void initFields() {
       content_ = "";
       fromUid_ = "";
       fromAvatar_ = "";
-      createTime_ = "";
+      createTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -15159,7 +15398,7 @@ public final class SocialMessage {
         output.writeBytes(3, getFromAvatarBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getCreateTimeBytes());
+        output.writeInt64(4, createTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -15184,7 +15423,7 @@ public final class SocialMessage {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getCreateTimeBytes());
+          .computeInt64Size(4, createTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -15316,7 +15555,7 @@ public final class SocialMessage {
         bitField0_ = (bitField0_ & ~0x00000002);
         fromAvatar_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        createTime_ = "";
+        createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -15446,9 +15685,9 @@ public final class SocialMessage {
               fromAvatar_ = input.readBytes();
               break;
             }
-            case 34: {
+            case 32: {
               bitField0_ |= 0x00000008;
-              createTime_ = input.readBytes();
+              createTime_ = input.readInt64();
               break;
             }
           }
@@ -15565,40 +15804,25 @@ public final class SocialMessage {
         onChanged();
       }
       
-      // optional string createTime = 4;
-      private Object createTime_ = "";
+      // optional int64 createTime = 4;
+      private long createTime_ ;
       public boolean hasCreateTime() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      public String getCreateTime() {
-        Object ref = createTime_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          createTime_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public long getCreateTime() {
+        return createTime_;
       }
-      public Builder setCreateTime(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      public Builder setCreateTime(long value) {
+        bitField0_ |= 0x00000008;
         createTime_ = value;
         onChanged();
         return this;
       }
       public Builder clearCreateTime() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        createTime_ = getDefaultInstance().getCreateTime();
+        createTime_ = 0L;
         onChanged();
         return this;
-      }
-      void setCreateTime(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
-        createTime_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:Letter)
@@ -15627,9 +15851,9 @@ public final class SocialMessage {
     boolean hasFriendNickname();
     String getFriendNickname();
     
-    // optional string relationship = 4;
+    // optional .Relationship relationship = 4;
     boolean hasRelationship();
-    String getRelationship();
+    Relationship getRelationship();
   }
   public static final class Friend extends
       com.google.protobuf.GeneratedMessage
@@ -15756,43 +15980,21 @@ public final class SocialMessage {
       }
     }
     
-    // optional string relationship = 4;
+    // optional .Relationship relationship = 4;
     public static final int RELATIONSHIP_FIELD_NUMBER = 4;
-    private Object relationship_;
+    private Relationship relationship_;
     public boolean hasRelationship() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    public String getRelationship() {
-      Object ref = relationship_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          relationship_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getRelationshipBytes() {
-      Object ref = relationship_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        relationship_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public Relationship getRelationship() {
+      return relationship_;
     }
     
     private void initFields() {
       friendId_ = "";
       friendAvator_ = "";
       friendNickname_ = "";
-      relationship_ = "";
+      relationship_ = Relationship.FRIEND;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -15816,7 +16018,7 @@ public final class SocialMessage {
         output.writeBytes(3, getFriendNicknameBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getRelationshipBytes());
+        output.writeEnum(4, relationship_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -15841,7 +16043,7 @@ public final class SocialMessage {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getRelationshipBytes());
+          .computeEnumSize(4, relationship_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -15973,7 +16175,7 @@ public final class SocialMessage {
         bitField0_ = (bitField0_ & ~0x00000002);
         friendNickname_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        relationship_ = "";
+        relationship_ = Relationship.FRIEND;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -16103,9 +16305,15 @@ public final class SocialMessage {
               friendNickname_ = input.readBytes();
               break;
             }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              relationship_ = input.readBytes();
+            case 32: {
+              int rawValue = input.readEnum();
+              Relationship value = Relationship.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(4, rawValue);
+              } else {
+                bitField0_ |= 0x00000008;
+                relationship_ = value;
+              }
               break;
             }
           }
@@ -16222,40 +16430,28 @@ public final class SocialMessage {
         onChanged();
       }
       
-      // optional string relationship = 4;
-      private Object relationship_ = "";
+      // optional .Relationship relationship = 4;
+      private Relationship relationship_ = Relationship.FRIEND;
       public boolean hasRelationship() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      public String getRelationship() {
-        Object ref = relationship_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          relationship_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public Relationship getRelationship() {
+        return relationship_;
       }
-      public Builder setRelationship(String value) {
+      public Builder setRelationship(Relationship value) {
         if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
         relationship_ = value;
         onChanged();
         return this;
       }
       public Builder clearRelationship() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        relationship_ = getDefaultInstance().getRelationship();
+        relationship_ = Relationship.FRIEND;
         onChanged();
         return this;
-      }
-      void setRelationship(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
-        relationship_ = value;
-        onChanged();
       }
       
       // @@protoc_insertion_point(builder_scope:Friend)
@@ -16442,54 +16638,60 @@ public final class SocialMessage {
       "le\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\021\n\tthumbnail\030\005" +
       " \001(\t\022\r\n\005image\030\006 \001(\t\022\022\n\nlocalImage\030\007 \001(\t\022" +
       "\024\n\014visibleRange\030\010 \001(\t\"\031\n\013DeleteTopic\022\n\n\002" +
-      "id\030\001 \001(\003\"\031\n\013UpdateTopic\022\n\n\002id\030\001 \001(\003\"\021\n\017L" +
-      "istPublicTopic\"&\n\014ListTopicRet\022\026\n\006topics" +
-      "\030\001 \003(\0132\006.Topic\" \n\016ListTopicByUid\022\016\n\006user" +
-      "Id\030\002 \001(\t\"\021\n\017ListFriendTopic\"+\n\010DoPraise\022" +
-      "\017\n\007topicId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\t\"=\n\tDoCo" +
-      "mment\022\017\n\007topicId\030\001 \001(\003\022\016\n\006userId\030\002 \001(\t\022\017",
-      "\n\007comment\030\003 \001(\t\"=\n\tDoForward\022\017\n\007topicId\030" +
-      "\001 \001(\003\022\016\n\006userId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"-" +
-      "\n\nDoFavorite\022\017\n\007topicId\030\001 \001(\003\022\016\n\006userId\030" +
-      "\002 \001(\t\"\023\n\021ListFriendRequest\"8\n\024ListFriend" +
-      "RequestRet\022 \n\010requests\030\001 \003(\0132\016.FriendReq" +
-      "uest\"I\n\023UpdateFriendRequest\022\021\n\trequestId" +
-      "\030\001 \001(\003\022\017\n\007isAgree\030\002 \001(\t\022\016\n\006isRead\030\003 \001(\t\"" +
-      ">\n\tAddFriend\022\020\n\010friendId\030\001 \001(\t\022\037\n\010relati" +
-      "on\030\002 \001(\0162\r.Relationship\" \n\014DeleteFriend\022" +
-      "\020\n\010friendId\030\001 \001(\t\"\014\n\nListFriend\")\n\rListF",
-      "riendRet\022\030\n\007friends\030\001 \003(\0132\007.Friend\"\014\n\nLi" +
-      "stNotice\")\n\rListNoticeRet\022\030\n\007notices\030\001 \003" +
-      "(\0132\007.Notice\" \n\014UpdateNotice\022\020\n\010noticeId\030" +
-      "\001 \001(\003\" \n\014DeleteNotice\022\020\n\010noticeId\030\001 \001(\003\"" +
-      "+\n\tAddLetter\022\017\n\007content\030\001 \001(\t\022\r\n\005toUid\030\002" +
-      " \001(\t\" \n\014UpdateLetter\022\020\n\010letterId\030\001 \001(\003\" " +
-      "\n\014DeleteLetter\022\020\n\010letterId\030\001 \001(\003\"\033\n\nList" +
-      "Letter\022\r\n\005toUid\030\001 \001(\003\")\n\rListLetterRet\022\030" +
-      "\n\007letters\030\001 \003(\0132\007.Letter\"\353\001\n\005Topic\022\n\n\002id" +
-      "\030\002 \001(\003\022\r\n\005title\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\021",
-      "\n\tthumbnail\030\005 \001(\t\022\r\n\005image\030\006 \001(\t\022\022\n\nloca" +
-      "lImage\030\007 \001(\t\022\024\n\014visibleRange\030\010 \001(\t\022\023\n\013pr" +
-      "aiseCount\030\t \001(\005\022\024\n\014commentCount\030\n \001(\005\022\024\n" +
-      "\014forwardCount\030\013 \001(\005\022\025\n\rfavoriteCount\030\014 \001" +
-      "(\005\022\022\n\ncreateTime\030\r \001(\t\"\243\001\n\rFriendRequest" +
-      "\022\021\n\trequestId\030\001 \001(\003\022\017\n\007content\030\002 \001(\t\022\017\n\007" +
-      "fromUid\030\003 \001(\t\022\022\n\nfromAvatar\030\004 \001(\t\022\024\n\014fro" +
-      "mNickname\030\005 \001(\t\022\016\n\006isRead\030\006 \001(\t\022\017\n\007isAgr" +
-      "ee\030\007 \001(\t\022\022\n\ncreateTime\030\010 \001(\t\"\352\001\n\006Notice\022" +
-      "\022\n\nnoticeType\030\001 \001(\t\022\017\n\007topicId\030\002 \001(\003\022\022\n\n",
-      "topicTitle\030\003 \001(\t\022\026\n\016topicThumbnail\030\004 \001(\t" +
-      "\022\021\n\tcommentId\030\005 \001(\003\022\026\n\016commentContent\030\006 " +
-      "\001(\t\022\020\n\010praiseId\030\007 \001(\003\022\020\n\010friendId\030\010 \001(\t\022" +
-      "\024\n\014friendAvator\030\t \001(\t\022\026\n\016friendNickname\030" +
-      "\n \001(\t\022\022\n\ncreateTime\030\013 \001(\t\"R\n\006Letter\022\017\n\007c" +
-      "ontent\030\001 \001(\t\022\017\n\007fromUid\030\002 \001(\t\022\022\n\nfromAva" +
-      "tar\030\003 \001(\t\022\022\n\ncreateTime\030\004 \001(\t\"^\n\006Friend\022" +
-      "\020\n\010friendId\030\001 \001(\t\022\024\n\014friendAvator\030\002 \001(\t\022" +
-      "\026\n\016friendNickname\030\003 \001(\t\022\024\n\014relationship\030" +
-      "\004 \001(\t*F\n\014Relationship\022\n\n\006FRIEND\020\000\022\014\n\010WOR",
-      "KMATE\020\001\022\r\n\tCLASSMATE\020\002\022\r\n\tBLACKLIST\020\tB\022\n" +
-      "\020vine.app.message"
+      "id\030\001 \001(\003\"\201\001\n\013UpdateTopic\022\n\n\002id\030\001 \001(\003\022\r\n\005" +
+      "title\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\r\n\005image\030\006 " +
+      "\001(\t\022\022\n\nlocalImage\030\007 \001(\t\022#\n\014visibleRange\030" +
+      "\010 \001(\0162\r.VisibleRange\"Y\n\017ListPublicTopic\022" +
+      "\037\n\ntopicClass\030\001 \001(\0162\013.TopicClass\022\023\n\013curr" +
+      "entPage\030\002 \001(\005\022\020\n\010pageSize\030\003 \001(\005\"&\n\014ListT",
+      "opicRet\022\026\n\006topics\030\001 \003(\0132\006.Topic\" \n\016ListT" +
+      "opicByUid\022\016\n\006userId\030\002 \001(\t\"\021\n\017ListFriendT" +
+      "opic\"\033\n\010DoPraise\022\017\n\007topicId\030\001 \001(\003\"-\n\tDoC" +
+      "omment\022\017\n\007topicId\030\001 \001(\003\022\017\n\007comment\030\003 \001(\t" +
+      "\"-\n\tDoForward\022\017\n\007topicId\030\001 \001(\003\022\017\n\007conten" +
+      "t\030\003 \001(\t\"\035\n\nDoFavorite\022\017\n\007topicId\030\001 \001(\003\"\023" +
+      "\n\021ListFriendRequest\"8\n\024ListFriendRequest" +
+      "Ret\022 \n\010requests\030\001 \003(\0132\016.FriendRequest\"I\n" +
+      "\023UpdateFriendRequest\022\021\n\trequestId\030\001 \001(\003\022" +
+      "\017\n\007isAgree\030\002 \001(\005\022\016\n\006isRead\030\003 \001(\005\">\n\tAddF",
+      "riend\022\020\n\010friendId\030\001 \001(\t\022\037\n\010relation\030\002 \001(" +
+      "\0162\r.Relationship\" \n\014DeleteFriend\022\020\n\010frie" +
+      "ndId\030\001 \001(\t\"\014\n\nListFriend\")\n\rListFriendRe" +
+      "t\022\030\n\007friends\030\001 \003(\0132\007.Friend\"\014\n\nListNotic" +
+      "e\")\n\rListNoticeRet\022\030\n\007notices\030\001 \003(\0132\007.No" +
+      "tice\" \n\014UpdateNotice\022\020\n\010noticeId\030\001 \001(\003\" " +
+      "\n\014DeleteNotice\022\020\n\010noticeId\030\001 \003(\003\"+\n\tAddL" +
+      "etter\022\017\n\007content\030\001 \001(\t\022\r\n\005toUid\030\002 \001(\t\" \n" +
+      "\014UpdateLetter\022\020\n\010letterId\030\001 \001(\003\" \n\014Delet" +
+      "eLetter\022\020\n\010letterId\030\001 \001(\003\"\033\n\nListLetter\022",
+      "\r\n\005toUid\030\001 \001(\003\")\n\rListLetterRet\022\030\n\007lette" +
+      "rs\030\001 \003(\0132\007.Letter\"\353\001\n\005Topic\022\n\n\002id\030\002 \001(\003\022" +
+      "\r\n\005title\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\021\n\tthumb" +
+      "nail\030\005 \001(\t\022\r\n\005image\030\006 \001(\t\022\022\n\nlocalImage\030" +
+      "\007 \001(\t\022\024\n\014visibleRange\030\010 \001(\t\022\023\n\013praiseCou" +
+      "nt\030\t \001(\005\022\024\n\014commentCount\030\n \001(\005\022\024\n\014forwar" +
+      "dCount\030\013 \001(\005\022\025\n\rfavoriteCount\030\014 \001(\005\022\022\n\nc" +
+      "reateTime\030\r \001(\003\"\243\001\n\rFriendRequest\022\021\n\treq" +
+      "uestId\030\001 \001(\003\022\017\n\007content\030\002 \001(\t\022\017\n\007fromUid" +
+      "\030\003 \001(\t\022\022\n\nfromAvatar\030\004 \001(\t\022\024\n\014fromNickna",
+      "me\030\005 \001(\t\022\016\n\006isRead\030\006 \001(\t\022\017\n\007isAgree\030\007 \001(" +
+      "\t\022\022\n\ncreateTime\030\010 \001(\003\"\352\001\n\006Notice\022\022\n\nnoti" +
+      "ceType\030\001 \001(\t\022\017\n\007topicId\030\002 \001(\003\022\022\n\ntopicTi" +
+      "tle\030\003 \001(\t\022\026\n\016topicThumbnail\030\004 \001(\t\022\021\n\tcom" +
+      "mentId\030\005 \001(\003\022\026\n\016commentContent\030\006 \001(\t\022\020\n\010" +
+      "praiseId\030\007 \001(\003\022\020\n\010friendId\030\010 \001(\t\022\024\n\014frie" +
+      "ndAvator\030\t \001(\t\022\026\n\016friendNickname\030\n \001(\t\022\022" +
+      "\n\ncreateTime\030\013 \001(\003\"R\n\006Letter\022\017\n\007content\030" +
+      "\001 \001(\t\022\017\n\007fromUid\030\002 \001(\t\022\022\n\nfromAvatar\030\003 \001" +
+      "(\t\022\022\n\ncreateTime\030\004 \001(\003\"m\n\006Friend\022\020\n\010frie",
+      "ndId\030\001 \001(\t\022\024\n\014friendAvator\030\002 \001(\t\022\026\n\016frie" +
+      "ndNickname\030\003 \001(\t\022#\n\014relationship\030\004 \001(\0162\r" +
+      ".Relationship*E\n\014VisibleRange\022\n\n\006PUBLIC\020" +
+      "\001\022\016\n\nONLYFRIEND\020\002\022\013\n\007PRIVATE\020\003\022\014\n\010NOMINA" +
+      "TE\020\004*2\n\nTopicClass\022\013\n\007hotspot\020\001\022\n\n\006nearb" +
+      "y\020\002\022\013\n\007keyword\020\003*F\n\014Relationship\022\n\n\006FRIE" +
+      "ND\020\000\022\014\n\010WORKMATE\020\001\022\r\n\tCLASSMATE\020\002\022\r\n\tBLA" +
+      "CKLIST\020\tB\022\n\020vine.app.message"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -16517,7 +16719,7 @@ public final class SocialMessage {
           internal_static_UpdateTopic_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_UpdateTopic_descriptor,
-              new String[] { "Id", },
+              new String[] { "Id", "Title", "Content", "Image", "LocalImage", "VisibleRange", },
               UpdateTopic.class,
               UpdateTopic.Builder.class);
           internal_static_ListPublicTopic_descriptor =
@@ -16525,7 +16727,7 @@ public final class SocialMessage {
           internal_static_ListPublicTopic_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_ListPublicTopic_descriptor,
-              new String[] { },
+              new String[] { "TopicClass", "CurrentPage", "PageSize", },
               ListPublicTopic.class,
               ListPublicTopic.Builder.class);
           internal_static_ListTopicRet_descriptor =
@@ -16557,7 +16759,7 @@ public final class SocialMessage {
           internal_static_DoPraise_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DoPraise_descriptor,
-              new String[] { "TopicId", "UserId", },
+              new String[] { "TopicId", },
               DoPraise.class,
               DoPraise.Builder.class);
           internal_static_DoComment_descriptor =
@@ -16565,7 +16767,7 @@ public final class SocialMessage {
           internal_static_DoComment_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DoComment_descriptor,
-              new String[] { "TopicId", "UserId", "Comment", },
+              new String[] { "TopicId", "Comment", },
               DoComment.class,
               DoComment.Builder.class);
           internal_static_DoForward_descriptor =
@@ -16573,7 +16775,7 @@ public final class SocialMessage {
           internal_static_DoForward_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DoForward_descriptor,
-              new String[] { "TopicId", "UserId", "Content", },
+              new String[] { "TopicId", "Content", },
               DoForward.class,
               DoForward.Builder.class);
           internal_static_DoFavorite_descriptor =
@@ -16581,7 +16783,7 @@ public final class SocialMessage {
           internal_static_DoFavorite_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DoFavorite_descriptor,
-              new String[] { "TopicId", "UserId", },
+              new String[] { "TopicId", },
               DoFavorite.class,
               DoFavorite.Builder.class);
           internal_static_ListFriendRequest_descriptor =
