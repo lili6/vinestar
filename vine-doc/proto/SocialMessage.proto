@@ -24,7 +24,7 @@ message AddTopic
     optional    string      thumbnail         =   5; //话题缩略图
     optional    string      image             =   6; //话题原图
     optional    string      localImage        =   7; //话题本地图 ???
-    optional    string      visibleRange      =   8;  //可见范围    
+    optional    VisibleRange      visibleRange      =   8;  //可见范围
 }
 
 //--------------删除一个主题----------------------
@@ -50,7 +50,6 @@ message ListPublicTopic
 	optional 	TopicClass	topicClass		= 	1;
 	optional	int32 		currentPage		=	2;
 	optional	int32		pageSize		=	3;
-//无请求数据
 }
 message ListTopicRet
 {
@@ -208,7 +207,7 @@ message Topic
     optional    string      thumbnail         =   5; //话题缩略图
     optional    string      image             =   6; //话题原图
     optional    string      localImage        =   7; //话题本地图 ???
-    optional    string      visibleRange      =   8;  //可见范围
+    optional    VisibleRange      visibleRange      =   8;  //可见范围
     optional    int32       praiseCount       =   9;  //点赞次数
     optional    int32       commentCount      =   10; //评论次数
     optional    int32       forwardCount      =   11; //转发次数
